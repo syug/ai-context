@@ -1,0 +1,15 @@
+{
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "builder-mcp",
+    "playwriter",
+    "asana",
+    "notion",
+    "memory"
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(ssh:*)"
+    ]
+  }
+}

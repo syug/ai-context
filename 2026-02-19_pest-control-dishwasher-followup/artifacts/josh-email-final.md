@@ -23,24 +23,20 @@ However, while carefully preparing the Ingoing Condition Report, I identified a 
 
 **1. Dishwasher — Follow-up Pest Control, Deep Clean & Trim Repair** *(Highest Priority)*
 
-Each time I run the dishwasher, cockroach droppings fall from inside the door. The 10 February treatment did not reach this area, as the built-in unit was not pulled out during the treatment. The issue is concentrated here because of three pre-existing structural deficiencies documented in the ICR (page 45, 5 photos):
-
-- Missing trim/frame piece above the dishwasher, creating a direct opening from the wall cavity behind the unit into the kitchen
-- Broken door catch
-- Warped right-side gasket
+When running the dishwasher, I have observed cockroach droppings falling from inside the door. The 10 February treatment did not reach this area, as the built-in unit was not pulled out during the treatment. In particular, the trim/frame piece above the dishwasher — where the unit meets the benchtop — is missing, creating a direct opening from the wall cavity behind the unit into the kitchen. This pre-existing structural deficiency is documented in the ICR (page 45, 5 photos).
 
 I noted your earlier advice that ongoing pest control is generally a tenant's responsibility. I want to be clear that this request is different: it is a completion of the initial treatment, which was physically unable to address the dishwasher area. The dishwasher's condition was formally documented in the ICR prior to the initial treatment, and under the Residential Tenancies Act 2010 (NSW) s. 52 and s. 63, pre-existing conditions of this kind fall within the landlord's maintenance obligations.
 
 I would like to request, at the landlord's cost:
-- A follow-up pest control treatment focused on the dishwasher — pulling out the built-in unit and treating behind and underneath
-- Deep cleaning of the dishwasher interior to remove residual droppings and debris
+- A follow-up clean and pest control treatment focused on the dishwasher — pulling out the built-in unit and treating behind and underneath
 - Repair of the missing trim/frame above the dishwasher to seal the gap between the unit and the benchtop
+- Deep cleaning of the dishwasher interior to remove residual droppings and debris
 
 Addressing this will also help prevent longer-term pest damage to the surrounding cabinetry.
 
 **2. Bedroom 1 — Skirting Board Repair** *(High Priority)*
 
-The ICR documents a chip/break at the corner of the skirting board in Bedroom 1, along with a wall crack near the floor (page 48, 3 photos). This gap provides a direct opening to the wall cavity and is contributing to pest movement into the room. I would appreciate this being repaired.
+The ICR documents a chip/break at the corner of the skirting board in Bedroom 1 (page 48, 3 photos). This structural gap potentially provides an opening to the wall cavity and may be contributing to pest movement into the room. I would appreciate this being repaired.
 
 **3. Bathroom — Heat Lamp Not Working** *(Low Priority)*
 
@@ -65,7 +61,7 @@ There are several items that appear to have been left by the previous occupant. 
 - Dish drying tray, fruit knife, two toilet brushes — happy to dispose of these if confirmed
 
 The following items I'm less certain about, as they may belong to the owner or building:
-- NBS internet modem and WiFi router — if these need to be retained, please arrange to collect them. Otherwise, I'll dispose of them.
+- NBN internet modem and WiFi router — if these need to be retained, please arrange to pick them up. Otherwise, I'll dispose of them.
 
 **3. Balcony — Curtain Rail Removal**
 
