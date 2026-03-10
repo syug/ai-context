@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-10T12:00:00+11:00",
+  "updated": "2026-03-10T15:00:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -471,9 +471,9 @@
       "workdir": "~/Development/claude-slack-bridge",
       "hasHandover": true,
       "title": "ワークスペース基盤 + Slack↔CCブリッジ — tmux/sesh/cmux統合管理",
-      "status": "進行中（workspaces.json SSOT移行完了・通知リレー未検証）",
-      "summary": "tmux + sesh でワークスペース管理、Slack↔CC双方向ブリッジ（tmux send-keys）、LaunchAgent自動起動。workspaces.jsonをSingle Source of Truthとして全消費者（rebuild-cmux.sh, bridge.ts, bridge.sh, Raycast）を移行完了。cmux再起動対策も実施済み。",
-      "tags": ["workspace", "bridge", "infrastructure", "tmux", "sesh", "cmux", "slack", "launchagent", "send-keys", "notification", "relay", "named-pipe", "claude-hook", "multi-tab", "crosspost", "spaces", "chrome", "productivity", "ブリッジ", "基盤", "ワークスペース", "通知", "sighup", "pty", "restart", "socket"]
+      "status": "進行中（3/10 tmux自動アタッチ暴走修正完了・rebuild-cmux.sh手動実行に一本化）",
+      "summary": "tmux + sesh でワークスペース管理、Slack↔CC双方向ブリッジ（tmux send-keys）、LaunchAgent自動起動。workspaces.json SSOT移行完了。3/10にtmux自動アタッチ暴走（config.fish 24並行sesh connect + continuum二重復元）を修正、rebuild-cmux.shによる手動制御に一本化。",
+      "tags": ["workspace", "bridge", "infrastructure", "tmux", "sesh", "cmux", "slack", "launchagent", "send-keys", "notification", "relay", "named-pipe", "claude-hook", "multi-tab", "crosspost", "spaces", "chrome", "productivity", "ブリッジ", "基盤", "ワークスペース", "通知", "sighup", "pty", "restart", "socket", "auto-attach", "runaway", "暴走"]
     },
     {
       "dir": "2026-03-06_ai-workflow-infrastructure-overhaul",

@@ -1,7 +1,7 @@
 # Handover Document
 **Topic:** ワークスペース基盤 + Slack↔CCブリッジ — tmux/sesh/cmux統合管理
-**Date:** 2026-03-09
-**Status:** 進行中（workspaces.json SSOT移行完了・通知リレー未検証）
+**Date:** 2026-03-10
+**Status:** 進行中（3/10 tmux自動アタッチ暴走修正完了・rebuild-cmux.sh手動実行に一本化）
 
 ---
 
@@ -25,15 +25,16 @@ macOSのSpacesを**16個**使用し、**1 Space = 1プロジェクト**として
 
 #### tmuxセットアップ
 - tmux 3.6a (Homebrew), prefix: `Ctrl+A`（cmuxと**競合なし**確認済み）
-- TPM + tmux-sensible + tmux-resurrect + tmux-continuum（自動保存ON）
+- TPM + tmux-sensible + tmux-resurrect + tmux-continuum（自動保存ON、**自動復元OFF** — 3/10変更）
 - vim風キーバインド（hjkl）、TrueColor対応済み
 
 #### sesh（tmuxセッションfuzzy switcher）
 - sesh v2.24.2（Go製、`brew install sesh`）
 - `~/.tmux.conf` に `prefix + T` でfzf連携UIを追加済み
 
-#### 運用パターン（確立済み）
-- cmuxワークスペース内でtmux起動 → CC等を動かす
+#### 運用パターン（3/10改訂）
+- **cmuxペイン起動時の自動tmuxアタッチは無効化済み**（config.fish コメントアウト）
+- cmux再起動後は `rebuild-cmux.sh` で手動アタッチ（唯一の正式手段）
 - cmuxが落ちても `tmux attach` で完全復帰（検証済み: タブクローズ→別タブからattach成功）
 - CC内から `!tmux detach` でCCを終了せずにdetach可能
 - `Ctrl+A → T` でseshのfuzzyセッション切り替え
@@ -62,7 +63,21 @@ macOSのSpacesを**16個**使用し、**1 Space = 1プロジェクト**として
 - **notify_pipe / ブリッジログも `/tmp` → `~/.tmux/sockets/` に移動**
 - 詳細: `notes/tmux-session-recovery-2026-03-07.md`
 
-#### cmux再起動によるCC全Kill事象（3/8 NEW）
+#### tmux自動アタッチ暴走の根本原因と修正（3/10 NEW）
+- **症状:** Mac再起動/cmux再起動のたびにtmuxが暴走（セッション二重化、claude多重起動、制御衝突）
+- **根本原因（5段階の連鎖）:**
+  1. cmux起動 → 24ペインのfish shellが同時に `cmux_tmux_attach` を実行（config.fish L85-89）
+  2. 24個の `sesh connect` が並行 → tmuxセッション一斉作成 + claude起動
+  3. tmux-continuum の `@continuum-restore 'on'` が前回の24セッションを復元 → sesh作成分と二重存在
+  4. rebuild-cmux.sh も `sesh connect` を送信 → さらに三重起動
+  5. bridge.js (LaunchAgent) が5秒ポーリングで復活セッションを即検出
+- **修正（3/10適用）:**
+  1. `config.fish` の自動アタッチをコメントアウト（24並行sesh connect停止）
+  2. `.tmux.conf` の `@continuum-restore` を `off` に変更（二重復元停止）
+  3. tmuxアタッチは `rebuild-cmux.sh` で手動制御に一本化
+- 詳細: `notes/tmux-auto-attach-investigation-2026-03-10.md`
+
+#### cmux再起動によるCC全Kill事象（3/8）
 - **症状:** cmux再起動時、CCが「システムがヤバい」と言い残して全プロセスをKillして消えた
 - **根本原因:** cmux再起動 → PTY全破壊 → SIGHUPカスケード → fish → sesh → tmux client → CC 全滅
 - **追加問題:** tmuxソケット (`~/.tmux/sockets/tmux-503/default`) も消失。cmux再起動時にnamed pipes (cmux-notify-*) をリクリエイトする際、同ディレクトリのtmuxソケットも巻き添え消失
@@ -216,13 +231,15 @@ cmux → login → fish → [relay: pipe読み取り → cmux claude-hook notifi
 ├── handover.md                              -- 本ファイル（統合版）
 ├── history/
 │   ├── 2026-03-06_handover.md
-│   └── 2026-03-07_handover.md
+│   ├── 2026-03-07_handover.md
+│   └── 2026-03-09_handover.md
 ├── artifacts/
 ├── notes/
 │   ├── tmux-session-recovery-2026-03-07.md  ← セッション消失原因・復旧手順
 │   ├── cmux-restart-behavior-2026-03-08.md  ← cmux再起動時のCC全Kill事象調査
 │   ├── cmux-rebuild-plan-2026-03-08.md     ← cmux WS再構築計画・WS定義テーブル
-│   └── workspaces-json-ssot-2026-03-09.md ← workspaces.json SSOT移行の全記録
+│   ├── workspaces-json-ssot-2026-03-09.md ← workspaces.json SSOT移行の全記録
+│   └── tmux-auto-attach-investigation-2026-03-10.md ← 自動アタッチ暴走の調査・修正記録
 
 # 旧 productivity-improvement-tools の成果物（参照用）:
 ../2026-02-23_productivity-improvement-tools/
@@ -286,7 +303,9 @@ cmux → login → fish → [relay: pipe読み取り → cmux claude-hook notifi
 | 3 | 3月中 | **P2: Zero Spaces 仮想コンテキスト** — JXA オフスクリーン移動 + Raycast Extension | 未着手 |
 | 4 | -- | **P3: Spaces削減** — 16 → 2-4 Spaces or 全廃 | 未着手（P2安定後） |
 | 5 | -- | Mac再起動後のブリッジ自動起動テスト | 未実施 |
-| 10 | -- | **cmux通知リレー検証** — 新タブ開き直し→パイプ書き込み→ペインハイライト確認 | **次タスク** |
+| 14 | -- | ~~config.fish 自動アタッチ無効化~~ + ~~continuum-restore OFF~~ | **完了（3/10）** |
+| 15 | -- | rebuild-cmux.sh をcmux上で手動実行（既存WS2つのため対話確認必要） | **要実施** |
+| 10 | -- | **cmux通知リレー検証** — 新タブ開き直し→パイプ書き込み→ペインハイライト確認（※config.fish自動アタッチ無効化により、リレー起動方法の再検討が必要） | **次タスク** |
 | 11 | -- | リレー成功後: Claude Code hooks に pipe 書き込みを追加 | 未着手（#10 依存） |
 | 12 | -- | ~~tmuxソケットパスをcmux管理外に分離~~ — `~/.tmux/server/` に分離完了 | **完了（3/8）** |
 | 13 | -- | ~~孤立tmux server + stoppedプロセスのクリーンアップ~~ + rebuild-cmux.sh で16WS再構築完了 | **完了（3/8）** |
@@ -331,6 +350,7 @@ cmux → login → fish → [relay: pipe読み取り → cmux claude-hook notifi
 32. **cmux WS自動再構築スクリプト作成（3/8）:** `rebuild-cmux.sh`でcmux CLI経由で16WS+24タブを自動作成。`cmux new-workspace`→`rename-workspace`→`new-surface`→`send sesh connect`の4段階。dry-run対応。cmux plistにはWS構成が保存されないため、再構築時は毎回CLIで実行が必要。
 33. **workspaces.json SSOT化（3/9）:** WS定義が5箇所（spaces.md, rebuild-cmux.sh, bridge.ts, contexts.json, sesh.toml）に分散していた問題を解消。`~/.config/workspaces/workspaces.json`をSingle Source of Truthとし、全消費者（rebuild-cmux.sh→jq、bridge.ts→JSON.parse、bridge.sh→python3、Raycast→readFileSync）を移行。名前不整合9件を統一。sesh.tomlはseshがTOML直読みのため対象外。
 34. **bridge.sh番号優先マッチ導入（3/9）:** セッション名`13pes-1`のcore=`pes`がWS2 "Pest Control"に誤マッチする潜在バグを発見。セッション名先頭数字でWS番号を直接照合→不一致時のみパターン検索にフォールバックするロジックに修正。
+35. **tmux自動アタッチ暴走の修正（3/10）:** config.fishの自動アタッチ（24ペイン同時sesh connect）+ tmux-continuumの自動復元が二重衝突して暴走。自動アタッチをコメントアウト、continuum-restore OFF、rebuild-cmux.shによる手動制御に一本化。調査で5段階の連鎖（fish→sesh→continuum→rebuild→bridge）を全て特定。
 
 ## 関連トピック
 
