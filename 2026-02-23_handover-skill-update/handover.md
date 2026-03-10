@@ -1,6 +1,6 @@
 # Handover Document
 **Topic:** /handover スキルの継続改善（サブコマンド体系・インデックス・フィルタ・エイリアス・作業ディレクトリ・ステータス表示・コンテクスト推定・Celebrationバナー・自動保存）
-**Date:** 2026-02-23（最終更新: 2026-03-03）
+**Date:** 2026-02-23（最終更新: 2026-03-10）
 **Status:** 進行中
 
 ---
@@ -220,13 +220,43 @@ Director modeとの相性問題を修正:
 - **原因:** 一度「`skill` はデフォルト値だから引数なし扱い」というサニタイズルールを追加してしまった（誤修正）
 - **修正:** サニタイズルールを削除し、ARGUMENTS に値がある場合は全て有効なキーワードとして扱うルールに変更
 
+### 完了した変更（2026-03-10）
+
+#### 23. $AI_BASE パス移行（Google Drive → Git リポジトリ）
+- **変更:** ai-context フォルダを Google Drive (`~/Library/CloudStorage/GoogleDrive-syugo3hz@gmail.com/My Drive/.ai/`) から git リポジトリ (`~/Development/repos/ghq/github.com/syug/ai-context/`) に移行
+- **更新ファイル:**
+  - `~/.claude/CLAUDE.md` — ベースパス更新 + Git auto-push permission 追加
+  - `~/.claude/skills/handover/SKILL.md` — $AI_BASE パス更新 + Step S6b（Git Commit & Push）追加
+  - `~/.claude/settings.local.json` — 6箇所のパス更新
+
+#### 24. Git 自動 Commit & Push（Step S6b 新設）
+- **目的:** handover save 完了時に自動で git commit → push する
+- **SKILL.md に Step S6b を追加:**
+  - Step S6（インデックス更新）と Step S7（Celebration バナー）の間に配置
+  - `git add` で handover.md, .index.json, history/ をステージ
+  - コミットメッセージ: 新規 `new: {slug}` / 更新 `save: {slug}`
+  - `git push origin main`（SSH経由）
+  - push 失敗時はエラー表示しつつ続行
+- **CLAUDE.md に auto-push permission を追加:**
+  - ai-context リポジトリに限り git commit + push をユーザー確認なしで自動実行
+
+#### 25. fzf ファジー検索機能（`ho` コマンド）
+- **目的:** ターミナルから GHQ ライクに handover トピックをファジー検索・ナビゲート
+- **設計:** Fish function `ho` → jq で .index.json パース → fzf (preview 付き) → cd
+- **プラン:** `notes/fzf-topic-search-plan.md` に詳細記載
+- **ステータス:** 実装中
+
 ## 成果物一覧
 ```
 2026-02-23_handover-skill-update/
 ├── handover.md          ← このファイル
 ├── artifacts/           （なし）
-└── notes/               （なし）
+└── notes/
+    └── fzf-topic-search-plan.md
 ```
+
+関連外部ファイル:
+- `~/.config/fish/functions/ho.fish` — fzf ファジー検索 fish function
 
 変更対象ファイル:
 - `/Users/saitshug/.claude/skills/handover/SKILL.md` — スキル定義（直接編集済み）
@@ -268,6 +298,10 @@ Director modeとの相性問題を修正:
 | 27 | — | 簡潔版バナーのリデザイン（頭揃え + お疲れさま削除） | 完了（2026-03-03） |
 | 28 | — | Tier 1/2 自動保存の動作変更（終了宣言→通常版、タスク完了→簡潔版実行） | 完了（2026-03-03） |
 | 29 | — | ARGUMENTS 引数解釈バグ修正（"skill" を引数なしと誤判定する問題） | 完了（2026-03-03） |
+| 30 | — | $AI_BASE パス移行（Google Drive → Git） | 完了（2026-03-10） |
+| 31 | — | Git auto-commit & push（Step S6b）SKILL.md追加 | 完了（2026-03-10） |
+| 32 | — | fzf ファジー検索 `ho` コマンドの実装 | 進行中 |
+| 33 | — | Step S6b の実環境テスト（実際にsave→commit→push） | 未着手 |
 
 ## 重要な判断ログ
 
@@ -298,3 +332,6 @@ Director modeとの相性問題を修正:
 25. **簡潔版から「お疲れさまでした」削除（2026-03-03）**: 簡潔版はタスク完了後のチェックポイント用。セッション終了ではないので「閉じてOKです」は不適切。
 26. **Tier 1/2 の役割変更（2026-03-03）**: 終了宣言は手動saveと同等（通常版）。タスク完了は自動チェックポイント（簡潔版）。提案→実行に格上げしたのは、ユーザーが毎回「はい」と答えるだけの無意味な確認を排除するため。
 27. **ARGUMENTS サニタイズは不要（2026-03-03）**: 「`skill` をデフォルト値として除外」するルールは逆効果。ユーザーが `/handover skill` と入力して "skill" を検索したいケースを壊す。ARGUMENTS は常に額面通りに受け取るべき。
+28. **Google Drive → Git 移行（2026-03-10）**: Google Drive のマウントポイントはバックグラウンドagentからのアクセスが不安定で、bypassPermissionsでもWrite/Bashが拒否される事象が繰り返し発生していた。git リポジトリに移行することで: (a) agent 権限問題を根本解決、(b) 変更履歴を git で自然に管理、(c) push で複数マシン間同期が可能に。
+29. **auto-push は ai-context リポジトリ限定（2026-03-10）**: CLAUDE.md の通常ルールでは git push はユーザー確認必須。ai-context は handover 専用リポジトリで破壊リスクが低いため、このディレクトリに限り自動 push を許可した。
+30. **fzf 検索は fish function として独立（2026-03-10）**: `/handover` スキル内ではなく、standalone の fish function `ho` として実装。理由: (a) Claude Code 外のターミナルでも使える、(b) fzf の対話UIはClaude Code内では動かない、(c) ghq + fzf と同じパターンで馴染みやすい。

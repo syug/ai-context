@@ -8,6 +8,7 @@ WS名の定義が5箇所に分散（spaces.md, rebuild-cmux.sh, bridge.ts, conte
 ## 成果
 
 `~/.config/workspaces/workspaces.json` を Single Source of Truth として全消費者を移行。
+**→ 3/10にdotfilesリポジトリ (`~/Development/repos/ghq/github.com/syug/dotfiles/workspaces/workspaces.json`) に移行完了。**
 
 ### workspaces.json のスキーマ
 
@@ -50,7 +51,7 @@ WS名の定義が5箇所に分散（spaces.md, rebuild-cmux.sh, bridge.ts, conte
 - `name`: 短縮名（cmuxタイトル、Slackメッセージ用）
 - `description`: 詳細説明（Raycast UI表示用）
 
-## 旧ファイル（バックアップとして残存）
+## 旧ファイル
 
-- `~/.config/project-focus/contexts.json` — 旧Chrome前面化マッピング
-- `$AI_BASE/2026-02-23_productivity-improvement-tools/artifacts/spaces.md` — 旧Raycastデータ
+- ~~`~/.config/project-focus/contexts.json`~~ — 削除済み（3/10、全消費者がworkspaces.json参照に移行完了）
+- `$AI_BASE/2026-02-23_productivity-improvement-tools/artifacts/spaces.md` — 旧Raycastデータ（バックアップ）

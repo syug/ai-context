@@ -5,7 +5,7 @@
 
 ## 背景
 
-workspaces.json (`~/.config/workspaces/workspaces.json`) がSSOT。
+workspaces.json (当時 `~/.config/workspaces/workspaces.json`、現在 `~/Development/repos/ghq/github.com/syug/dotfiles/workspaces/workspaces.json`) がSSOT。
 ローカルのみでGoogle Drive同期されていない問題の解決策を検討。
 
 ## 検討した構成: Google Drive原本 + symlink
@@ -51,10 +51,17 @@ $AI_BASE/artifacts/workspaces.json (原本) <- ~/.config/workspaces/workspaces.j
 - 全消費者のパス変更不要
 - 同期は明示的（git push/pull）で競合なし
 
-## 実装計画
+## 実装結果（3/10 完了）
 
-1. ~/.config/workspaces/ で git init
-2. GitHub private repo 作成
-3. initial commit + push
-4. Raycast parser.ts のフォールバック修正を revert（不要になったため）
-5. Raycast preference問題の恒久修正（getConfigPath()でJSON検証）
+当初計画の `~/.config/workspaces/` git化ではなく、dotfiles管理として `github.com/syug/dotfiles`（private, ghq管理下）に新リポジトリを作成。
+
+**新パス:** `~/Development/repos/ghq/github.com/syug/dotfiles/workspaces/workspaces.json`
+
+**更新した消費者（全4箇所）:**
+1. rebuild-cmux.sh (L43)
+2. bridge.ts (L41)
+3. bridge.sh (L11)
+4. parser.ts (L6)
+
+**削除:** contexts.json（レガシー、全消費者が参照停止済み）
+**未変更:** sesh.toml（seshがTOML直読み、手動同期継続）
