@@ -166,9 +166,8 @@ OneDrive: ENT | AU | Prime Early Screenings | Australia Pilot/
 | 10 | Hannah Hill (hannahnl) に連絡 — **Matt（SM）から連絡を提案予定** | ⬜ 3/11 Sync で Matt に委任提案 |
 | 10a | Hannah 経由: US PES エンゲージメントプロセス + learnings（Prime Ellis チーム + LWA チーム両方） | ⬜ |
 | 10b | Hannah 経由: US PES の Ellis 機能実際の利用範囲（Verify/Redeem, 在庫管理, 重複防止）。そもそも Ellis が必要だった理由は何か。Pure LWA では不十分だった点は何か | ⬜ |
-| 10c | Hannah 経由: Ellis AU 対応 → Ellis チーム（Joshua Huang）に繋いでもらう | ⬜ |
 | 10d | Hannah 経由: PrimePass (`prime:benefit_status`) AU 対応 → Identity Services に繋いでもらう | ⬜ |
-| 11 | Event Cinemas に Ellis/LWA モデルを逆提案 | ⬜ #10c & #10d 確認後 |
+| 11 | Event Cinemas に Ellis/LWA モデルを逆提案 | ⬜ #10d 確認後 |
 | 12 | Full Scope 提出検討 | ⬜ 上記確認後 |
 
 ### Nice-to-have / Add-on
@@ -177,7 +176,7 @@ OneDrive: ENT | AU | Prime Early Screenings | Australia Pilot/
 |---|----------|-------------------|
 | 4 | Bullseye API AU 対応 | ✅ AU 対応済みと判断。Full Scope で要検証。担当: BIL-E / Shugo |
 | 13 | Quip AU BIL Team WIP の PES セクション確認 | 確認済み（3/10）— PES 関連は断片的な言及のみ、詳細な技術議論なし |
-| 14 | Ellis チームとのエンゲージメント — Amazon 側でオファー管理（利用者追跡、上限枚数、重複防止）が必要な場合、または Hannah 確認後に Ellis が必要と判明した場合。Hannah 経由で Ellis チーム（Joshua Huang, Principal PMT）に接続 | ⬜ 未着手 — #10b の結果次第 |
+| 14 | Ellis チームとのエンゲージメント + AU 対応確認 — Amazon 側でオファー管理（利用者追跡、上限枚数、重複防止）が必要な場合、または Hannah 確認後に Ellis が必要と判明した場合。Hannah 経由で Ellis チーム（Joshua Huang, Principal PMT）に接続し、AU マーケット対応を確認 | ⬜ 未着手 — #10b の結果次第 |
 
 ## 重要な判断ログ
 

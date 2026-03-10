@@ -48,7 +48,7 @@ AU BIL チームが Prime Early Screenings (PES) をオーストラリアで Eve
    - **LWA チーム（Identity Services）:** Login with Amazon を管理 — OAuth 2.0 認証、`prime:benefit_status` スコープによる Prime 会員判定
    - **核心的な質問:** US PES でなぜ Ellis を使ったのか？Pure LWA（`prime:benefit_status` のみ）では不十分だったのか？Event Cinemas が独自にオファー管理を行う前提なら、Ellis は不要な可能性がある
 2. **Hannah 経由で US PES の Ellis 機能利用範囲を確認** — US PES が実際に使用している Ellis 機能（Verify/Redeem API、在庫管理、重複利用防止）と、Fandango が独自に実装している機能を確認。Fandango/PES は Ellis Blueprint CX Wiki に未掲載（カスタム統合の可能性）
-3. **Hannah 経由で Ellis AU 対応 & PrimePass AU 対応を確認** — Ellis チーム（Joshua Huang, Principal PMT）と Identity Services チームに繋いでもらう
+3. **Hannah 経由で PrimePass AU 対応を確認** — Identity Services チームに繋いでもらう
 4. **BIL-E エンジニアバリデーション** — Sunit Guldas (gulsunit) に SHA256 Critical 判定の gut check を依頼（Slack DM 送信済み、返信待ち）
 
 ---
@@ -462,9 +462,8 @@ Event Cinemas の SHA256 提案は不採用とするが、これは **Event Cine
 | 6 | Hannah Hill (hannahnl) に連絡 — US PES プログラムリード（Kelly が推薦）。Ellis/LWA 技術的確認事項の全てのエントリーポイント | Shugo（DT） | **最優先 — Next** | ⬜ 未着手 |
 | 6a | Hannah 経由: US PES エンゲージメントプロセスと AU に適用可能な learnings を把握。US では Fandango が**2チーム**と連携: **Prime Ellis チーム**（オフ Amazon パートナーシップ / オファー管理）と **LWA チーム**（Identity Services / OAuth 認証 + `prime:benefit_status`）。両チームへのエンゲージ方法を確認 | Hannah Hill | 最優先 | ⬜ 未着手 |
 | 6b | Hannah 経由: US PES における Ellis 機能の実際の利用範囲を確認 — Fandango が実際に使っている機能（Verify/Redeem API、在庫管理、重複利用防止）と独自実装の切り分け。**核心的な質問: そもそも Ellis が必要だった理由は何か。Pure LWA（`prime:benefit_status` のみ）では不十分だった点は何か** | Hannah Hill | 最優先 | ⬜ 未着手 |
-| 6c | Hannah 経由: Ellis の AU マーケット対応を確認 — Ellis チーム（Joshua Huang, Principal PMT）に繋いでもらう or 直接確認 | Hannah Hill / Ellis チーム | 最優先 | ⬜ 未着手 |
 | 6d | Hannah 経由: PrimePass（`prime:benefit_status` スコープ）の AU 対応を確認 — Identity Services チームに繋いでもらう or 直接確認 | Hannah Hill / Identity Services | 最優先 | ⬜ 未着手 |
-| 7 | Event Cinemas に Ellis/LWA モデルを逆提案 | AU BIL チーム | #6c & #6d 確認後 | ⬜ 未着手 |
+| 7 | Event Cinemas に Ellis/LWA モデルを逆提案 | AU BIL チーム | #6d 確認後 | ⬜ 未着手 |
 | 8 | Full Scope 提出を検討 | AU BIL チーム | 上記確認後 | ⬜ 未着手 |
 
 ### Nice-to-have / Add-on
@@ -473,7 +472,7 @@ Event Cinemas の SHA256 提案は不採用とするが、これは **Event Cine
 |---|----------|------|--------|-----------|
 | 4 | Bullseye API の AU 対応 | BIL-E / Shugo | Medium | ✅ AU 対応済みと判断。Full Scope へ進む場合はプロトタイプで要検証 |
 | 9 | Quip AU BIL Team WIP の PES セクション確認 | Shugo（DT） | Medium | 確認済み（3/10）— PES 関連は断片的な言及のみ、詳細な技術議論なし |
-| 10 | Ellis チームとのエンゲージメント — Amazon 側でオファー管理（利用者追跡、上限枚数、重複防止等）をコントロールしたい場合、または Hannah Hill との連絡後に Ellis が必要と判明した場合。Hannah 経由で Ellis チーム（Joshua Huang, Principal PMT）に接続 | Hannah Hill / Ellis チーム | Low | ⬜ 未着手 — #6b の結果次第 |
+| 10 | Ellis チームとのエンゲージメント + AU 対応確認 — Amazon 側でオファー管理（利用者追跡、上限枚数、重複防止等）が必要な場合、または Hannah 確認後に Ellis が必要と判明した場合。Hannah 経由で Ellis チーム（Joshua Huang, Principal PMT）に接続し、AU マーケット対応を確認 | Hannah Hill / Ellis チーム | Low | ⬜ 未着手 — #6b の結果次第 |
 
 ---
 

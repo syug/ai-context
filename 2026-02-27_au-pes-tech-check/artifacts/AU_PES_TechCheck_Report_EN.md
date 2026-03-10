@@ -48,7 +48,7 @@ The AU BIL team is evaluating the launch of Prime Early Screenings (PES) in Aust
    - **LWA team (Identity Services):** Manages Login with Amazon — OAuth 2.0 authentication, `prime:benefit_status` scope for Prime membership verification
    - **Key question:** Why did US PES use Ellis at all? Would pure LWA (`prime:benefit_status` only) have been sufficient? If Event Cinemas handles offer management independently, Ellis may not be required
 2. **Clarify US PES Ellis feature usage via Hannah** — Confirm which Ellis features US PES actually uses (Verify/Redeem APIs, inventory management, duplicate redemption prevention) versus what Fandango implements independently. Fandango/PES is not listed in Ellis Blueprint CX Wiki, suggesting a custom integration
-3. **Verify Ellis AU availability & PrimePass AU support via Hannah** — Connect with Ellis team (Joshua Huang, Principal PMT) and Identity Services team
+3. **Verify PrimePass AU support via Hannah** — Connect with Identity Services team
 4. **BIL-E engineer validation** — Sunit Guldas (gulsunit) gut check on SHA256 Critical findings (Slack DM sent, awaiting response)
 
 ---
@@ -462,9 +462,8 @@ Event Cinemas' SHA256 proposal is rejected, but this **does not reject Event Cin
 | 6 | Contact Hannah Hill (hannahnl) — US PES program lead (recommended by Kelly). Entry point for all Ellis/LWA technical questions | Shugo (DT) | **Critical — Next** | Pending |
 | 6a | Via Hannah: Understand US PES engagement process and learnings applicable to AU. In the US, Fandango worked with **two teams**: **Prime Ellis team** (off-Amazon partnership / offer management) and **LWA team** (Identity Services / OAuth authentication + `prime:benefit_status`). Learn how to engage both teams for AU | Hannah Hill | Critical | Pending |
 | 6b | Via Hannah: Clarify US PES Ellis feature usage — which features does Fandango actually use (Verify/Redeem API, inventory management, duplicate redemption prevention) vs implement independently? **Core question: why was Ellis needed at all? Would pure LWA (`prime:benefit_status` only) have been insufficient?** | Hannah Hill | Critical | Pending |
-| 6c | Via Hannah: Verify Ellis AU marketplace availability — connect with Ellis team (Joshua Huang, Principal PMT) or confirm directly | Hannah Hill / Ellis team | Critical | Pending |
 | 6d | Via Hannah: Verify PrimePass (`prime:benefit_status` scope) AU support — connect with Identity Services team or confirm directly | Hannah Hill / Identity Services | Critical | Pending |
-| 7 | Counter-propose Ellis/LWA model to Event Cinemas | AU BIL team | After #6c & #6d | Pending |
+| 7 | Counter-propose Ellis/LWA model to Event Cinemas | AU BIL team | After #6d | Pending |
 | 8 | Evaluate Full Scope submission | AU BIL team | After above | Pending |
 
 ### Nice-to-have / Add-on
@@ -473,7 +472,7 @@ Event Cinemas' SHA256 proposal is rejected, but this **does not reject Event Cin
 |---|--------|-------|----------|--------|
 | 4 | Bullseye API AU support | BIL-E / Shugo | Medium | Complete — confirmed AU-supported. Verify in prototype if proceeding to Full Scope |
 | 9 | Check Quip AU BIL Team WIP PES section | Shugo (DT) | Medium | Confirmed (3/10) — PES references are fragmentary mentions only, no detailed technical discussions found |
-| 10 | Ellis team engagement — Required if Amazon needs offer lifecycle control (usage tracking, ticket limits, duplicate prevention), or if Hannah Hill confirms Ellis is necessary for PES. Connect via Hannah to Ellis team (Joshua Huang, Principal PMT) | Hannah Hill / Ellis team | Low | Pending — depends on #6b outcome |
+| 10 | Ellis team engagement + AU availability verification — Required if Amazon needs offer lifecycle control (usage tracking, ticket limits, duplicate prevention), or if Hannah Hill confirms Ellis is necessary for PES. Connect via Hannah to Ellis team (Joshua Huang, Principal PMT) to verify AU marketplace support | Hannah Hill / Ellis team | Low | Pending — depends on #6b outcome |
 
 ---
 
