@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-10T16:30:00+11:00",
+  "updated": "2026-03-10T21:45:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -379,7 +379,7 @@
       "hasHandover": true,
       "title": "Daily Task Management — WorkLog運用・Weekly Routine・WBRスケジュール・作業時間トラッキング",
       "status": "進行中",
-      "summary": "WorkLog運用+ワークフロー正式定義。WBR隔週スケジュール調査完了（4WBR全Loop PDF解析）、Outlookリマインダー4件、Weekly Routine Tasks定義、チームメンバーalias保存。Mar08テンプレベース作り直し。",
+      "summary": "WorkLog運用+ワークフロー正式定義。3/10タスクチェック完了（10件完了）、3/11 Daily Log作成（キャリーオーバー適用）。WBR隔週スケジュール・Outlookリマインダー・Weekly Routine運用中。",
       "tags": ["daily", "task-management", "worklog", "daily-log", "notion", "weekly", "workflow", "運用", "タスク管理", "ワークフロー", "wbr", "wbr-schedule", "routine", "outlook-reminder", "team-members", "template", "asana", "time-tracking", "weekly-project-update", "loop", "parc-check"]
     },
     {
