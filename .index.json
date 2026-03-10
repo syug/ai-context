@@ -471,9 +471,9 @@
       "workdir": "~/Development/claude-slack-bridge",
       "hasHandover": true,
       "title": "ワークスペース基盤 + Slack↔CCブリッジ — tmux/sesh/cmux統合管理",
-      "status": "進行中（3/10 tmux自動アタッチ暴走修正完了・rebuild-cmux.sh手動実行に一本化）",
-      "summary": "tmux + sesh でワークスペース管理、Slack↔CC双方向ブリッジ（tmux send-keys）、LaunchAgent自動起動。workspaces.json SSOT移行完了。3/10にtmux自動アタッチ暴走（config.fish 24並行sesh connect + continuum二重復元）を修正、rebuild-cmux.shによる手動制御に一本化。",
-      "tags": ["workspace", "bridge", "infrastructure", "tmux", "sesh", "cmux", "slack", "launchagent", "send-keys", "notification", "relay", "named-pipe", "claude-hook", "multi-tab", "crosspost", "spaces", "chrome", "productivity", "ブリッジ", "基盤", "ワークスペース", "通知", "sighup", "pty", "restart", "socket", "auto-attach", "runaway", "暴走"]
+      "status": "進行中（3/10 workspaces.json dotfiles移行完了・tmux自動アタッチ暴走修正完了・rebuild-cmux.sh手動実行に一本化）",
+      "summary": "tmux + sesh でワークスペース管理、Slack↔CC双方向ブリッジ（tmux send-keys）、LaunchAgent自動起動。workspaces.json SSOT移行完了、dotfilesリポジトリに移行済み。3/10にtmux自動アタッチ暴走を修正、rebuild-cmux.shによる手動制御に一本化。",
+      "tags": ["workspace", "bridge", "infrastructure", "tmux", "sesh", "cmux", "slack", "launchagent", "send-keys", "notification", "relay", "named-pipe", "claude-hook", "multi-tab", "crosspost", "spaces", "chrome", "productivity", "ブリッジ", "基盤", "ワークスペース", "通知", "sighup", "pty", "restart", "socket", "auto-attach", "runaway", "暴走", "dotfiles", "workspaces-json", "ssot"]
     },
     {
       "dir": "2026-03-06_ai-workflow-infrastructure-overhaul",
