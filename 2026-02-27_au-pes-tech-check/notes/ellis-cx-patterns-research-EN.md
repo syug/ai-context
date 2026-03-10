@@ -11,16 +11,15 @@ This document summarizes research into Amazon's Ellis Blueprint CX Constructs, t
 
 ## Ellis CX Pattern Comparison
 
-Ellis offers 6 Out-of-the-Box (OOB) Blueprint CX Constructs:
+Ellis offers 5 Out-of-the-Box (OOB) Blueprint CX Constructs:
 
 | # | Pattern | Integration Depth | 3P API Integration | Representative Partner | Launch |
 |---|---------|-------------------|--------------------|-----------------------|--------|
 | 1 | Online Offers | Deep | LWA + Ellis API | Grubhub+, Calm, Deliveroo | 2021/7 |
 | 2 | Partner Promotions | Lightest | None (promo code/URL distribution) | LinkedIn, Uber | 2022/5 |
-| 3 | Prime Offer Code (Transactional) | Light | Ellis API only (Verify + Redeem) | **Odeon Cinemas (UK)**, Peet's Coffee | 2023/12 |
-| 4 | Prime Offer Code (Account Linking) | Medium | LWA + Ellis API | Subscription-type offers | — |
-| 5 | Pre-Verification | Medium | LWA + Ellis API | UNiDAYS | 2022/5 |
-| 6 | Embedded Store | Deepest | Amazon Pay + Ellis API + custom endpoints | **Grubhub** | 2024/5 |
+| 3 | Prime Offer Code | Light–Medium | Ellis API only (Transactional) or LWA + Ellis API (Account Linking) | **Odeon Cinemas (UK)**, Peet's Coffee | 2023/12 |
+| 4 | Pre-Verification | Medium | LWA + Ellis API | UNiDAYS | 2022/5 |
+| 5 | Embedded Store | Deepest | Amazon Pay + Ellis API + custom endpoints | **Grubhub** | 2024/5 |
 
 ## LWA vs Amazon Pay — No Dependency
 

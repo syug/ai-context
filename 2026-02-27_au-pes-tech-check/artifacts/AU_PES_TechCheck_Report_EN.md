@@ -1,8 +1,8 @@
 # AU Prime Early Screenings -- Tech Check Report
 
 **Event Cinemas x Amazon Prime -- Australia Pilot**
-**Date:** 2026-02-27
-**Status:** Tech Check Complete
+**Date:** 2026-03-04
+**Status:** Tech Check Complete -- US Validation Received
 
 ---
 
@@ -12,28 +12,40 @@
 
 The AU BIL team is evaluating the launch of Prime Early Screenings (PES) in Australia with Event Cinemas as the ticketing partner. This report covers three areas of technical assessment:
 
-1. **Task 1:** Understanding the US PES technical architecture
-2. **Task 2:** Assessing Prime authentication feasibility in AU
-3. **Task 3:** "Gut Checking" Event Cinemas' proposed authentication method
+1. **Task 1:** Review US PES user flow and technical details
+2. **Task 2:** Assess Prime authentication feasibility in AU
+3. **Task 3:** "Gut check" Event Cinemas' proposed authentication method
 
-### Overall Assessment
+### Task Results
 
-| Item | Verdict |
-|------|---------|
-| Event Cinemas SHA256 Proposal | **REJECT** -- 2 Critical risks (pre-shared key exposure + MemberId PII leakage) |
-| PES Feasibility in AU | **FEASIBLE** -- but requires a different approach than US |
-| Recommended Approach (Primary) | **LWA + PrimePass (Fandango model)** -- proven in US, OAuth 2.0 standard |
-| Recommended Approach (Alternative) | **Ellis Prime Offer Code CX (ODEON model)** -- no LWA integration needed, no Amazon Pay needed, 4-6 weeks |
+| Task | Verdict | Summary |
+|------|---------|---------|
+| 1. US PES Technical Review | **Reviewed** | LWA + Prime Ellis is the foundation. Validated by US DT (Kelly Prudente, 2026-03-03) |
+| 2. AU Feasibility | **Feasible** | LWA confirmed for AU (FE region). PrimePass and Ellis AU support need verification |
+| 3. Event Cinemas Proposal | **Reject** | 2 Critical risks: pre-shared key exposure + MemberId PII leakage |
 
-### Key Risks
+### Recommended Approach
 
-- PrimePass (`prime:benefit_status` scope) AU marketplace support is unverified
+| Priority | Approach | Timeline | Status |
+|----------|----------|----------|--------|
+| **Primary** | LWA + Prime Ellis (Fandango model) — OAuth 2.0 standard, proven in US PES | 8-12 weeks | **US Validated** |
+| **Alternative** | Ellis Prime Offer Code CX (ODEON model) — No LWA integration needed, lightweight | 4-6 weeks | AU availability TBD |
+| Complementary | Bullseye API — Prime-only content visibility in Brand Store | 1-2 weeks | AU-supported (confirmed) |
+
+**Risks to recommended approach:**
+
+- PrimePass (`prime:benefit_status` scope, within Prime Ellis) AU marketplace support is unverified
 - Ellis Prime Offer Code CX AU marketplace availability is unconfirmed
-- Amazon Pay is not available in AU, limiting certain integration patterns
+- Amazon Pay is not available in AU — rules out Ellis "Embedded Store CX" (Grubhub model); does not block the above approaches
 
-### Top Priority Next Step
+### Next Steps
 
-Verify Ellis Prime Offer Code CX AU marketplace availability with the Prime Ellis team (whitmeye), and verify PrimePass AU support with the Identity Services team.
+1. **Contact Hannah Hill (hannahnl)** — US PES program lead (recommended by Kelly). Entry point for all Ellis/LWA technical questions. Understand full engagement process — in the US, Fandango/Atom worked closely with **both the Prime Ellis team and the LWA team** (per Kelly's testimony). Learn how to engage both teams and apply US learnings to AU
+   - **Prime Ellis team:** Manages the Prime off-Amazon partnership program — offer lifecycle, eligibility rules, partner onboarding, Verify/Redeem APIs
+   - **LWA team (Identity Services):** Manages Login with Amazon — OAuth 2.0 authentication, `prime:benefit_status` scope for Prime membership verification
+2. **Clarify US PES Ellis feature usage via Hannah** — Confirm which Ellis features US PES actually uses (Verify/Redeem APIs, inventory management, duplicate redemption prevention) versus what Fandango implements independently. Fandango/PES is not listed in Ellis Blueprint CX Wiki, suggesting a custom integration
+3. **Verify Ellis AU availability & PrimePass AU support via Hannah** — Connect with Ellis team (Joshua Huang, Principal PMT) and Identity Services team
+4. **BIL-E engineer validation** — Sunit Guldas (gulsunit) gut check on SHA256 Critical findings (Slack DM sent, awaiting response)
 
 ---
 
@@ -51,6 +63,8 @@ Prime Early Screenings (PES) is a program offering Amazon Prime members early-ac
 | Superman (2025) | 144,000 | $2.9M |
 | Wicked: For Good (2025) | -- | $3.26M (opening day -- PES all-time record) |
 
+_[Tier 3: Slack #launch-party] [Tier 4: Arc campaign documents]_
+
 ### US User Flow (5 Steps)
 
 | Step | Action | Details |
@@ -64,12 +78,12 @@ Prime Early Screenings (PES) is a program offering Amazon Prime members early-ac
 ### Technical Architecture
 
 > *"From a DT perspective, we did nothing for member authentication. That was handled by the third-party ticket partner (Atom/Fandango) working with the Login with Amazon team."*
-> -- Kelly Prudente (kellypru), #bil-tech-community / #bil-ww-tex
+> -- Kelly Prudente (kellypru), #bil-tech-community / #bil-ww-tex [Tier 1: Direct testimony]
 
 | Component | Role |
 |-----------|------|
 | **Login with Amazon (LWA)** | OAuth 2.0 authentication. Shares Prime status with customer consent |
-| **PrimePass** | Extended LWA scope. Returns Prime membership as Yes/No |
+| **PrimePass** | LWA extended scope (`prime:benefit_status`). Returns Prime membership as Yes/No. Part of the Prime Ellis ecosystem. *Confirmed by Kelly Prudente (US DT), 2026-03-03* [Tier 2: Identity Services Wiki] [Tier 1: Kelly DM 2026-03-03] |
 | **Bullseye API** | Controls Prime-member-only content visibility within Brand Store |
 | **Directed ID** | Opaque, per-3P-unique identifier. Amazon's internal MemberId is never exposed externally |
 
@@ -88,6 +102,7 @@ Prime Early Screenings (PES) is a program offering Amazon Prime members early-ac
 | Principal DT, Non-Endemic | Rawle Curtis (rawcur) |
 | DT (Superman) | Dima Kyrylov (dimakyry) |
 | Sr. SM (Wicked) | Hannah Hill (hannahnl) |
+| US PES Program Lead | **Hannah Hill (hannahnl) -- Key contact for AU engagement process** |
 | Head of US TelEnt | Rob Alley (alleyrob) |
 | Director, BIL | Kate McCagg (kmccagg) |
 | VP, Global Prime | Jamil Ghani |
@@ -97,13 +112,53 @@ Prime Early Screenings (PES) is a program offering Amazon Prime members early-ac
 
 ---
 
+## US DT Validation (2026-03-03)
+
+_This section validates the Task 1 findings above and informs the recommendations in later sections._
+
+### Source
+Kelly Prudente (kellypru), US DT (Wicked/Superman campaign lead), via Slack DM on 2026-03-03.
+
+### Key Confirmations
+
+1. **Fandango/Atom used LWA + Prime Ellis integration** -- Both onboarded with Login with Amazon (LWA) and worked closely with both the LWA team and the Prime Ellis team [Tier 1: Kelly DM 2026-03-03]
+2. **`prime:benefit_status` scope confirmed** -- LWA passes Prime membership status via this scope. This is the mechanism that enables 3P partners to determine Prime eligibility [Tier 1: Kelly DM 2026-03-03]
+3. **3P-led implementation** -- The integration was on fandango.com/atom.com, implemented by their developers. LWA team members helped them through the process [Tier 1: Kelly DM 2026-03-03]
+4. **Strict Prime exclusive offer rules** -- In the US, labeling something as a Prime exclusive offer requires LWA onboarding, as LWA can pass the "is Prime member" parameter securely and accurately [Tier 1: Kelly DM 2026-03-03]
+5. **Hannah Hill (hannahnl) led the initiative** -- Kelly's SM was "pretty key in leading this." Recommended as the contact to understand all steps taken and how to engage the Prime Ellis + LWA teams [Tier 1: Kelly DM 2026-03-03]
+
+### PrimePass / Prime Ellis Relationship -- Clarification
+
+V1 of this report presented "LWA + PrimePass" and "Ellis Prime Offer Code CX" as two separate alternatives. Kelly's validation reveals a more nuanced picture:
+
+- **PrimePass** (`prime:benefit_status` scope) is the LWA mechanism for Prime membership verification
+- **Prime Ellis** is the broader platform for Prime off-Amazon experiences
+- In the US Fandango case, **both LWA and Prime Ellis worked together** -- they are complementary, not alternatives
+
+This means:
+- **Full integration (Fandango model):** LWA authentication + Prime Ellis platform = the proven US approach
+- **Lightweight integration (ODEON model):** Ellis Prime Offer Code CX only = no LWA needed, code-based verification
+
+Both options remain valid for AU. The choice depends on Event Cinemas' technical capability and desired user experience.
+
+### Fandango API Integration Project (US)
+- US Telent (now US Entertainment + Beauty, after reorg) had planned to bring ticketing to amazon.com as an E2E purchase flow
+- Status: Likely still on hold [Tier 1: Kelly DM 2026-03-03]
+- Not directly relevant to AU's 3P model, but US PES learnings (Wicked, Superman, D&D, etc.) are 100% applicable
+
+### LWA Developer Resources
+- 3P onboarding guidance: https://developer.amazon.com/docs/login-with-amazon/web-docs.html
+- LWA scopes portal: https://console.harmony.a2z.com/lwa-tools-portal/scopes
+
+---
+
 ## Task 2: AU Prime Authentication Feasibility
 
 ### AU-Specific Constraints
 
 | Constraint | Impact |
 |-----------|--------|
-| Amazon Pay not available in AU | Cannot directly replicate the US Fandango model |
+| Amazon Pay not available in AU | Rules out Ellis 'Embedded Store CX' (Grubhub model); does not block LWA + Prime Ellis (Fandango model) |
 | Fandango not operating in AU | Requires a different ticketing partner (Event Cinemas) |
 | LWA AU support | LWA is supported in the FE region (JP, SG, AU) |
 | PrimePass AU support | Needs verification (proven in US/UK) |
@@ -112,7 +167,7 @@ Prime Early Screenings (PES) is a program offering Amazon Prime members early-ac
 
 #### 1. LWA Australia Support -- CONFIRMED
 
-LWA's internal documentation confirms AU is a supported marketplace under the FE region.
+LWA's internal documentation confirms AU is a supported marketplace under the FE region. [Tier 2: LWA Marketplaces Wiki]
 
 | Region | Marketplaces |
 |--------|-------------|
@@ -126,7 +181,7 @@ LWA's internal documentation confirms AU is a supported marketplace under the FE
 
 #### 2. PrimePass -- NEEDS VERIFICATION
 
-PrimePass is an LWA scope managed by the Identity Services / 3P AuthZ team.
+PrimePass is an LWA scope managed by the Identity Services / 3P AuthZ team. [Tier 2: Identity Services Wiki]
 
 - **Domain:** `prime`
 - **Scope:** `prime:benefit_status`
@@ -144,7 +199,7 @@ Amazon Pay is not supported in the AU marketplace. This means the Ellis "Embedde
 
 #### 4. ODEON Cinemas (UK) Precedent -- KEY DISCOVERY
 
-Research revealed a directly applicable precedent: ODEON Cinemas (UK/IE) has been operating a Prime member movie ticket discount program under the Ellis "Prime Offer Code CX" configuration since **December 2023**.
+Research revealed a directly applicable precedent: ODEON Cinemas (UK/IE) has been operating a Prime member movie ticket discount program under the Ellis "Prime Offer Code CX" configuration since **December 2023**. [Tier 2: Ellis Wiki]
 
 | Item | Details |
 |------|---------|
@@ -177,18 +232,18 @@ Research revealed a directly applicable precedent: ODEON Cinemas (UK/IE) has bee
 
 | Method | LWA Required | Amazon Pay Required | AU Support | Integration Timeline | Security | Recommendation |
 |--------|:---:|:---:|:---:|:---:|:---:|:---:|
-| **LWA + PrimePass** (Fandango model) | Yes | No | Needs verification | 8-12 weeks | High | **Priority 1** |
+| **LWA + Prime Ellis** (Fandango model) | Yes | No | Needs verification | 8-12 weeks | High | **Priority 1 -- US VALIDATED** |
 | **Ellis Prime Offer Code CX** (ODEON model) | No | No | Needs verification | 4-6 weeks | High | **Priority 2** |
-| **Bullseye API** (complementary) | No | No | Likely supported | 1-2 weeks | High (display only) | Complementary |
+| **Bullseye API** (complementary) | No | No | AU-supported (confirmed) | 1-2 weeks | High (display only) | Complementary |
 | **Event Cinemas SHA256** | No | No | Possible | 2-4 weeks | **CRITICAL RISKS** | **Rejected** |
 
 ### Unresolved Verification Items
 
 | # | Item | Contact | Priority |
 |---|------|---------|----------|
-| 1 | Ellis Prime Offer Code CX AU marketplace availability | Prime Ellis team (whitmeye) | **Critical** |
+| 1 | Ellis Prime Offer Code CX AU marketplace availability | Ellis team (Joshua Huang) via Hannah Hill | **Critical** |
 | 2 | PrimePass AU marketplace support | Identity Services team | High |
-| 3 | Bullseye API AU support | BIL Tech team | Medium |
+| 3 | ~~Bullseye API AU support~~ | BIL Tech team | ~~Medium~~ — **Resolved** (AU-supported confirmed) |
 | 4 | Event Cinemas Ellis API integration capability | Event Cinemas tech team | Medium |
 
 ---
@@ -230,7 +285,7 @@ Event Cinemas' SHA256 method requires Amazon and Event Cinemas to **hold the sam
 | Key rotation difficulty | Both parties must change the key simultaneously (high operational burden) |
 | Amazon policy conflict | Likely violates Amazon's key management policies restricting external sharing of secret keys |
 
-**Mars Dine MindReader comparison (CDK code analysis):**
+**Mars Dine MindReader comparison (CDK code analysis):** [Tier 4: CDK Code Analysis]
 
 Mars Dine also uses JWT HS256 (symmetric key), but with a critical difference:
 
@@ -314,19 +369,25 @@ Event Cinemas' proposal **does not meet Amazon's security and privacy requiremen
 
 ## Recommendations
 
-### Priority 1: LWA + PrimePass (Fandango Model) -- PRIMARY
+### Priority 1: LWA + Prime Ellis (Fandango Model) -- PRIMARY -- US VALIDATED
+
+> **Validated by US DT:** Kelly Prudente (kellypru) confirmed on 2026-03-03 that Fandango/Atom used LWA + Prime Ellis integration for US PES campaigns (Wicked, Superman). This is the proven architecture.
+
+> **Note on Ellis feature scope (V3):** Throughout this report, Ellis capabilities such as Verify/Redeem APIs, offer lifecycle management, inventory control, and duplicate redemption prevention are described based on Ellis platform documentation (Tier 2: Wiki sources). **It has not been confirmed which of these features US PES actually utilizes.** Kelly Prudente's testimony (Tier 1) confirmed "LWA + Prime Ellis" as the integration model, but did not specify which Ellis features Fandango uses versus implements independently. Additionally, Fandango/PES is not listed in the Ellis Blueprint CX Wiki (suggesting a custom integration outside the standard patterns). Confirmation of US PES's actual Ellis feature usage is required from Hannah Hill (hannahnl) -- see Action Items.
 
 | Item | Detail |
 |------|--------|
-| **Approach** | Event Cinemas integrates LWA SDK; PrimePass verifies Prime membership |
-| **Why primary** | Proven in US PES (128K+ tickets per event), OAuth 2.0 standard, explicit customer consent, Directed ID protects privacy |
-| **AU readiness** | LWA confirmed for FE region (AU). PrimePass AU support needs verification |
+| **Approach** | Event Cinemas integrates LWA SDK; Prime Ellis platform verifies Prime membership via `prime:benefit_status` scope |
+| **Why primary** | Proven in US PES (128K+ tickets per event), OAuth 2.0 standard, explicit customer consent, Directed ID protects privacy. **US DT validated.** |
+| **AU readiness** | LWA confirmed for FE region (AU). PrimePass AU support needs verification. Prime Ellis team involvement is confirmed (not just LWA) |
 | **Timeline** | 8-12 weeks |
 | **DT burden** | None (authentication handled by LWA + Event Cinemas) |
 | **3P burden** | Medium (LWA SDK integration required) |
 | **Pending verification** | PrimePass `prime:benefit_status` scope functionality for AU Prime members |
 
 ### Priority 2: Ellis Prime Offer Code CX (ODEON Model) -- ALTERNATIVE
+
+> **Note:** This is a subset of the Prime Ellis platform, using code-based verification without LWA.
 
 | Item | Detail |
 |------|--------|
@@ -357,45 +418,106 @@ Event Cinemas' SHA256 proposal is rejected, but this **does not reject Event Cin
 - Reporting is **built into the Ellis API**
 - Direct precedent: **ODEON Cinemas (UK)** has been operating this exact model since December 2023
 
+> **Note:** The Ellis API capabilities listed above (Verify Code, Redeem Code, built-in reporting) are based on Ellis platform documentation. The ODEON model is a confirmed Ellis Blueprint CX pattern. However, for the Fandango/US PES model (Priority 1), the extent to which Ellis manages inventory, duplicate prevention, and offer lifecycle -- versus Fandango managing these independently -- is unconfirmed and requires verification with Hannah Hill.
+
 ---
 
 ## Action Items
 
-| # | Action | Owner | Priority |
-|---|--------|-------|----------|
-| 1 | Verify LWA + PrimePass AU support (`prime:benefit_status` scope) | Identity Services team | **Critical** |
-| 2 | Verify Ellis Prime Offer Code CX AU marketplace availability | Prime Ellis team (whitmeye) | **Critical** |
-| 3 | Verify Bullseye API AU support | BIL Tech team | Medium |
-| 4 | Counter-propose Ellis/LWA model to Event Cinemas | AU BIL team -> Event Cinemas | After #1 & #2 |
-| 5 | Evaluate Full Scope submission | AU BIL team | After above verifications |
+### In Scope (Tech Check Deliverables)
+
+| # | Action | Owner | Priority | Status |
+|---|--------|-------|----------|--------|
+| 1 | gulsunit SHA256 Critical findings gut check | gulsunit (Sunit Guldas) | Medium | In progress — Slack DM sent (2026-03-10), awaiting response |
+| 2 | Share Tech Check results with mjlb | Shugo (DT) | — | Pending (scheduled sync 2026-03-11) |
+| 3 | Review recommendation priority order (Fandango model vs ODEON model) | Shugo (DT) | Medium | Pending |
+| 4 | Bullseye API AU support | BIL Tech team | Medium | Complete — confirmed AU-supported. Verify in prototype if proceeding to Full Scope |
+| 5 | Contact kellypru for US PES details | Shugo (DT) | High | Complete (2026-03-03) |
+
+### Out of Scope (Next Phase / Full Scope)
+
+| # | Action | Owner | Priority | Status |
+|---|--------|-------|----------|--------|
+| 6 | Contact Hannah Hill (hannahnl) — US PES program lead (recommended by Kelly). Entry point for all Ellis/LWA technical questions | Shugo (DT) | **Critical — Next** | Pending |
+| 6a | Via Hannah: Understand US PES engagement process and learnings applicable to AU. In the US, Fandango worked with **two teams**: **Prime Ellis team** (off-Amazon partnership / offer management) and **LWA team** (Identity Services / OAuth authentication + `prime:benefit_status`). Learn how to engage both teams for AU | Hannah Hill | Critical | Pending |
+| 6b | Via Hannah: Clarify US PES Ellis feature usage — which features does Fandango actually use (Verify/Redeem API, inventory management, duplicate redemption prevention) vs implement independently? | Hannah Hill | Critical | Pending |
+| 6c | Via Hannah: Verify Ellis AU marketplace availability — connect with Ellis team (Joshua Huang, Principal PMT) or confirm directly | Hannah Hill / Ellis team | Critical | Pending |
+| 6d | Via Hannah: Verify PrimePass (`prime:benefit_status` scope) AU support — connect with Identity Services team or confirm directly | Hannah Hill / Identity Services | Critical | Pending |
+| 7 | Counter-propose Ellis/LWA model to Event Cinemas | AU BIL team | After #6c & #6d | Pending |
+| 8 | Evaluate Full Scope submission | AU BIL team | After above | Pending |
+| 9 | Check Quip AU BIL Team WIP PES section | Shugo (DT) | Medium | Pending |
 
 ---
 
-## Sources
+## Sources & Provenance
 
-### Internal Wiki
-- Identity Services / 3P AuthZ / Products Using LWA -- PrimePass definition and specifications
-- Identity Services / LWA Marketplaces to Region Mapping -- AU confirmed in FE region
-- Prime Ellis Team / Offers Launched -- ODEON Cinemas (UK/IE) Prime Offer Code CX case study
-- Prime Ellis / Blueprint CX Constructs -- "No LWA integration required", 4-6 week timeline
-- Amazon Pay / Prime Ellis Program -- Embedded Store CX (not available in AU)
+Information sources are categorized by reliability tier. Higher-tier sources carry more weight due to direct involvement in the subject matter.
 
-### Slack
-- **#bil-tech-community** -- kellypru: LWA technical options and DT scope clarification for PES
-- **#bil-ww-tex** -- kellypru: LWA / Bullseye Prime member verification options
-- **#launch-party** -- Wicked: For Good results (PES all-time record)
+### Tier 1: Direct Testimony (Highest Weight)
+First-hand accounts from people directly involved in US PES implementation.
 
-### Arc / Campaign Documents
-- Superman "Anyone Can Be Super" -- Lighthouse campaign
-- Wicked "Oz Casts a Spell on Amazon" -- Lighthouse campaign
+| Source | Channel | Date | Key Information Provided |
+|--------|---------|------|------------------------|
+| **Kelly Prudente (kellypru)** -- US DT, Wicked/Superman campaign lead | Slack DM | 2026-03-03 | Fandango/Atom used LWA + Prime Ellis integration; `prime:benefit_status` scope for Prime verification; Hannah Hill led the initiative; US PES learnings applicable to AU 3P model |
+| **Kelly Prudente (kellypru)** | Slack #bil-tech-community | 2026-02 (observed) | "From a DT perspective, we did nothing for member authentication. That was handled by the third-party ticket partner (Atom/Fandango) working with the Login with Amazon team." |
+| **Kelly Prudente (kellypru)** | Slack #bil-ww-tex | 2026-02 (observed) | LWA / Bullseye Prime member verification options for PES |
+| **Harish Bharani (hbbharan)** -- BIL-E Engineering Lead | Slack DM + Asana comment | 2026-02-28, 2026-03-03 | Recommended Sunit Guldas (gulsunit) as the BIL-E security expert for tech check validation |
 
-### Code Analysis
-- BIL-TEX-APAC-MarsDine-MindReaderCDK -- jwt-utils/index.ts, cdk-stack.ts (symmetric key handling comparison)
+### Tier 2: Internal Documentation (High Weight)
+Official Amazon internal wikis and tools. Verified by AI-assisted research, not from direct human testimony.
 
-### Attachments
-- **[Attachment 1]** Partner API Spec -- Event Cinemas proposal
-- **[Attachment 2]** Event Cinemas past case studies (NRMA / CommBank) PDF
+| Source | URL | Key Information |
+|--------|-----|-----------------|
+| Identity Services / 3P AuthZ Wiki | https://w.amazon.com/bin/view/IdentityServices/3PAuthZ/ | PrimePass definition: `prime:benefit_status` scope, Directed ID mechanism |
+| Identity Services / LWA Marketplaces | https://w.amazon.com/bin/view/IdentityServices/Products/LWA/ | AU confirmed in FE region (JP, SG, AU) for LWA support |
+| LWA 3P Authorization Wiki | https://w.amazon.com/bin/view/IdentityServices/3PAuthZ/ | LWA scope details and 3P authorization framework |
+| Prime Ellis Team / Offers Launched | https://w.amazon.com/bin/view/PrimeTeam/PrimeOffAmazon/Ellis/ | ODEON Cinemas (UK/IE) Prime Offer Code CX case study, "WW Updates in Progress" |
+| Prime Ellis / Blueprint CX Constructs | https://w.amazon.com/bin/view/PrimeTeam/PrimeOffAmazon/Ellis/ | "No LWA integration required" for Offer Code CX, 4-6 week timeline |
+| PES Wiki | https://w.amazon.com/bin/view/PrimeEarlyScreenings/ | PES program overview and US track record |
+| BIL-E NA Wiki | https://w.amazon.com/bin/view/BIL-E/NA/ | BIL-E intake process and security review framework |
+| AmazonAdsSecurity Wiki | https://w.amazon.com/bin/view/AmazonAdsSecurity/ | Ads security consultation process (referenced by Harish) |
+| LWA Developer Docs (Public) | https://developer.amazon.com/docs/login-with-amazon/web-docs.html | 3P onboarding guidance (referenced by Kelly as what Fandango followed) |
+| LWA Scopes Portal (Internal) | https://console.harmony.a2z.com/lwa-tools-portal/scopes | Available LWA scopes including `prime:benefit_status` (referenced by Kelly) |
 
-### Web
-- Login with Amazon Developer Documentation -- Supported Marketplaces
-- ODEON Cinemas Prime discount program public information
+### Tier 3: Slack Channel Observations (Medium Weight)
+Information observed in public Slack channels. Not directly provided to us -- extracted by AI research from channel history.
+
+| Channel | Key Information | Note |
+|---------|----------------|------|
+| #bil-tech-community | kellypru's comments on LWA/PES technical options | Observed, not direct testimony |
+| #bil-ww-tex | kellypru's comments on Bullseye/LWA verification | Observed, not direct testimony |
+| #launch-party | Wicked: For Good results (PES all-time record $3.26M opening day) | Public channel announcement |
+
+### Tier 4: Code Analysis & Campaign Documents (Supporting)
+Technical analysis and campaign reference materials.
+
+| Source | Key Information |
+|--------|-----------------|
+| BIL-TEX-APAC-MarsDine-MindReaderCDK (jwt-utils/index.ts, cdk-stack.ts) | JWT HS256 symmetric key handling comparison -- Mars Dine keeps keys in Secrets Manager, never shares externally. Used to contrast with Event Cinemas' pre-shared key proposal |
+| Arc: Superman "Anyone Can Be Super" | Lighthouse campaign reference -- PES ticket sales data |
+| Arc: Wicked "Oz Casts a Spell on Amazon" | Lighthouse campaign reference -- PES ticket sales data |
+
+### Tier 5: External / Attachments
+| Source | Key Information |
+|--------|-----------------|
+| Event Cinemas Partner API Spec (PDF attachment) | SHA256 authentication proposal under review |
+| Event Cinemas past case studies -- NRMA / CommBank (PDF attachment) | Precedent claims (assessed as not applicable to Amazon) |
+| ODEON Cinemas Prime discount program (public web) | Public confirmation of ODEON Prime offer program |
+
+### Provenance Notes
+
+- **Tier 1 sources (Kelly) carry the highest weight** because she was directly involved in US PES implementation and has first-hand knowledge of how Fandango/Atom integrated with LWA + Prime Ellis
+- **The PrimePass / Prime Ellis relationship clarification (V2)** was derived from Kelly's Tier 1 testimony. V1's separation of these as alternatives was based on Tier 2 wiki research which, while accurate about each component individually, did not capture how they work together in practice
+- **Wiki sources (Tier 2)** were found through AI-assisted internal search. While official documentation, they describe capabilities in isolation and may not reflect actual implementation patterns
+- **Slack observations (Tier 3)** are Kelly's own words but were observed in channel history rather than provided directly in response to our questions. The same information was later confirmed via direct DM (elevated to Tier 1)
+- **(V3) Ellis feature descriptions (Verify/Redeem API, inventory management, duplicate prevention)** are sourced from Tier 2 wiki documentation describing Ellis platform capabilities. Kelly's Tier 1 testimony confirmed "LWA + Prime Ellis" as the integration model but did not detail which specific Ellis features Fandango utilizes. Fandango/PES is absent from the Ellis Blueprint CX Wiki, suggesting a custom integration. Until confirmed by Hannah Hill, Ellis features referenced in this report should be read as platform capabilities, not as confirmed US PES implementation details
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| V1 | 2026-02-27 | Initial tech check report |
+| V2 | 2026-03-04 | US DT validation (Kelly Prudente): confirmed LWA + Prime Ellis integration, `prime:benefit_status` scope, Hannah Hill as key contact. PrimePass/Prime Ellis relationship clarified. Action items updated. + structural fixes (table ordering, Amazon Pay constraint clarification, source attribution) |
+| V3 | 2026-03-10 | Added caveat notes distinguishing Ellis platform capabilities (Tier 2 documentation) from confirmed US PES usage (Tier 1 testimony). Fandango/PES not listed in Ellis Blueprint CX Wiki -- custom integration possible. Added action item to clarify actual Ellis feature usage with Hannah Hill (hannahnl) |

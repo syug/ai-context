@@ -11,16 +11,15 @@
 
 ## Ellis CX パターン比較
 
-Ellis は 6 つの OOB (Out-of-the-Box) Blueprint CX Construct を提供している：
+Ellis は 5 つの OOB (Out-of-the-Box) Blueprint CX Construct を提供している：
 
 | # | パターン | 統合の深さ | 3P側のAPI統合 | 代表パートナー | ローンチ |
 |---|---------|-----------|-------------|--------------|---------|
 | 1 | Online Offers | 深い | LWA + Ellis API | Grubhub+, Calm, Deliveroo | 2021/7 |
 | 2 | Partner Promotions | 最も軽い | 不要（プロモコード/URL配布） | LinkedIn, Uber | 2022/5 |
-| 3 | Prime Offer Code (Transactional) | 軽い | Ellis API のみ (Verify + Redeem) | **Odeon Cinemas (UK)**, Peet's Coffee | 2023/12 |
-| 4 | Prime Offer Code (Account Linking) | 中程度 | LWA + Ellis API | サブスクリプション型オファー | — |
-| 5 | Pre-Verification | 中程度 | LWA + Ellis API | UNiDAYS | 2022/5 |
-| 6 | Embedded Store | 最も深い | Amazon Pay + Ellis API + 独自エンドポイント | **Grubhub** | 2024/5 |
+| 3 | Prime Offer Code | 軽い〜中程度 | Ellis API のみ (Transactional) または LWA + Ellis API (Account Linking) | **Odeon Cinemas (UK)**, Peet's Coffee | 2023/12 |
+| 4 | Pre-Verification | 中程度 | LWA + Ellis API | UNiDAYS | 2022/5 |
+| 5 | Embedded Store | 最も深い | Amazon Pay + Ellis API + 独自エンドポイント | **Grubhub** | 2024/5 |
 
 ## LWA と Amazon Pay — 依存関係なし
 
