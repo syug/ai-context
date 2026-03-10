@@ -1,0 +1,122 @@
+{
+    "title": "Switch to Desktops 10-16 (Karabiner Fallback)",
+    "rules": [
+        {
+            "description": "Ctrl+0 → Desktop 10, Ctrl+Shift+1-6 → Desktops 11-16 (via Mission Control key simulation)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "description": "Ctrl+0 → Desktop 10 (go to Desktop 1, then right 9 times)",
+                    "from": {
+                        "key_code": "0",
+                        "modifiers": {
+                            "mandatory": ["control"],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "/Users/saitshug/scripts/switch-to-space.sh 10 &"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "description": "Ctrl+Shift+1 → Desktop 11",
+                    "from": {
+                        "key_code": "1",
+                        "modifiers": {
+                            "mandatory": ["control", "shift"],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "/Users/saitshug/scripts/switch-to-space.sh 11 &"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "description": "Ctrl+Shift+2 → Desktop 12",
+                    "from": {
+                        "key_code": "2",
+                        "modifiers": {
+                            "mandatory": ["control", "shift"],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "/Users/saitshug/scripts/switch-to-space.sh 12 &"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "description": "Ctrl+Shift+3 → Desktop 13",
+                    "from": {
+                        "key_code": "3",
+                        "modifiers": {
+                            "mandatory": ["control", "shift"],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "/Users/saitshug/scripts/switch-to-space.sh 13 &"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "description": "Ctrl+Shift+4 → Desktop 14",
+                    "from": {
+                        "key_code": "4",
+                        "modifiers": {
+                            "mandatory": ["control", "shift"],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "/Users/saitshug/scripts/switch-to-space.sh 14 &"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "description": "Ctrl+Shift+5 → Desktop 15",
+                    "from": {
+                        "key_code": "5",
+                        "modifiers": {
+                            "mandatory": ["control", "shift"],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "/Users/saitshug/scripts/switch-to-space.sh 15 &"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "description": "Ctrl+Shift+6 → Desktop 16",
+                    "from": {
+                        "key_code": "6",
+                        "modifiers": {
+                            "mandatory": ["control", "shift"],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "/Users/saitshug/scripts/switch-to-space.sh 16 &"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

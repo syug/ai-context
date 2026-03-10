@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSStatusItem Preferred Position Item-0</key>
+	<real>377</real>
+	<key>NSWindow Frame SwiftUI.ModifiedContent&lt;SwiftUI.ModifiedContent&lt;SwiftUI.ModifiedContent&lt;SwiftUI.ModifiedContent&lt;SwiftUI.ModifiedContent&lt;SwiftUI.ModifiedContent&lt;SwiftUI.ModifiedContent&lt;cmux.ContentView, SwiftUI._EnvironmentKeyWritingModifier&lt;Swift.Optional&lt;cmux.TabManager&gt;&gt;&gt;, SwiftUI._EnvironmentKeyWritingModifier&lt;Swift.Optional&lt;cmux.TerminalNotificationStore&gt;&gt;&gt;, SwiftUI._EnvironmentKeyWritingModifier&lt;Swift.Optional&lt;cmux.SidebarState&gt;&gt;&gt;, SwiftUI._EnvironmentKeyWritingModifier&lt;Swift.Optional&lt;cmux.SidebarSelectionState&gt;&gt;&gt;, SwiftUI._AppearanceActionModifier&gt;, SwiftUI._ValueActionModifier&lt;Swift.String&gt;&gt;, SwiftUI._ValueActionModifier&lt;Swift.String&gt;&gt;-1-AppWindow-1</key>
+	<string>1517 1329 2560 1440 1517 1329 2560 1440 </string>
+	<key>appearanceMode</key>
+	<string>system</string>
+	<key>browserThemeMode</key>
+	<string>system</string>
+	<key>cmux.session.lastWindowGeometry.v1</key>
+	<data>
+	eyJkaXNwbGF5Ijp7ImZyYW1lIjp7InkiOjEzMjksIngiOjE1MTcsImhlaWdodCI6MTQ0
+	MCwid2lkdGgiOjI1NjB9LCJkaXNwbGF5SUQiOjEzLCJ2aXNpYmxlRnJhbWUiOnsieSI6
+	MTMyOSwieCI6MTUxNywiaGVpZ2h0IjoxNDQwLCJ3aWR0aCI6MjU2MH19LCJmcmFtZSI6
+	eyJ3aWR0aCI6MjU2MCwiaGVpZ2h0IjoxNDQwLCJ5IjoxMzI5LCJ4IjoxNTE3fX0=
+	</data>
+	<key>posthog.lastActiveDayUTC</key>
+	<string>2026-03-02</string>
+	<key>shortcut.focusLeft</key>
+	<data>
+	eyJjb21tYW5kIjp0cnVlLCJjb250cm9sIjpmYWxzZSwic2hpZnQiOmZhbHNlLCJvcHRp
+	b24iOnRydWUsImtleSI6IlsifQ==
+	</data>
+	<key>shortcut.focusRight</key>
+	<data>
+	eyJjb250cm9sIjpmYWxzZSwiY29tbWFuZCI6dHJ1ZSwic2hpZnQiOmZhbHNlLCJvcHRp
+	b24iOnRydWUsImtleSI6Il0ifQ==
+	</data>
+	<key>shortcut.nextSidebarTab</key>
+	<data>
+	eyJjb250cm9sIjpmYWxzZSwic2hpZnQiOmZhbHNlLCJvcHRpb24iOmZhbHNlLCJrZXki
+	OiLihpMiLCJjb21tYW5kIjp0cnVlfQ==
+	</data>
+	<key>shortcut.prevSidebarTab</key>
+	<data>
+	eyJvcHRpb24iOmZhbHNlLCJzaGlmdCI6ZmFsc2UsImtleSI6IuKGkSIsImNvbW1hbmQi
+	OnRydWUsImNvbnRyb2wiOmZhbHNlfQ==
+	</data>
+	<key>sidebarAppearanceDefaultsVersion</key>
+	<integer>1</integer>
+	<key>sidebarBlendMode</key>
+	<string>withinWindow</string>
+	<key>sidebarBlurOpacity</key>
+	<real>1</real>
+	<key>sidebarBranchVerticalLayout</key>
+	<true/>
+	<key>sidebarCornerRadius</key>
+	<real>0.0</real>
+	<key>sidebarMaterial</key>
+	<string>sidebar</string>
+	<key>sidebarPreset</key>
+	<string>nativeSidebar</string>
+	<key>sidebarState</key>
+	<string>followWindow</string>
+	<key>sidebarTintHex</key>
+	<string>#000000</string>
+	<key>sidebarTintOpacity</key>
+	<real>0.17999999999999999</real>
+	<key>workspaceAutoReorderOnNotification</key>
+	<false/>
+</dict>
+</plist>

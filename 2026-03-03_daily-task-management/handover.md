@@ -1,0 +1,150 @@
+# Handover Document
+**Topic:** Daily Task Management — WorkLog運用・Weekly Routine・WBRスケジュール・作業時間トラッキング
+**Date:** 2026-03-09
+**Status:** 進行中
+
+---
+
+## 背景
+
+`weekly-workflow-setup` トピックで確立したWorkLogテンプレート・Daily Log運用の仕組みを、継続的な運用管理として独立トピック化。3/9にWeekly WorkLog作成ワークフローを正式定義し、WBR隔週スケジュールの調査・Outlookリマインダー設定を完了。
+
+## 現在の状況
+
+### Week Mar08 タスク整理（3/9実施）
+
+**整理プロセス:**
+- Asana / Outlook Calendar / Slack / handover アクションアイテムを統合レビュー
+- MTG出欠整理（出席3件: AU BIL WIP, TEX Huddle, 1:1 Chris）
+- Mar01クリーンアップ（10項目チェックオフ + 3/7 Daily Log）
+- Mar08テンプレベースで作り直し（旧版をアーカイブ）
+- Priority ↔ Weekly TODOs ↔ Daily Log の整合性チェック・修正
+
+**主な変更:**
+- Spider Noir / Hyundai N 削除（HQ budget cuts）
+- Matchmaking System 削除（Parcに類似プロト発見）
+- Sync w/Sean → Backlogs移動（Sean連絡待ち）
+- Rufus調査 更新（Kaiyi返信済み、3サブタスク追加）
+- Government Census → Status check のみに簡素化
+- OP1 2トラック化（TEX OP1 Loop + AU OP1 BS Vol.2）
+- Halfpipe Deprecation 5件 追加（APAC DT POC）
+- Chris トークドラフト フィードバック 追加
+- PES sync → Wed 3/11 11:00 Matt Bryant
+
+### Weekly WorkLog 作成ワークフロー（3/9定義）
+
+正式ワークフロー: `notes/weekly-worklog-workflow.md`
+
+**手順:** Step 1 先週見直し → Step 2 TEMPLATE-WorkLog26コピー → Step 3 持ち越しマージ
+**重要:** テンプレートの構造を必ず維持。コメント欄もチェック。
+
+### Weekly Routine Tasks（3/9定義）
+
+| 曜日 | タスク |
+|------|--------|
+| 月 | カレンダー確認、AU WIP(12:00)、TEX Huddle(13:00)、Weekly Parc Check |
+| 火 | Weekly Project Report → Mirko DM |
+| 木 | Prep for 1:1 Chris、1:1 Chris(14:15) |
+| 金 | Slack catchup、Asana review、Daily↔Weekly sync、WBR check |
+| 隔週 | WBR Input(奇数週水)、WBR Read(奇数週木/偶数週火)、Mirko 1:1(月1) |
+
+### WBR 隔週スケジュール（3/9調査完了）
+
+| WBR | 曜日 | Week |
+|-----|------|------|
+| TEX NA WBR | 水 | 奇数 (W11,W13...) |
+| WW TEX WBR | 木 | 奇数 |
+| TEX EU/APAC/MENA WBR | 木 | 奇数 |
+| WW BIL WBR | 火 | 偶数 (W10,W12...) |
+
+Outlookリマインダー4件作成済み（8-9am, Free, Loop links付き）
+
+### チームメンバー情報（3/9保存）
+
+`memory/team-members.md` にorg構造・alias・関係性を保存。
+- saitshug → mirkocap → amjias → kmccagg
+- メイン協業: Chris直属（Aayushi除く）
+- TEX内: Leigh(graleigh), Kaiyi(kaiwong) = JP、Bindu(sbindu) = MENA
+
+### 運用ルール（確立済み）
+- Weekly TODOs = Single Source of Truth、Daily Log は派生
+- Daily↔Weekly 整合性同期
+- タスク数制限: 1日5件以下
+- **Daily Log キャリーオーバー:** 未完了タスクを翌日にマージしたら前日から削除（重複回避）。一行一タスク、インデントでグルーピング
+- **WorkLog作成ワークフロー:** `notes/weekly-worklog-workflow.md` 参照
+- **外部アクション承認ルール:** カレンダー招待・メール・Slack投稿は「Go」待ち（ai--mission-control のみ例外）
+
+### WorkLog 運用
+- **先週:** WorkLog26-Mar01 ID `31615ecd-1a0d-810d-991e-f3f40f169317` — クリーンアップ完了
+- **今週:** WorkLog26-Mar08 ID `31e15ecd-1a0d-819a-83cf-e001c2a67194` — テンプレベース作り直し済み
+
+### Asana / Notion DB 情報
+- Asanaフィールド: Priority / Estimated / Category / Actual Time
+- **(A) Work Log**: `collection://0eaa9ab4-2968-4c9f-90f1-2b0da3b2f769`
+- **TEMPLATE-WorkLog26**: `31015ecd-1a0d-8104-8bdb-e24359b886a5`
+
+## 成果物一覧
+
+```
+2026-03-03_daily-task-management/
+├── handover.md                        ← 本ファイル
+├── history/
+│   ├── 2026-03-03_handover.md         ← 初版
+│   ├── 2026-03-03_2_handover.md       ← 第2版
+│   ├── 2026-03-03_3_handover.md       ← 第3版
+│   ├── 2026-03-05_handover.md         ← 第4版
+│   ├── 2026-03-06_handover.md         ← 第5版
+│   └── 2026-03-07_handover.md         ← 第6版
+├── artifacts/
+│   ├── asana-weekly-summary.py        ← 週次集計スクリプト
+│   └── run-weekly-summary.sh          ← シェルラッパー
+└── notes/
+    └── weekly-worklog-workflow.md      ← WorkLog作成ワークフロー（Routine Tasks + WBR Schedule含む）
+```
+
+Notion上:
+- WorkLog26-Mar01（クリーンアップ完了）
+- WorkLog26-Mar08（テンプレベース作り直し済み）
+
+Memory:
+- `memory/team-members.md` — チームメンバーalias・org構造・関係性
+
+## アクションアイテム
+
+| # | 期限 | アクション | ステータス |
+|---|------|-----------|-----------|
+| 1 | 今週 | **Forte Feedback** — CW, MC, GL, KW（7週持ち越し） | 未着手 |
+| 2 | 3/11 Wed | **PES Tech Check** — Matt sync 11:00、Deliverables共有 | 未着手 |
+| 3 | 今週 | **Croc Awards** — AWS Reboot + Luke連絡 | 未着手 |
+| 4 | 3/16 | **TEX OP1** — APAC インプット Loop 記入 | 未着手 |
+| 5 | TBD | **AU OP1 BS Vol.2** — Topic 4 AI + Topic 5 | 未着手 |
+| 6 | 今週 | **PV Live API Discovery** — Bindu sync | 進行中 |
+| 7 | 今週 | **Chris トークドラフト** フィードバック | 未着手 |
+| 8 | 3/18 | **Halfpipe Deprecation** — 4件 Acknowledge | 未着手 |
+| 9 | 今週 | **Survey 全体サマライズ** | 未着手 |
+| 10 | 今週 | Gift Reporting / Webflow+Livestreaming | 未着手 |
+| 11 | 今週火 | **Weekly Project Report** → Mirko DM | 未着手 |
+| 12 | - | Life Log 統合プラン決定 | 未着手 |
+| 13 | 毎週 | 週次WorkLog作成・Weekly Routine実行 | 継続 |
+
+## 重要な判断ログ
+
+- **weekly-workflow-setup から分離**（3/3）
+- **Daily Log 作成フロー確立**（3/3）
+- **Asana作業時間トラッキング導入**（3/7）
+- **タスク数制限**（3/7）: 1日5件以下
+- **WorkLog作成ワークフロー正式定義**（3/9）: TEMPLATE-WorkLog26必須コピー、コメント欄チェック、Routine Tasks組み込み
+- **WBR隔週スケジュール調査**（3/9）: 4 WBR全てのLoop PDFから日付パターン抽出。奇数週=TEX系、偶数週=BIL
+- **Outlookリマインダー体系**（3/9）: WBR Input(水)/Read(木or火)/Weekly Review(金) 計4件、8-9am Free表示
+- **外部アクション承認ルール**（3/9）: カレンダー・メール・Slack投稿は「Go」待ち必須
+- **チームメンバーalias保存**（3/9）: Kate/Alex/Kazuki/Daniel/Leigh/Kaiyi/Bindu/Aayushi + org構造
+
+## 関連トピック
+
+- `2026-02-23_weekly-workflow-setup` — 設計・構築記録（完了・前身トピック）
+- `2026-02-25_tex-survey-analysis` — Survey 分析（サマライズ待ち）
+- `2026-02-26_tex-prime-video-sse-initiative` — SSE Initiative（PV Live API進行中）
+- `2026-02-27_au-pes-tech-check` — AU PES Tech Check（3/11 Matt sync）
+- `2026-02-26_cat-decoder-tech-case-study` — Cat Decoder（Croc Awards）
+- `2026-03-06_bil-op1-planning-fy27` — OP1 FY27（AU Topic 1-3完了、TEX OP1 3/16）
+- `2026-03-07_halfpipe-ivs-deprecation` — Halfpipe Deprecation（APAC POC、3/18期限）

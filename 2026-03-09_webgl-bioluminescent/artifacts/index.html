@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bioluminescent Deep Sea</title>
+<style>*{margin:0;padding:0;overflow:hidden}canvas{display:block;width:100vw;height:100vh}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl2');
+if (!gl) { document.body.innerHTML = '<h1 style="color:#fff;background:#000;padding:2em">WebGL2 not supported</h1>'; throw 'No WebGL2'; }
+
+const renderScale = 0.75;
+const dpr = Math.min(window.devicePixelRatio || 1, 2);
+function resize() {
+    canvas.width = Math.floor(window.innerWidth * renderScale * dpr);
+    canvas.height = Math.floor(window.innerHeight * renderScale * dpr);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+}
+window.addEventListener('resize', resize); resize();
+
+const vs = `#version 300 es
+in vec2 a_pos;
+void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`;
+
+const fs = `#version 300 es
+precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+out vec4 fragColor;
+
+// ======== NOISE ========
+vec3 mod289v3(vec3 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
+vec4 mod289v4(vec4 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
+vec4 permute(vec4 x) { return mod289v4(((x*34.0)+1.0)*x); }
+vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+float snoise(vec3 v) {
+    const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+    vec3 i = floor(v + dot(v, C.yyy));
+    vec3 x0 = v - i + dot(i, C.xxx);
+    vec3 g = step(x0.yzx, x0.xyz);
+    vec3 l = 1.0 - g;
+    vec3 i1 = min(g.xyz, l.zxy);
+    vec3 i2 = max(g.xyz, l.zxy);
+    vec3 x1 = x0 - i1 + C.xxx;
+    vec3 x2 = x0 - i2 + C.yyy;
+    vec3 x3 = x0 - D.yyy;
+    i = mod289v3(i);
+    vec4 p = permute(permute(permute(
+        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+      + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+      + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+    float n_ = 0.142857142857;
+    vec3 ns = n_ * D.wyz - D.xzx;
+    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+    vec4 x_ = floor(j * ns.z);
+    vec4 y_ = floor(j - 7.0 * x_);
+    vec4 x = x_ * ns.x + ns.yyyy;
+    vec4 y = y_ * ns.x + ns.yyyy;
+    vec4 h = 1.0 - abs(x) - abs(y);
+    vec4 b0 = vec4(x.xy, y.xy);
+    vec4 b1 = vec4(x.zw, y.zw);
+    vec4 s0 = floor(b0)*2.0 + 1.0;
+    vec4 s1 = floor(b1)*2.0 + 1.0;
+    vec4 sh = -step(h, vec4(0.0));
+    vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy;
+    vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww;
+    vec3 p0 = vec3(a0.xy, h.x);
+    vec3 p1 = vec3(a0.zw, h.y);
+    vec3 p2 = vec3(a1.xy, h.z);
+    vec3 p3 = vec3(a1.zw, h.w);
+    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+    m = m * m;
+    return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+}
+
+float fbm(vec3 p) {
+    float v = 0.0, a = 0.5;
+    mat3 rot = mat3(0.8,-0.6,0.0, 0.6,0.8,0.0, 0.0,0.0,1.0);
+    for (int i = 0; i < 3; i++) { v += a * snoise(p); p = rot * p * 2.0; a *= 0.5; }
+    return v;
+}
+
+float warpedNoise(vec3 p, float t) {
+    // Simplified domain warping: single snoise offset instead of 3x fbm + fbm
+    vec3 q = vec3(
+        snoise(p + t * 0.1),
+        snoise(p + vec3(5.2, 1.3, 2.8) + t * 0.12),
+        snoise(p + vec3(1.7, 9.2, 4.1) + t * 0.08)
+    );
+    return fbm(p + 2.0 * q);
+}
+
+// ======== SDF UTILITIES ========
+float smin(float a, float b, float k) {
+    float h = clamp(0.5 + 0.5*(b - a)/k, 0.0, 1.0);
+    return mix(b, a, h) - k*h*(1.0 - h);
+}
+
+float sdSphere(vec3 p, float r) { return length(p) - r; }
+
+// ======== JELLYFISH ========
+float jellyfishBell(vec3 p, float t, float phase) {
+    float pulse = 0.9 + 0.1 * sin(t * 1.5 + phase);
+    vec3 pp = p;
+    pp.y /= pulse;
+    float outer = sdSphere(pp, 1.0);
+    float inner = sdSphere(pp + vec3(0.0, 0.15, 0.0), 0.85);
+    float shell = max(outer, -inner);
+    float rimAngle = atan(pp.z, pp.x);
+    shell = max(shell, pp.y + 0.1 + 0.15 * sin(rimAngle * 8.0 + t * 2.0 + phase));
+    float warp = snoise(pp * 3.0 + t * 0.3) * 0.06;
+    return shell + warp;
+}
+
+float tentacles(vec3 p, float t, float phase) {
+    float d = 1e10;
+    for (int i = 0; i < 8; i++) {
+        float angle = float(i) * 0.785398 + phase * 0.5;
+        float radius = 0.5 + 0.15 * sin(float(i) * 1.7);
+        vec3 base = vec3(cos(angle) * radius, 0.0, sin(angle) * radius);
+        vec3 tp = p - base;
+        float depth = max(0.0, -tp.y);
+        float sway = sin(tp.y * 2.5 + t * 1.2 + float(i) * 0.8) * 0.15 * depth;
+        float sway2 = cos(tp.y * 1.8 + t * 0.9 + float(i) * 1.2) * 0.1 * depth;
+        tp.x += sway;
+        tp.z += sway2;
+        float thickness = 0.02 + 0.015 * exp(tp.y * 0.5);
+        float tentacle = length(tp.xz) - thickness;
+        tentacle = max(tentacle, tp.y);
+        tentacle = max(tentacle, -tp.y - 3.5);
+        d = min(d, tentacle);
+    }
+    return d;
+}
+
+// ======== CORAL ========
+float coralCluster(vec3 p, float t) {
+    float d = sdSphere(p, 0.6);
+    d = smin(d, sdSphere(p - vec3(0.5, 0.3, 0.2), 0.45), 0.3);
+    d = smin(d, sdSphere(p - vec3(-0.4, 0.5, -0.3), 0.4), 0.3);
+    d = smin(d, sdSphere(p - vec3(0.1, 0.7, 0.4), 0.35), 0.3);
+    d = smin(d, sdSphere(p - vec3(-0.3, -0.1, 0.5), 0.5), 0.3);
+    d = smin(d, sdSphere(p - vec3(0.4, 0.1, -0.4), 0.38), 0.25);
+    d += fbm(p * 2.5 + t * 0.05) * 0.15;
+    return d;
+}
+
+// ======== SCENE ========
+// Returns vec2(distance, materialID)
+// matID: 1.0 = jellyfish bell, 2.0 = tentacles, 3.0 = coral
+vec2 sceneSDF(vec3 p, float t) {
+    vec2 res = vec2(1e10, 0.0);
+
+    // Jellyfish 1 - center
+    {
+        vec3 jp = p - vec3(0.0, 1.5 + sin(t * 0.4) * 0.3, 0.0);
+        float bell = jellyfishBell(jp, t, 0.0);
+        float tent = tentacles(jp, t, 0.0);
+        float jf = min(bell, tent);
+        if (jf < res.x) res = vec2(jf, tent < bell ? 2.0 : 1.0);
+    }
+    // Jellyfish 2 - upper right, smaller
+    {
+        vec3 jp = p - vec3(3.0, 3.0 + sin(t * 0.35 + 1.0) * 0.4, -1.5);
+        vec3 sp = jp / 0.6;
+        float bell = jellyfishBell(sp, t, 2.0) * 0.6;
+        float tent = tentacles(sp, t, 2.0) * 0.6;
+        float jf = min(bell, tent);
+        if (jf < res.x) res = vec2(jf, tent < bell ? 2.0 : 1.0);
+    }
+    // Coral cluster 1
+    {
+        vec3 cp = p - vec3(1.5, -3.0, 0.5);
+        float c = coralCluster(cp, t);
+        if (c < res.x) res = vec2(c, 3.0);
+    }
+    // Coral cluster 2
+    {
+        vec3 cp = p - vec3(-2.0, -3.5, -1.0);
+        float c = coralCluster(cp * 0.8, t) / 0.8;
+        if (c < res.x) res = vec2(c, 3.0);
+    }
+    // Coral cluster 3
+    {
+        vec3 cp = p - vec3(0.0, -2.8, 2.5);
+        float c = coralCluster(cp * 1.2, t) / 1.2;
+        if (c < res.x) res = vec2(c, 3.0);
+    }
+
+    return res;
+}
+
+float sceneD(vec3 p, float t) { return sceneSDF(p, t).x; }
+
+vec3 calcNormal(vec3 p, float t) {
+    vec2 e = vec2(0.002, 0.0);
+    return normalize(vec3(
+        sceneD(p + e.xyy, t) - sceneD(p - e.xyy, t),
+        sceneD(p + e.yxy, t) - sceneD(p - e.yxy, t),
+        sceneD(p + e.yyx, t) - sceneD(p - e.yyx, t)
+    ));
+}
+
+// ======== SHADING ========
+vec3 shade(vec3 p, vec3 rd, float matID, float t) {
+    vec3 n = calcNormal(p, t);
+    float fresnel = pow(clamp(1.0 + dot(rd, n), 0.0, 1.0), 3.0);
+    vec3 lightDir = normalize(vec3(0.3, 1.0, 0.2));
+    float diff = max(dot(n, lightDir), 0.0) * 0.3;
+    vec3 col = vec3(0.0);
+
+    if (matID < 1.5) {
+        // Jellyfish bell: warm orange to cool cyan
+        float gradient = 0.5 + 0.5 * n.y;
+        vec3 warm = vec3(1.0, 0.45, 0.1);
+        vec3 cool = vec3(0.1, 0.7, 0.9);
+        col = mix(warm, cool, gradient);
+        col += fresnel * vec3(0.3, 0.8, 1.0) * 1.5;
+        float pulse = 0.5 + 0.5 * sin(t * 1.5 + p.y * 2.0);
+        col += pulse * vec3(1.0, 0.5, 0.2) * 0.3;
+        col *= (diff + 0.4);
+    } else if (matID < 2.5) {
+        // Tentacles: bioluminescent cyan-gold
+        col = vec3(0.2, 0.6, 0.9);
+        float glow = 0.5 + 0.5 * sin(p.y * 5.0 + t * 2.0);
+        col += glow * vec3(1.0, 0.7, 0.2) * 0.5;
+        col += fresnel * vec3(0.3, 0.9, 1.0) * 1.2;
+        col *= (diff + 0.35);
+    } else {
+        // Coral: white-gold luminescence
+        vec3 gold = vec3(1.0, 0.85, 0.4);
+        vec3 white = vec3(1.0, 0.95, 0.9);
+        float variation = snoise(p * 3.0 + t * 0.1) * 0.5 + 0.5;
+        col = mix(gold, white, variation);
+        float pulse = 0.5 + 0.5 * sin(t * 0.8 + length(p.xz) * 2.0);
+        col += pulse * vec3(0.2, 0.8, 0.5) * 0.3;
+        col += fresnel * vec3(1.0, 0.9, 0.6) * 0.8;
+        col *= (diff + 0.5);
+    }
+    return col;
+}
+
+// ======== VOLUMETRIC ========
+float volumetricSample(vec3 p, float t) {
+    float lightFalloff = exp(-max(0.0, 5.0 - p.y) * 0.15);
+    float noise = warpedNoise(p * 0.3, t) * 0.5 + 0.5;
+    return lightFalloff * noise * 0.5;
+}
+
+// ======== PARTICLES ========
+vec3 particleField(vec3 ro, vec3 rd, float t) {
+    vec3 col = vec3(0.0);
+    for (int i = 0; i < 15; i++) {
+        float fi = float(i);
+        vec3 pp = vec3(
+            sin(fi * 127.1 + 311.7) * 5.0,
+            mod(sin(fi * 269.5 + 183.3) * 5.0 + t * (0.03 + fract(fi * 0.017) * 0.04), 10.0) - 5.0,
+            sin(fi * 419.2 + 371.9) * 5.0
+        );
+        pp.x += sin(t * 0.2 + fi * 1.7) * 0.5;
+        pp.z += cos(t * 0.15 + fi * 2.3) * 0.5;
+        vec3 toP = pp - ro;
+        float tRay = dot(toP, rd);
+        if (tRay < 0.0) continue;
+        vec3 closest = ro + rd * tRay;
+        float dist = length(closest - pp);
+        float brightness = 1.0 / (dist * dist * 800.0 + 0.5);
+        brightness *= smoothstep(25.0, 5.0, tRay);
+        vec3 pcol;
+        float hue = fract(fi * 0.618);
+        if (hue < 0.33) pcol = vec3(0.1, 0.6, 0.9);
+        else if (hue < 0.66) pcol = vec3(1.0, 0.6, 0.15);
+        else pcol = vec3(0.2, 0.9, 0.5);
+        col += pcol * brightness;
+    }
+    return col;
+}
+
+// ======== MAIN ========
+void main() {
+    vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution) / u_resolution.y;
+    float t = u_time;
+
+    // Slow orbiting camera
+    float camAngle = t * 0.1;
+    float camHeight = sin(t * 0.07) * 1.5;
+    vec3 ro = vec3(sin(camAngle) * 5.0, camHeight + 1.0, cos(camAngle) * 5.0);
+    vec3 target = vec3(0.0, 0.0, 0.0);
+
+    // lookAt matrix
+    vec3 fwd = normalize(target - ro);
+    vec3 right = normalize(cross(fwd, vec3(0.0, 1.0, 0.0)));
+    vec3 up = cross(right, fwd);
+    vec3 rd = normalize(uv.x * right + uv.y * up + 1.5 * fwd);
+
+    // Deep ocean background
+    vec3 col = vec3(0.0, 0.012, 0.04);
+    col += vec3(0.0, 0.005, 0.015) * (0.5 - uv.y);
+
+    float glowAcc = 0.0;
+    float volAcc = 0.0;
+    float totalT = 0.0;
+    bool hit = false;
+    float hitMat = 0.0;
+    vec3 hitPos = vec3(0.0);
+
+    // Bounding spheres for early skip (center, radius)
+    // Jellyfish 1: center(0, 1.5, 0), r~5.0 (bell + tentacles)
+    // Jellyfish 2: center(3, 3, -1.5), r~4.0
+    // Coral centers: (1.5,-3,0.5), (-2,-3.5,-1), (0,-2.8,2.5), r~2.5 each
+    vec3 bsC[5]; float bsR[5];
+    bsC[0] = vec3(0.0, 1.5 + sin(t*0.4)*0.3, 0.0);  bsR[0] = 5.0;
+    bsC[1] = vec3(3.0, 3.0 + sin(t*0.35+1.0)*0.4, -1.5); bsR[1] = 4.0;
+    bsC[2] = vec3(1.5, -3.0, 0.5);   bsR[2] = 2.5;
+    bsC[3] = vec3(-2.0, -3.5, -1.0);  bsR[3] = 2.5;
+    bsC[4] = vec3(0.0, -2.8, 2.5);   bsR[4] = 2.5;
+
+    for (int i = 0; i < 80; i++) {
+        vec3 p = ro + rd * totalT;
+
+        // Bounding sphere check: skip full SDF if far from all objects
+        float minBound = 1e10;
+        for (int b = 0; b < 5; b++) {
+            minBound = min(minBound, length(p - bsC[b]) - bsR[b]);
+        }
+        if (minBound > 2.0) {
+            // Far from all objects: take a large step, still accumulate cheap volumetric
+            if ((i & 1) == 0) volAcc += volumetricSample(p, t) * 0.008;
+            totalT += minBound * 0.8;
+            if (totalT > 30.0) break;
+            continue;
+        }
+
+        vec2 res = sceneSDF(p, t);
+        float d = res.x;
+
+        glowAcc += 0.003 / (0.01 + d * d);
+        // Volumetric every other step to halve cost
+        if ((i & 1) == 0) volAcc += volumetricSample(p, t) * 0.016;
+
+        if (d < 0.002) {
+            hit = true;
+            hitMat = res.y;
+            hitPos = p;
+            break;
+        }
+        if (totalT > 30.0) break;
+        // Adaptive step: when far from surface, step more aggressively
+        totalT += d * (d > 0.5 ? 1.2 : 1.0);
+    }
+
+    if (hit) {
+        col = shade(hitPos, rd, hitMat, t);
+        float fog = 1.0 - exp(-totalT * 0.05);
+        col = mix(col, vec3(0.0, 0.012, 0.04), fog);
+    }
+
+    // Bioluminescent glow
+    col += glowAcc * vec3(0.08, 0.35, 0.7) * 0.5;
+
+    // Volumetric light
+    col += volAcc * vec3(0.05, 0.15, 0.3);
+
+    // Bokeh particles
+    col += particleField(ro, rd, t);
+
+    // Vignette
+    vec2 vUv = gl_FragCoord.xy / u_resolution;
+    float vignette = 1.0 - 0.4 * length(vUv - 0.5);
+    col *= vignette;
+
+    // Reinhard tonemap
+    col = col / (1.0 + col);
+
+    // Gamma correction
+    col = pow(col, vec3(0.4545));
+
+    fragColor = vec4(col, 1.0);
+}
+`;
+
+function compileShader(src, type) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        console.error('Shader compile error:', gl.getShaderInfoLog(s));
+        return null;
+    }
+    return s;
+}
+
+const vShader = compileShader(vs, gl.VERTEX_SHADER);
+const fShader = compileShader(fs, gl.FRAGMENT_SHADER);
+const prog = gl.createProgram();
+gl.attachShader(prog, vShader);
+gl.attachShader(prog, fShader);
+gl.linkProgram(prog);
+if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+    console.error('Program link error:', gl.getProgramInfoLog(prog));
+}
+gl.useProgram(prog);
+
+const buf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
+const aPos = gl.getAttribLocation(prog, 'a_pos');
+gl.enableVertexAttribArray(aPos);
+gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+const uTime = gl.getUniformLocation(prog, 'u_time');
+const uRes = gl.getUniformLocation(prog, 'u_resolution');
+const startTime = performance.now();
+
+function frame() {
+    gl.uniform1f(uTime, (performance.now() - startTime) * 0.001);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    requestAnimationFrame(frame);
+}
+frame();
+</script>
+</body>
+</html>
