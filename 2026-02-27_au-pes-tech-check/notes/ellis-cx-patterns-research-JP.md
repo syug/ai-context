@@ -9,6 +9,8 @@
 
 本ドキュメントは、Amazon の Ellis Blueprint CX Constructs の全体像、LWA と Amazon Pay の関係性、および AU Prime Early Screenings (PES) プロジェクトへの示唆をまとめたリサーチノートである。
 
+> **重要な補足（2026-03-10）：** PES AU の文脈では、Event Cinemas が自前でチケット管理を行う前提なら、Ellis は必須ではない。最低限必要なのは LWA による Prime 認証（`prime:benefit_status`）のみ。Ellis は Amazon 側でオファーライフサイクル（在庫、利用上限、重複防止等）を管理したい場合のオプションである。以下の Ellis パターンを読む際は、この区別を念頭に置くこと。
+
 ## Ellis CX パターン比較
 
 Ellis は 5 つの OOB (Out-of-the-Box) Blueprint CX Construct を提供している：

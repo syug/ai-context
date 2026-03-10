@@ -9,6 +9,8 @@
 
 This document summarizes research into Amazon's Ellis Blueprint CX Constructs, the relationship between LWA and Amazon Pay, and implications for the AU Prime Early Screenings (PES) project with Event Cinemas.
 
+> **Important context (2026-03-10):** In the AU PES context, if Event Cinemas manages ticketing and offer lifecycle independently (as their proposal suggests), Ellis is not required. The minimum Amazon-side requirement is LWA with `prime:benefit_status` for Prime authentication only. Ellis becomes relevant only when Amazon needs to control the offer lifecycle (inventory, redemption limits, duplicate prevention). This distinction should be kept in mind when reading the Ellis patterns below.
+
 ## Ellis CX Pattern Comparison
 
 Ellis offers 5 Out-of-the-Box (OOB) Blueprint CX Constructs:
