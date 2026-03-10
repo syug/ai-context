@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-10T21:45:00+11:00",
+  "updated": "2026-03-11T12:00:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -410,8 +410,8 @@
       "hasHandover": true,
       "title": "Slack未読チェック・チーム情報キャッチアップ（継続）",
       "status": "進行中",
-      "summary": "Slack未読メッセージの継続的な整理。au-bil, team-au-and-mena-bil, bil-ww-tex, bil-ww-tex-dt を消化。Matt Bryant/Matt Roberts DM対応、OpenClawシェア調査も実施。",
-      "tags": ["slack", "catchup", "unread", "au-bil", "team-au-and-mena-bil", "bil-ww-tex", "bil-ww-tex-dt", "未読", "キャッチアップ", "matt-bryant", "matt-roberts", "chris-wilson", "openclaw", "lego", "brand-store", "asin"]
+      "summary": "Slack未読メッセージの継続的な整理。au-bil, team-au-and-mena-bil, bil-ww-tex, bil-ww-tex-dt を3/11に再確認。Alexa+移行問題、Howatson AI Unicorn、L5 DT募集等。DM2件は新規メッセージなし。",
+      "tags": ["slack", "catchup", "unread", "au-bil", "team-au-and-mena-bil", "bil-ww-tex", "bil-ww-tex-dt", "未読", "キャッチアップ", "matt-bryant", "matt-roberts", "chris-wilson", "openclaw", "lego", "brand-store", "asin", "alexa-plus", "howatson", "unicorn"]
     },
     {
       "dir": "2026-03-06_slack-bridge-and-tmux-migration",
