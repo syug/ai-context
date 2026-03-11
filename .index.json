@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-11T20:30:00+11:00",
+  "updated": "2026-03-12T00:05:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -147,8 +147,8 @@
       "slug": "pest-control-dishwasher-followup",
       "hasHandover": true,
       "title": "害虫駆除フォローアップ — 食洗機内ゴキブリ問題",
-      "status": "進行中（3/10リセット・監視→収束宣言フェーズ）",
-      "summary": "Surry Hillsの賃貸物件で入居時から害虫・衛生問題が存在。3/10に室内幼生死骸1+玄関外成虫死骸1（大雨×最終孵化サイクル二重トリガー）。TYWUドアシール施工完了。収束宣言3/10起算→3/24目標。生存個体12日間ゼロ。",
+      "status": "進行中（3/11リセット・監視→収束宣言フェーズ）",
+      "summary": "Surry Hillsの賃貸物件で入居時から害虫・衛生問題が存在。3/11夕方に死骸1（late-instar nymph可能性、妻処理済み未確認）。TYWUドアシール施工完了。収束宣言3/11起算→3/25目標。生存個体13日間ゼロ。",
       "tags": ["pest-control", "cockroach", "dishwasher", "surry-hills", "rental", "害虫", "ゴキブリ", "食洗機", "賃貸", "icr", "rta", "tenant", "repair", "sydney", "belle-property", "bait", "indoxacarb", "foam-tape", "door-seal", "tywu", "amazon-au", "silicone"]
     },
     {
