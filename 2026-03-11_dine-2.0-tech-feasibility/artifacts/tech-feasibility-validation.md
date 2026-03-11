@@ -167,11 +167,11 @@ Digital components (Brand Store, PV, DSP, Influencer) all **Green**. Physical fr
 
 | Campaign | Relevance |
 |----------|-----------|
-| **Nespresso x The Weeknd Vinyl** | Closest precedent. Limited-edition physical collectible tied to purchase. Brand-produced (not BIL). Distributed via pop-up + sweepstakes. $6.8M campaign |
-| **Mars Pedigree Buy 1 Feed 1** | Pet food + purchase-linked mechanic + collective progress tracker on Brand Store |
-| **OPTIMUM Product Selector** | ANZ pet food Brand Store campaign. +97% monthly sales |
-| **P&G Oral-B Pop-Up Store** | Physical activation + online gamification + progressive discount redemption |
-| **Nissan Dare to Defy** | PV brand-funded documentary + BTS content production workflow |
+| **Nespresso x The Weeknd Vinyl** | Closest precedent for limited-edition physical item tied to a campaign. 200 coffee-pressed vinyl records distributed via IRL pop-up + sweepstakes. $6.8M campaign. **Key difference:** the vinyl was **manufactured and fulfilled entirely by Nespresso (the brand)**, not BIL. BIL handled creative/media/Brand Store only. No precedent for BIL owning physical product manufacturing or logistics |
+| **Mars Pedigree Buy 1 Feed 1** | Pet food category + purchase-linked mechanic + collective progress tracker on Brand Store. **Key difference:** entirely digital campaign — no physical product manufacturing or fulfillment. Relevant for challenge/progress tracking UX pattern only |
+| **OPTIMUM Product Selector** | ANZ pet food Brand Store campaign. +97% monthly sales. **Key difference:** purely digital product selector — no physical product component. Relevant as ANZ pet food category precedent only |
+| **P&G Oral-B Pop-Up Store** | Physical pop-up experience + online gamification + progressive discount redemption. **Key difference:** the "physical" element was an in-store experience, not a manufactured consumer product for mass distribution |
+| **Nissan Dare to Defy** | PV brand-funded 3-part documentary + BTS advertorial content + multi-platform activation. Relevant for Prime Video content production workflow and BTS content creation |
 
 ### Component Assessment
 
@@ -265,9 +265,9 @@ Second-screen infrastructure is **Green** with strong precedent. The ultrasonic 
 
 | Campaign | Relevance | Link |
 |----------|-----------|------|
-| **Coca-Cola Second Screen Sync** | Direct precedent. WebSocket mobile-to-Fire TV real-time sync via BIL-E MessageRoom package. Production-deployed | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/bil-second-screen-sync) |
-| **Fidelity Peek Portfolio SSE** | Closest analog. Second-screen companion synced to PV playback of "The Summer I Turned Pretty." Scene-aware content delivery via SSE. Built by aleckunk (TEX) | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/fidelity-peek-portfolio-sse) |
-| **Web Audio Spatialization** | Web Audio API spatial audio prototype. Demonstrates BIL browser-based audio manipulation capability | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/web-audio-spatialization-imme) |
+| **Coca-Cola Second Screen Sync** | Strongest infrastructure precedent. WebSocket mobile-to-Fire TV real-time sync via BIL-E MessageRoom package. Production-deployed. **Key difference:** syncs a BIL-controlled Fire TV app with a BIL-controlled mobile app (both sides are BIL-owned). Dine 03 requires syncing with **Prime Video content playback** (PV-controlled), which is a fundamentally different challenge — BIL has no control over PV's playback state | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/bil-second-screen-sync) |
+| **Fidelity Peek Portfolio SSE** | Closest analog to this idea. Second-screen companion synced to PV playback of "The Summer I Turned Pretty." Scene-aware content delivery via SSE. Built by aleckunk (TEX). **Key caveat:** still **in progress / not production-deployed**. The PV sync mechanism is unproven at production scale, making this a promising but unvalidated path | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/fidelity-peek-portfolio-sse) |
+| **Web Audio Spatialization** | Web Audio API spatial audio prototype. Demonstrates BIL browser-based audio manipulation capability (positioning, volume control). Relevant for the dynamic audio adjustment component | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/web-audio-spatialization-imme) |
 
 ### Component Assessment
 
