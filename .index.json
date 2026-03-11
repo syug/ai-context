@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-11T12:30:00+11:00",
+  "updated": "2026-03-11T12:55:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -96,7 +96,9 @@
     "halfpipe-all": "2026-03-08_halfpipe-deprecation",
     "arla": "2026-03-11_uk-arla-ai-on-clp",
     "julia": "2026-03-11_uk-arla-ai-on-clp",
-    "ai-clp": "2026-03-11_uk-arla-ai-on-clp"
+    "ai-clp": "2026-03-11_uk-arla-ai-on-clp",
+    "dine": "2026-03-11_dine-2.0-tech-feasibility",
+    "dine-2.0": "2026-03-11_dine-2.0-tech-feasibility"
   },
   "topics": [
     {
@@ -577,6 +579,16 @@
       "status": "進行中",
       "summary": "Julia Sampaio（UK BIL SM）からのArla AI on CLPキャンペーン相談に対し、MARS経験+最新のFAST/ASR Orange分類情報を調査。",
       "tags": ["arla", "uk", "ai", "clp", "fast", "asr", "orange", "petarmor", "mars", "bil", "julia", "campaign", "security-review", "genai", "approval", "承認プロセス", "キャンペーン"]
+    },
+    {
+      "dir": "2026-03-11_dine-2.0-tech-feasibility",
+      "date": "2026-03-11",
+      "slug": "dine-2.0-tech-feasibility",
+      "hasHandover": true,
+      "title": "Mars Dine 2.0 \"Ignored to Adored\" — Tech Feasibility Validation",
+      "status": "進行中（クライアントフィードバック待ち）",
+      "summary": "AU BIL提案の3クリエイティブアイデア（Cat Love Keyboard / Adore Des Chats / Dinner and a Show）のTech Feasibility Validation。全アイデアYellow、各1つRedブロッカーあり（全てピボット可能）。",
+      "tags": ["dine", "mars", "cat-decoder", "ignored-to-adored", "feasibility", "tech-check", "au", "bil", "brand-store", "amazon-music", "alexa", "prime-video", "second-screen", "fragrance", "web-audio", "arc", "parc", "cat-love-keyboard", "adore-des-chats", "dinner-and-a-show", "chris-wilson", "publicis", "pspspsuedoscience", "キャンペーン", "技術評価"]
     }
   ]
 }
