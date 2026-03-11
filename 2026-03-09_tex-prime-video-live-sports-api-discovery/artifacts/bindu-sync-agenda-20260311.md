@@ -2,7 +2,7 @@
 
 **日時:** 2026-03-11 19:00-19:30 AEDT (8:00-8:30 GMT)
 **参加者:** Shugo, Bindu
-**目的:** PV Live Sports API Discovery -- ライセンス問題を踏まえた方針すり合わせ
+**目的:** PV Live Sports API Discovery -- 2トラック並行戦略の方針すり合わせ
 
 ---
 
@@ -21,19 +21,69 @@
    - **POCs**（担当窓口）を特定する
    - **ETA**（タイムライン）を把握する
 
+**提案: 2トラック並行で進める**
+
+```
+Track 1 (技術): Biz justification → BIL-E Intake → SDP Onboarding + BGW統合
+Track 2 (ライセンス): Jonathan Yi コール → プロセス/POCs/ETA把握 → 商用ライセンス交渉
+```
+
+技術アクセスはライセンス解決を待たずに進められる（Anand「全広告主OK」）。
+両トラックが合流するのは実キャンペーン実行時。PoC は editorial/internal use で Track 1 のみで走れる。
+
 ---
 
-## 議題1: Jonathan Yi コールの段取り (10min)
+## Track 1: 技術アクセス — BIL-E Intake & SDP Onboarding (15min)
 
-### 論点
+### 1-1. Bindu-Harish 協議状況の共有
 
-- **誰がコールを設定するか?** Bindu? Shugo? Mirkoも入れるか?
-- **TZ:** Jonathan Yi は Arlington, VA (EST/EDT) -- Bindu (London) との重なりは十分あり。Shugoは非同期フォローでOKか?
-- **いつまでに実施?** 今週中が望ましい（Mirkoが ETA を求めている）
+- 前回（1月）Bindu経由で確認: Harish (BIL-E) は「1案件では動かない。複数Pod横断の例が必要」
+- **1月以降、Bindu-Harish間で何か進展あるか?**
 
-### Jonathan Yi コールで確認すべき質問リスト
+### 1-2. オンボーディングの進め方 — (A) vs (B)
 
-Mirkoの3要求に対応させて整理:
+| | (A) 我々主導 | (B) BIL-E主導 |
+|---|------------|--------------|
+| **流れ** | BIL-E Intake を送りつつ、我々が SDP Onboarding も initiate → 後から BIL-E を巻き込む | BIL-E Intake からスタート → BIL-E が SDP Onboarding を進める |
+| **メリット** | スピード。BIL-E の優先度に依存しない | 正規ルート。BIL-E のオーナーシップが明確 |
+| **リスク** | BIL-E を飛ばして進めることへの反発 | BIL-E のバックログ次第で遅延 |
+
+**Binduに聞きたいこと:** Harish の性格・チームの状況を踏まえて、どちらが現実的か?
+
+### 1-3. Biz Justification の温度感チェック
+
+現在の数字で Harish を説得できそうか?
+
+| Pod | 金額 | 状態 |
+|-----|------|------|
+| EU Endemics | $3MM/yr | Mirko記載済み |
+| AU | $400k/yr | Chris Wilson回答済み |
+| US | 金額なし、PoC実行中 | Fitz/Kevin回答済み |
+| JP | 未回答 | Mariko: 壁が高い |
+| MENA | 数字なし | ポテンシャルのみ |
+
+- **EU + AU + US PoC実績で十分か?** それとも JP/MENA を待つべきか?
+- Bindu の温度感: Harish は動きそうか?
+
+### 1-4. 技術 PoC（Chicken-and-Egg 回避）
+
+- PoC/デモを editorial/internal use の範囲で先行させたい
+- BIL-E Intake なしで SDP Core と直接テスト接続は可能か?（#sdp-contact / SIM intake queue）
+- PoC の成果物をライセンス交渉のレバレッジにできるか?
+
+---
+
+## Track 2: 商用ライセンス — Jonathan Yi との連携 (10min)
+
+**Jonathan Yi プロフィール:**
+- Sr. BD Manager, PV Devices-BD Tech & Product
+- alias: yijonatj | L6, Arlington VA (EST/EDT)
+- 上司: Nina Pablo (ninapabl, Sr. Mgr, L7, Seattle)
+- Bindu が Anand 経由でループインした相手
+
+### 2-1. Jonathan との確認事項すり合わせ
+
+Mirkoの3要求に対応して、Jonathan に確認すべき内容を Bindu と揃える:
 
 **1. プロセス（ライセンス申請フロー）**
 - 商用利用ライセンスの申請フローはどうなっているか?
@@ -41,7 +91,7 @@ Mirkoの3要求に対応させて整理:
 - 申請に必要なインプット（use case定義、リーチ見積もり等）は何か?
 
 **2. POCs（担当窓口）**
-- データプロバイダーごとに担当BDが異なるか? Jonathan Yiが一元窓口か?
+- データプロバイダーごとに担当BDが異なるか? Jonathan が一元窓口か?
 - SDP Core (Anand) との役割分担は?（技術オンボーディング vs ライセンス）
 
 **3. ETA（タイムライン）**
@@ -53,55 +103,23 @@ Mirkoの3要求に対応させて整理:
 - データ x プロバイダーのマッピングは既に存在するか?（Holly の onboarded-stats 以上の情報）
 - コスト負担者は誰になるか?（BIL / 広告主 / PV?）
 
----
+### 2-2. Jonathan との連絡方法の決定
 
-## 議題2: BIL-E Intake Request (8min)
+| 方法 | メリット | デメリット |
+|------|---------|-----------|
+| **コール** | 密度が高い、ニュアンスを掴める | TZ調整が必要 |
+| **Slack** | 非同期で進められる、ログが残る | レスポンス遅延リスク |
+| **Email** | フォーマル、CCで関係者を巻き込みやすい | ラリーに時間がかかる |
 
-### 現在の状態
+- Jonathan の 3/7 メール原文では「コールを提案」していた
+- **Bindu の判断を仰ぎたい:** Jonathan との関係性・コミュニケーションスタイルを踏まえてどれがベストか?
 
-- BIL-E (Harish) は「1案件では動かない。複数Pod横断の例が必要」（Bindu 1月指摘）
-- Mirkoがグローバルビジネスインパクトを収集中 → ビジネスケースの材料は揃いつつある
+### 2-3. コールの場合 — Bindu にリードをお願いできるか?
 
-### ビジネスケースの強さ
-
-| Pod | 金額 | 状態 |
-|-----|------|------|
-| EU Endemics | $3MM/yr | Mirko記載済み |
-| AU | $400k/yr | Chris Wilson回答済み |
-| US | 金額なし、PoC実行中 | Fitz/Kevin回答済み |
-| JP | 未回答 | Mariko: ポジティブだが壁が高い |
-| MENA | 数字なし | ポテンシャル言及のみ |
-
-### 議論ポイント
-
-- **Intake を出すタイミングは?** JP/MENAの回答を待つか、EU+AU+USで十分か?
-- **Intake の中身:** ライセンス問題が未解決の状態で技術Intakeを出してよいか? それとも並行して進めるか?
-- **Bindu側で既にIntakeに向けて動いていることはあるか?**
-
-### 正しいフロー（確認）
-
-Business justification 収集 → **Bindu sync（今ここ）** → BIL-E Intake Request → BIL-E が SDP オンボーディング + BGW インテグレーション実行
-
----
-
-## 議題3: 技術 PoC 方針 (5min)
-
-### Chicken-and-Egg 回避戦略
-
-- 動くものがないとプロバイダーとのライセンス交渉も進まない
-- PoC/デモを editorial/internal use の範囲で先行させる
-- Jonathan Yi コールで「PoCは editorial 扱いか」を確認するのが最優先
-
-### PoC のスコープ案
-
-- SDP API への技術的接続テスト（BIL-E Intake 前に可能か?）
-- Brand Gateway 経由でのデータ取得デモ
-- 1スポーツ（例: NBA）に絞った小規模プロトタイプ
-
-### 議論ポイント
-
-- BIL-E Intake なしで SDP Core と直接テスト接続は可能か?（#sdp-contact / SIM intake queue）
-- PoC の成果物をライセンス交渉のレバレッジにできるか?
+- **TZ問題:** Shugo (Sydney AEDT) - Jonathan (Arlington EST) = 15時間差 → 直接コールは非現実的
+- **Bindu (London GMT) - Jonathan (Arlington EST)** = 5時間差 → ビジネスアワー重なりあり
+- **お願い:** Bindu が Jonathan コールをリード、Shugo はメール CC + 非同期フォロー
+- Mirko も入れるべきか?（A=Mirko なので、少なくともCC）
 
 ---
 
@@ -112,8 +130,8 @@ Business justification 収集 → **Bindu sync（今ここ）** → BIL-E Intake
 | 1 | Jonathan Yi コールを設定 | ___ | ___ |
 | 2 | Jonathan Yi コールのアジェンダ作成・共有 | ___ | ___ |
 | 3 | BIL-E Intake Request ドラフト | ___ | ___ |
-| 4 | Mirkoへライセンス状況アップデート | ___ | ___ |
-| 5 | SDP Core 技術問い合わせ（#sdp-contact） | ___ | ___ |
+| 4 | SDP Core 技術問い合わせ / PoC initiate | ___ | ___ |
+| 5 | Mirkoへライセンス状況アップデート | ___ | ___ |
 | 6 | ___ | ___ | ___ |
 
 ---

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-11T18:12:00+11:00",
+  "updated": "2026-03-11T20:30:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -557,7 +557,7 @@
       "hasHandover": true,
       "title": "PV Live Sports API Discovery -- BGW統合・商用ライセンス・リーガル準備",
       "status": "進行中",
-      "summary": "PV Live Sports API Discovery。Jonathan Yi（PV BD）よりSDPデータはeditorial only、commercial未対応と判明。3層ゴール（Tech/Licensing/Legal）定義、Strategy v2作成。Bindu sync 3/11アジェンダ準備完了。Mirko要求3点（プロセス/POCs/ETA）反映。Discovery Doc (Quip c4cBAcoeV61e) はライセンス問題未反映。",
+      "summary": "PV Live Sports API Discovery。3/11 Bindu sync完了: (B)BIL-E主導決定、Bindu=技術/Shugo=ライセンス分担。Jonathan Yiへコール提案Reply All送信済み(日程調整中)。現Biz Justificationで十分、Legal保留。Quip c4cBAcoeV61e。",
       "tags": ["tex", "prime-video", "live-sports-api", "sdp", "sports-data-platform", "discovery", "brand-gateway", "bgw", "bil-e", "bindu", "mirko", "jonathan-yi", "pv-bd", "licensing", "editorial", "commercial", "chicken-and-egg", "sportradar", "gillette", "sidecast", "au", "jp", "eu", "us", "mena", "quip"]
     },
     {

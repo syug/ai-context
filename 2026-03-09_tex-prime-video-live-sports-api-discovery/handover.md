@@ -11,52 +11,40 @@ Prime Video Live Sports API（SDP: Sports Data Platform）をBrand Gateway経由
 
 元々2025/12にGillette案件でAPI調査を開始 → Gillette失注で中断 → Mirkoが「案件に関係なくDiscoveryを続けたい」 → Binduが「BIL-Eは1案件だけでは動かない。複数Pod横断の例が必要」 → 2026/01 Binduとフォローアップ → 3/3 Mirkoがグローバルでビジネスインパクト収集開始 → 3/7 Jonathan Yi（PV BD）よりライセンスがeditorial onlyと判明。
 
+## 2トラック並行戦略
+
+3/11 Bindu sync で合意。技術アクセスとライセンスは別管轄のため並行で進める:
+
+```
+Track 1 (技術): Biz justification → BIL-E Intake → SDP Onboarding + BGW統合  [Bindu担当]
+Track 2 (ライセンス): Jonathan Yi連携 → プロセス/POCs/ETA把握 → 商用ライセンス交渉  [Shugo担当]
+```
+
+両トラックが合流するのは実キャンペーン実行時。PoC は editorial/internal use で Track 1 のみで走れる（Chicken-and-Egg回避）。
+
 ## 現在の状況
 
-### ライセンス問題（最重要）
+### Bindu sync 完了（3/11 19:00-19:29 AEDT）
 
-3/6にBinduがSDP Core SDM (Anand Kumaravel) にメールで確認 → AnandがJonathan Yi（Sr. BD Manager, WW BD | Prime Video）をループイン → Jonathan Yiの回答（3/7）:
+**主な決定事項:**
+1. **Track 1: (B) BIL-E主導に決定** — SDP Core直接ではなく、BIL-E経由でオンボーディング。SDE専門知識が必要なため。
+2. **Bindu が BIL-E Intake チケットを作成** + SDP Core チームとのオンボーディング調整
+3. **Shugo が Jonathan との初回 sync をスケジュール** — ライセンス要件の確認
+4. **Legal/Policy は Track 2 が明確になるまで保留**
+5. **現在の Biz Justification で Intake 開始OK** — Harish の以前のフィードバックを踏まえて十分と判断
 
-- SDPデータライセンスは現在 **PV専用・editorial use** に標準化
-- **商用（commercial）利用には未対応**
-- 商用利用は one-size-fits-all ではなく、データプロバイダーがuse case / reach / data scopeの3軸で個別に課金を算出
-- コールを提案
+**オーナーシップ分担:**
+- **Bindu**: 技術担当（BIL-E Intake、SDP Core オンボーディング調整）
+- **Shugo**: ライセンス担当（Jonathan Yi 連携、Mirko エスカレーション）
 
-**2レイヤー問題:**
+### Track 1: 技術アクセス — BIL-E Intake & SDP Onboarding
 
-| レイヤー | 管轄 | 担当者 | 状態 |
-|---------|------|--------|------|
-| 技術アクセス | SDP Core | Anand Kumaravel (SDM) | 全広告主OK |
-| 商用ライセンス | PV BD | Jonathan Yi (Sr. BD Mgr) | editorial only、commercial は個別交渉 |
+**方針決定: (B) BIL-E主導**
+- BIL-E (Harish) 経由で SDP Core オンボーディング + BGW インテグレーション
+- SDE専門知識が必要なため、直接オンボーディングではなくBIL-E経由が適切
+- Bindu が Intake チケット作成を担当
 
-**saitshug方針: Chicken-and-Egg回避**
-- 技術実装（PoC）を先行し、商用ライセンスはキャンペーン単位で対応
-- PoC/デモは editorial/internal use の範囲で進める
-- 動くものがないとプロバイダーとのライセンス交渉も進まない
-
-### Mirkoの要求（3/10 Slackメッセージ）
-
-Mirkoが #tex-discovery-pv-live-sports-api-enablement で3点を要求:
-1. ライセンス申請の**プロセス**を明確にする
-2. **POCs**（担当窓口）を特定する
-3. **ETA**（タイムライン）の把握が必須
-
-→ Bindu sync のアジェンダに反映済み
-
-### Bindu sync（本日 3/11）
-
-- **日時:** 水 3/11 19:00-19:30 AEDT (8:00-8:30 GMT)
-- **Outlook招待送信済み**
-- **Slackメッセージ送信済み** (#tex-discovery-pv-live-sports-api-enablement, 3/9)
-- **アジェンダメモ作成済み**: `artifacts/bindu-sync-agenda-20260311.md`
-- 初回syncのみ同期、以降は基本Slack非同期
-
-アジェンダ:
-1. Jonathan Yiコール段取り (10min) — 誰が設定/TZ/質問リスト（プロセス・POCs・ETA）
-2. BIL-E Intake Request (8min) — タイミング判断、ビジネスケース強度
-3. 技術PoC方針 (5min) — Chicken-and-Egg回避、editorial use範囲
-
-### ビジネスインパクト収集（Mirko主導）
+**Biz Justification — 十分と判断:**
 
 | Pod | 見積もり | ステータス |
 |-----|---------|-----------|
@@ -66,15 +54,57 @@ Mirkoが #tex-discovery-pv-live-sports-api-enablement で3点を要求:
 | JP | 未回答（Mariko: ポジティブだが「Sales Struggle + ライセンシー問題で壁が高い」） | **期限超過** |
 | MENA | ポテンシャルありだが数字なし | Chris Wilson言及のみ |
 
+グローバルスケーラビリティ + 複数スポーツリーグ + US PoC実績で、Harish の以前の条件（複数Pod横断）をクリア。
+
+### Track 2: 商用ライセンス — Jonathan Yi (PV BD) 連携
+
+**Jonathan Yi プロフィール:**
+- Sr. BD Manager, PV Devices-BD Tech & Product
+- alias: yijonatj | L6, Arlington VA (EST/EDT)
+- 上司: Nina Pablo (ninapabl, Sr. Mgr, L7, Seattle)
+
+**メールスレッド経緯:**
+1. 3/5: Bindu → Anand に口頭確認（「全広告主OK」）
+2. 3/5: Mirko が書面エビデンスを要求
+3. 3/6: Bindu → Anand にメール送信
+4. 3/7: Anand → Jonathan Yi をループイン
+5. 3/7: Jonathan Yi 回答: editorial only、commercial は個別交渉、コールを提案
+6. **3/11: Shugo が Reply All でコール提案に応じるメール送信** — 日程調整中
+
+**2レイヤー問題:**
+
+| レイヤー | 管轄 | 担当者 | 状態 |
+|---------|------|--------|------|
+| 技術アクセス | SDP Core | Anand Kumaravel (SDM, Chicago) | 全広告主OK |
+| 商用ライセンス | PV BD | Jonathan Yi (Sr. BD Mgr, Arlington VA) | editorial only、commercial は個別交渉 |
+
+**Jonathan とのコール — 日程調整中:**
+- Shugo + Jonathan の2人コール（Bindu は CC）
+- TZ: Sydney↔Arlington = 15時間差。8am AEDT = 5pm EDT（前日）が最適
+- 候補: Fri 3/13 8:00 AM AEDT (= Thu 3/12 5pm EDT) or Wed 3/18 8:00 AM AEDT (= Tue 3/17 5pm EDT)
+- Jonathan の返信待ち
+
+**コールで確認すべき事項（Mirko要求3点対応）:**
+1. **プロセス**: 商用利用ライセンスの申請フロー、PV BD の仲介範囲、必要インプット
+2. **POCs**: Jonathan が一元窓口か、プロバイダーごとに異なるか、Anand との役割分担
+3. **ETA**: 典型的なタイムライン、横断 or 個別
+4. **追加**: PoC = editorial use 扱いか、データxプロバイダーマッピングの有無、コスト負担者
+
+**Mirkoの要求（3/10 Slackメッセージ）:**
+1. ライセンス申請の**プロセス**を明確にする
+2. **POCs**（担当窓口）を特定する
+3. **ETA**（タイムライン）の把握が必須
+
 ### Discovery Doc (Quip) 状態
 
 - **URL:** https://quip-amazon.com/c4cBAcoeV61e/Discovery-Prime-video-Live-sports-API
-- **3/11確認:** 3/9以降の新規Biz updateなし。Business justificationは上記テーブルと同一。Next Stepsテーブルはステータス未記入。
-- **要更新:** Jonathan Yiのライセンス問題が未反映 → Bindu sync後に更新予定
+- **3/11確認:** 3/9以降の新規Biz updateなし。Next Stepsテーブルはステータス未記入。
+- **要更新:** Jonathan Yiのライセンス問題が未反映
+- **Mirkoコメント未対応:** 「We need a precise list of regions covered and sports/circuits」
 
-### Strategy v2 ドキュメント作成済み
+### Strategy v2 ドキュメント
 
-3層ゴール（Tech / Commercial Licensing / Legal & Ad Policy）、アプローチ(A)(B)、Next Stepsを定義。Bindu syncで議論予定。
+3層ゴール（Tech / Commercial Licensing / Legal & Ad Policy）、アプローチ(A)(B)、組織図、Jonathan Yiメール分析、Next Stepsを定義。
 
 ## 成果物一覧
 
@@ -83,41 +113,42 @@ Mirkoが #tex-discovery-pv-live-sports-api-enablement で3点を要求:
 ├── handover.md
 ├── artifacts/
 │   ├── pv-live-sports-api-strategy-v2.md
-│   └── bindu-sync-agenda-20260311.md        ← NEW
+│   └── bindu-sync-agenda-20260311.md
 ├── notes/
 │   ├── pv-live-sports-api-research.md
-│   ├── sdp-licensing-issue-analysis.md
+│   ├── sdp-licensing-issue-analysis.md     ← UPDATED (CC問題解決済み)
 │   └── strategy-review-20260309.md
 └── history/
-    └── 2026-03-09_handover.md               ← ARCHIVED
+    └── 2026-03-09_handover.md
 ```
 
 ## アクションアイテム
 
 | # | 期限 | アクション | ステータス |
 |---|------|-----------|-----------|
-| 1 | **3/11 19:00** | **Bindu sync コール** -- アジェンダ準備完了 | 本日実施予定 |
-| 2 | **3/11後** | **Jonathan Yiコール段取り** -- Bindu + Jonathan Yiで実施。Mirko要求3点（プロセス・POCs・ETA）を確認 | Bindu sync後 |
-| 3 | **TBD** | **SDP Coreに問い合わせ** -- 技術的ブロッカー、データ/プロバイダーマッピング取得 | 未着手 |
-| 4 | **TBD** | **BIL-E Intake Request 準備・提出** -- ビジネスケース + Bindu syncの方針 | Bindu sync後 |
-| 5 | **TBD** | **Mirkoにライセンス問題エスカレーション** | Jonathan Yiコール後 |
-| 6 | **TBD** | **マッピングテーブル作成** -- データ x プロバイダー x 商用利用条件 x リーガル/ポリシー | PV BD確認後 |
-| 7 | **TBD** | **Discovery Doc (Quip) 更新** -- ライセンス問題反映 | Bindu sync後 |
-| 8 | **EOW過ぎ** | Mirkoメール返信: APAC/MENAビジネスインパクト見積もり | Mariko JP見積もり待ち |
-| 9 | **TBD** | BIL Legal / Ad Policy チェック | ユースケース定義後 |
+| 1 | ~~3/11 19:00~~ | ~~Bindu sync コール~~ | **完了** ✅ |
+| 2 | **返信待ち** | **Jonathan Yi コール日程調整** -- Reply All送信済み、返信待ち | メール送信済み |
+| 3 | **Bindu担当** | **BIL-E Intake チケット作成** + SDP Core オンボーディング調整 | Bindu対応中 |
+| 4 | **Jonathan コール後** | **Mirkoにライセンス問題エスカレーション** | Jonathan確認後 |
+| 5 | **TBD** | **マッピングテーブル作成** -- データ x プロバイダー x 商用利用条件 x リーガル/ポリシー | PV BD確認後 |
+| 6 | **TBD** | **Discovery Doc (Quip) 更新** -- ライセンス問題反映 + Mirkoコメント対応 | Jonathan コール後 |
+| 7 | **EOW過ぎ** | Mirkoメール返信: APAC/MENAビジネスインパクト見積もり | Mariko JP見積もり待ち |
+| 8 | **TBD** | BIL Legal / Ad Policy チェック | Track 2 明確化後（保留中） |
 
 ## 重要な判断ログ
 
-- **Chicken-and-Egg回避方針**: 技術実装（PoC）を先行し、商用ライセンスはキャンペーン単位で対応。PoC/デモはeditorial/internal useの範囲、実広告主利用時に初めてライセンス交渉
-- **2レイヤー問題**: 技術アクセス（SDP Core）とライセンス（PV BD）は別管轄・別組織。Anandの「全広告主OK」は技術アクセスの話。Jonathan Yi（BD）がライセンス面でeditorial only制約を指摘
-- **タイムゾーン制約と会議方針**: Binduとの初回syncのみ同期（AEDT 19-21時 = GMT 08-10時）、以降は基本非同期。Jonathan Yiとの直接コールは非現実的（Sydney-Arlington 15時間差）。Bindu+Jonathan Yiコール → saitshugはメールCC+非同期
-- **Live Sports API経緯**: Gillette案件で開始→失注で中断→Mirkoがキャンペーン関係なく続行指示→BIL-Eは複数Pod横断の正当化が必要→Mirkoがグローバルでインパクト収集中（3/4メール）
+- **Bindu sync 決定事項（3/11）**: (B) BIL-E主導でオンボーディング。現在のBiz Justificationで十分。Bindu=技術担当、Shugo=ライセンス担当。Legal/Policyは保留。
+- **2トラック並行戦略（3/11）**: Track 1（技術）と Track 2（ライセンス）を並行。技術アクセスはライセンス解決を待たない。合流は実キャンペーン時。
+- **Jonathan Yi コール方針（3/11）**: Shugo + Jonathan の2人コール。Bindu はCC。8am AEDT = 5pm EDT（前日）が最適スロット。
+- **Chicken-and-Egg回避方針**: 技術実装（PoC）を先行し、商用ライセンスはキャンペーン単位で対応。PoC/デモはeditorial/internal useの範囲。
+- **2レイヤー問題**: 技術アクセス（SDP Core）とライセンス（PV BD）は別管轄・別組織。Anandの「全広告主OK」は技術アクセスの話。Jonathan Yi（BD）がライセンス面でeditorial only制約を指摘。
+- **メールスレッドCC**: saitshugはBindu↔Anand↔Jonathan Yiのスレッドに入っている（3/11確認済み）。3/11にReply Allでコール提案に応答済み。
+- **データプロバイダーは前向き**: PV利用がスポーツデータ収益を伸ばすため、receptiveの見込み（Bindu sync）。
+- **タイムゾーン制約**: Sydney↔Arlington = 15時間差。3-way (Shugo/Bindu/Jonathan) は10pm AEDTしかなくきつい。2人コール (Shugo/Jonathan) なら8am AEDT = 5pm EDT（前日）で快適。
+- **Live Sports API経緯**: Gillette案件で開始→失注で中断→Mirkoが続行指示→BIL-Eは複数Pod横断必要→Mirkoがインパクト収集中
 - **RACI**: A=Mirko、R=Shugo+Bindu、C=Pod leads・BIL-E・SDP Core・PV BD、I=グローバルステークホルダー
-- **BIL-E動機付け**: Harish(BIL-E)は1案件だけでは不満。複数Pod横断キャンペーン例が必要
-- **正しいフロー**: Business justification 収集 → Bindu sync → BIL-E Intake Request → BIL-E が SDP オンボーディング + BGW インテグレーション実行
 - **Mariko JP 壁**: Sales Struggle + ライセンシー問題（Layer 2 + Layer 3 にまたがる可能性）
-- **3/9 spin off**: tex-prime-video-sse-initiative から独立トピックとして分離
-- **Discovery Doc Quip URL**: `c4cBAcoeV61e` — 3/11時点でライセンス問題未反映、Bindu sync後に更新予定
+- **Discovery Doc Quip**: `c4cBAcoeV61e` — 3/11時点でライセンス問題未反映、Mirkoコメント「regions/sports list」未対応
 
 ## 関連トピック
 

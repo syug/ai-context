@@ -30,7 +30,7 @@
 
 1. **Editorial vs Commercial の境界** — PoCやデモは editorial 扱いでOKか？ → Jonathan Yiに確認必要
 2. **ライセンスコスト** — プロバイダーが個別課金する場合、誰が負担？（BIL / 広告主） → Mirkoにエスカレーション
-3. **メールCCの問題** — saitshug と Mirko/Kayla が Bindu↔Anand↔Jonathan Yi のスレッドに入っていない → Binduに全員追加を依頼
+3. ~~**メールCCの問題**~~ — 解決済み。saitshug はスレッドに入っている（3/11確認）
 4. **JP見積もりの壁** — Marikoの「Sales Struggle + ライセンシー問題」は今回のJonathan Yi回答と同根の可能性
 
 ## 関係者
