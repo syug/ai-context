@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-12T10:00:00+11:00",
+  "updated": "2026-03-12T00:10:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -199,8 +199,8 @@
       "hasHandover": true,
       "title": "/handover スキルの継続改善（サブコマンド体系・インデックス・フィルタ・エイリアス・作業ディレクトリ・ステータス表示・コンテクスト推定・Celebrationバナー・自動保存）",
       "status": "進行中",
-      "summary": "/handoverスキルの段階的改善。サブコマンド体系、.index.json、フィルタ、エイリアス、workdir検出、ステータス表示、コンテクスト推定、history、Celebrationバナー（Left Accent Bar）、自動保存を実装。3/3にhandover-save-ux-improvementをマージ、バナーリデザイン（右ボーダー廃止・マルチエージェントブレスト9案比較）。",
-      "tags": ["handover", "skill", "claude-code", "subcommand", "list", "save", "status", "status-subcommand", "director-mode", "index", "filter", "alias", "workdir", "working-directory", "context", "context-detection", "celebration", "banner", "auto-save", "ux", "コンテクスト推定", "スキル", "インデックス", "フィルタ", "エイリアス", "作業ディレクトリ", "ステータス", "自動保存", "バナー"]
+      "summary": "/handoverスキルの段階的改善。サブコマンド体系、.index.json、フィルタ、エイリアス、workdir検出、ステータス表示、コンテクスト推定、history、Celebrationバナー、自動保存、Git auto-push、hoコマンド（fzf検索）を実装。3/12にhoコマンドのディレクトリスキャン改修を試行→fzf previewのfishクォーティング問題でロールバック。",
+      "tags": ["handover", "skill", "claude-code", "subcommand", "list", "save", "status", "status-subcommand", "director-mode", "index", "filter", "alias", "workdir", "working-directory", "context", "context-detection", "celebration", "banner", "auto-save", "ux", "ho-command", "fzf", "fish", "directory-scan", "git-auto-push", "コンテクスト推定", "スキル", "インデックス", "フィルタ", "エイリアス", "作業ディレクトリ", "ステータス", "自動保存", "バナー"]
     },
     {
       "dir": "2026-02-23_productivity-improvement-tools",

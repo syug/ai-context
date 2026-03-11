@@ -1,6 +1,6 @@
 # Handover Document
 **Topic:** /handover スキルの継続改善（サブコマンド体系・インデックス・フィルタ・エイリアス・作業ディレクトリ・ステータス表示・コンテクスト推定・Celebrationバナー・自動保存）
-**Date:** 2026-02-23（最終更新: 2026-03-10）
+**Date:** 2026-02-23（最終更新: 2026-03-12）
 **Status:** 進行中
 
 ---
@@ -244,7 +244,27 @@ Director modeとの相性問題を修正:
 - **目的:** ターミナルから GHQ ライクに handover トピックをファジー検索・ナビゲート
 - **設計:** Fish function `ho` → jq で .index.json パース → fzf (preview 付き) → cd
 - **プラン:** `notes/fzf-topic-search-plan.md` に詳細記載
-- **ステータス:** 実装中
+- **ステータス:** 基本動作は完了（.index.json ベース）、ディレクトリスキャン方式への改修は未完了
+
+### 完了した変更（2026-03-12）
+
+#### 26. `ho` コマンドのディレクトリスキャン改修（試行→ロールバック）
+- **問題:** `ho` コマンドが `.index.json` の `.topics` 配列のみを参照しているため、`/handover save` で `.index.json` が更新されなかったトピック（3/11作成の `dine-2.0-tech-feasibility` と `uk-arla-ai-on-clp`）がリストに表示されなかった
+- **方針決定:** GHQ 風のディレクトリスキャン + `.index.json` メタデータオーバーレイ方式を採用
+  - ファイルシステム（`ls` + `string match`）がトピック存在の Source of Truth
+  - `.index.json` はメタデータキャッシュ（title, tags 等のオーバーレイ）
+  - 未登録トピックは `(unindexed)` マーカー付きで表示
+- **実装:** リスト生成部分は成功（52 dirs vs 48 index entries で差分4件を正しく検出・表示）
+- **問題:** fzf `--preview` のコマンドが fish のクォーティングと衝突
+  - fzf は `$SHELL`（fish）でプレビューコマンドを実行する
+  - `dir=$(...)` は POSIX sh 構文で fish では `Unsupported use of '='` エラー
+  - `env SHELL=/bin/sh fzf` による sh 強制も試みたが、fish 内での single quote エスケープ（`'"'"'`）が `$AI_BASE` 変数展開を壊す
+  - 複数回の修正試行で毎回別のエラーが出たため、ロールバックを決定
+- **ロールバック:** 元の .index.json ベースの ho.fish に復元済み
+- **次回への教訓:**
+  1. fish のクォーティングルール: single quotes 内は一切エスケープ不可、`'"'"'` パターンは double-quoted 文字列内の変数展開を壊す
+  2. fzf preview は `$SHELL -c` で実行される → fish 環境では preview コマンドも fish 構文で書くか、`env SHELL=/bin/sh` で明示的にオーバーライドが必要
+  3. 解決策候補: (a) preview コマンドを外部スクリプトファイルに分離、(b) fish 構文で preview を記述、(c) `--preview` に `bash -c '...'` を前置して全体を fish 変数に格納
 
 ## 成果物一覧
 ```
@@ -300,8 +320,9 @@ Director modeとの相性問題を修正:
 | 29 | — | ARGUMENTS 引数解釈バグ修正（"skill" を引数なしと誤判定する問題） | 完了（2026-03-03） |
 | 30 | — | $AI_BASE パス移行（Google Drive → Git） | 完了（2026-03-10） |
 | 31 | — | Git auto-commit & push（Step S6b）SKILL.md追加 | 完了（2026-03-10） |
-| 32 | — | fzf ファジー検索 `ho` コマンドの実装 | 進行中 |
+| 32 | — | fzf ファジー検索 `ho` コマンドの実装（基本動作） | 完了（2026-03-10） |
 | 33 | — | Step S6b の実環境テスト（実際にsave→commit→push） | 未着手 |
+| 34 | — | `ho` コマンドをディレクトリスキャン方式に改修（fzf preview の fish クォーティング問題解決） | 未完了（ロールバック済み、次回再挑戦） |
 
 ## 重要な判断ログ
 
@@ -335,3 +356,5 @@ Director modeとの相性問題を修正:
 28. **Google Drive → Git 移行（2026-03-10）**: Google Drive のマウントポイントはバックグラウンドagentからのアクセスが不安定で、bypassPermissionsでもWrite/Bashが拒否される事象が繰り返し発生していた。git リポジトリに移行することで: (a) agent 権限問題を根本解決、(b) 変更履歴を git で自然に管理、(c) push で複数マシン間同期が可能に。
 29. **auto-push は ai-context リポジトリ限定（2026-03-10）**: CLAUDE.md の通常ルールでは git push はユーザー確認必須。ai-context は handover 専用リポジトリで破壊リスクが低いため、このディレクトリに限り自動 push を許可した。
 30. **fzf 検索は fish function として独立（2026-03-10）**: `/handover` スキル内ではなく、standalone の fish function `ho` として実装。理由: (a) Claude Code 外のターミナルでも使える、(b) fzf の対話UIはClaude Code内では動かない、(c) ghq + fzf と同じパターンで馴染みやすい。
+31. **ディレクトリスキャン方式の採用判断（2026-03-12）**: `.index.json` を Source of Truth にする方式（現状）は save 漏れでトピックが消える。ディレクトリスキャン + `.index.json` オーバーレイ方式（SQL の LEFT JOIN 相当）に変更すべき。パフォーマンスの cons はほぼなし（45 dirs の ls は数ms、jq 1回呼び出しでマージ）。
+32. **fzf preview の fish 互換性問題（2026-03-12）**: fzf は `$SHELL -c` でプレビューコマンドを実行する。fish 環境では `dir=$(...)` が使えず、`'"'"'` パターンは fish の double-quoted 文字列内の変数展開と干渉する。次回は (a) 外部スクリプトファイル分離、(b) `set -l preview_cmd` で変数構築後に `--preview $preview_cmd` で渡す方式を試す。
