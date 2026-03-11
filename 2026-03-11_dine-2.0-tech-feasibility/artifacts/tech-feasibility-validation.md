@@ -21,7 +21,11 @@
    - Extensions: Prime sign-ups unlocking free 12 days of Dine; exclusive Amazon Music channel with cat-loved sounds
    - Amplification: First impression takeover, sponsorship alignments for specific titles, QR-enabled "paws ads"
 
-3. **Agency ideas rejected by AU BIL** — likely due to the complexity of modifying Prime Video audio tracks and the technical implausibility of the concept.
+3. **Agency ideas rejected by AU BIL** — Luke Thistleton (AU BIL Creative Lead) provided the following feedback to the agency (Warren & Leah at Publicis), shared via Slack DM on 2026-02-10:
+
+   **Strategic reason (primary):** *"The 'cat-dubbed media' idea essentially reverses [the Cat Decoder] logic. It isn't solving a cat-owner problem or demonstrating the product; it's a novelty mechanic that momentarily amuses humans while stimulating the cat. The brand becomes a sponsor of a trick rather than the cause of a behavioural outcome. One idea makes the food the reason the relationship improves; the other makes the ad the entertainment and the product incidental, so it generates attention but not belief."*
+
+   **Technical reason (secondary):** *"Re executions: this could only be achieved in the form of an ad i.e. a filmed TVC. Currently no capability to incorporate audio directly into the platform in these ways."*
 
 4. **Cat Decoder re-run considered** — team discussed re-running the 2025 Cat Decoder for 2026.
 
@@ -56,7 +60,27 @@
 
 ---
 
-## Idea 01: Cat Love Keyboard
+## Idea 01: Cat Love Keyboard — "Music to move your feline friend"
+
+### Brief Summary
+
+A 90s slow-jam love-ballad-inspired digital keyboard (mobile web experience at Amazon.com/DineKeyboard) that lets owners compose personalised serenades for their cat. Built on actual research into species-specific music for cats (David Teie, *Applied Animal Behaviour Science*).
+
+### Mechanics (from brief)
+
+1. Visit Amazon.com/DineKeyboard; phone becomes the Cat Love Keyboard
+2. Select backing track, layer cat-appealing sounds (purr loops, bird chirps, Dine can opening sound)
+3. Play live for the cat, save, share back to Dine brand store
+4. Shared tracks earn a discount code for the 12-Day Dine Meal Challenge
+5. Shared tracks contribute to a Dine Cat Love Playlist on Amazon Music, promoted via Amazon Alexa
+
+### Science (from brief)
+
+Based on David Teie research — rhythm based on cat biology (purring vibrations, suckling rhythms, grooming patterns), sliding pitches matching cat vocalisations, frequency range of 300-3,000Hz matching feline vocal range, familiar life sounds (purring, grooming, bird chirps).
+
+### Creative Territory
+
+90s love-ballad nostalgia. Potential fictional mascot "Meow-ceal Bolton" with a Russian Blue cat. Works across TikTok/Reels (sound-on environments), influencer content, Prime Video media, Amazon DSP, custom brand store.
 
 ### Overall Feasibility: Yellow
 
@@ -104,7 +128,25 @@ Core interactive keyboard (Web Audio API + Brand Store) is **Green**. Amazon Mus
 
 ---
 
-## Idea 02: Adore Des Chats
+## Idea 02: Adore Des Chats — "The fragrance felines can't ignore"
+
+### Brief Summary
+
+A limited-edition fragrance designed to win cat affection, free with the 12-Day Dine Feeding Challenge. Uses classical conditioning (Pavlov's principle) — spray at mealtimes and relaxation moments to build positive scent associations. Custom bottle inspired by the iconic Dine can with gold atomiser spray.
+
+### Key Fragrance Notes (from brief)
+
+1. **Silver Vine (Actinidine):** ~80% of cats respond (including non-catnip responders). Human profile: mild woody, tea-like.
+2. **Valerian Root (Actinidine & Valerenic):** Gently stimulates then relaxes cats. Human profile: warm, musky, woody.
+3. **Catnip (Nepetalactone):** 50-70% of cats respond strongly. Human profile: soft mint.
+
+### Conditioning Mechanic (from brief)
+
+Spray at mealtimes + relaxation on the couch. Over time, scent becomes associated with the positive anticipation of Dine food, transferring that excitement into affectionate snuggling.
+
+### Creative Territory
+
+Luxury fragrance advertising tropes (tongue-in-cheek French voiceover). Behind-the-scenes content showing fragrance development and cat testing. Works across Prime Video, influencer program, PR, brand store, Amazon DSP.
 
 ### Overall Feasibility: Yellow
 
@@ -161,7 +203,27 @@ Digital components (Brand Store, PV, DSP, Influencer) all **Green**. Physical fr
 
 ---
 
-## Idea 03: Dinner and a Show
+## Idea 03: Dinner and a Show — "Make a date to settle in and snuggle"
+
+### Brief Summary
+
+Evolution of the earlier "PSPSPS" / agency concept, reworked to be more consumer-ready. After feeding their cat Dine, owners watch Prime Video while a second-screen experience on their phone plays a gentle audio bath designed specifically for cats — helping them relax and snuggle.
+
+### Mechanics (from brief)
+
+1. Feed cat Dine, settle in for Prime Video
+2. Launch Dine "Dinner and a Show" second-screen experience on phone, place nearby
+3. Phone plays cat-specific audio (brief claims sounds above human hearing range, 20kHz+, up to 65kHz for cats — **see critical assessment below**)
+4. App auto-adjusts volume/soundscapes dynamically to match the show
+5. Longer usage unlocks small discounts on Dine products
+
+### Science Claim (from brief)
+
+Cats hear up to 65kHz (humans max at 20kHz). High-frequency sounds capture cat attention while being inaudible to owners, allowing an uninterrupted shared moment. **Note: This claim is technically problematic — see High-Frequency Audio Assessment below.**
+
+### Creative Territory
+
+"Dinner and a show" as universal dating ritual, reframed for cat-owner relationships. Content angles: awkward first dates, grand romantic gestures, feline "dating experts." Natural influencer integration (cat date nights), Prime Video romantic show integrations.
 
 ### Overall Feasibility: Yellow/Red (Yellow with pivot)
 
