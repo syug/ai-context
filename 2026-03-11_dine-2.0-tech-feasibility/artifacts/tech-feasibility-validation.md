@@ -317,7 +317,18 @@ The brief states: *"App auto-adjusts volume/soundscapes dynamically to match the
 - TV gets loud (action scene) → **raise** cat audio so the cat can still hear it over the TV noise
 - TV gets quiet → cat audio doesn't need to change, though lowering it slightly may benefit the human viewer
 
-**The problem:** This single mechanic is the root cause of all PV sync complexity. It creates the need for the app to know what's playing on PV in real-time — requiring STS API integration, fingerprinting, or manual sync. Without it, the entire PV sync dependency disappears.
+The brief does not specify HOW "match the show" is achieved. The technical complexity varies enormously depending on interpretation:
+
+| "Match the show" method | Required technology | Complexity | PV sync needed? |
+|------------------------|---------------------|-----------|-----------------|
+| **Real-time scene-level sync** (audio adjusts per scene based on playback position) | STS API / audio fingerprinting / manual timer sync | Red | Yes — requires knowing exactly what scene is playing |
+| **Real-time TV volume tracking** (mic detects TV volume changes, adjusts cat audio accordingly) | Microphone input + volume detection | Yellow — but speaker/mic conflict makes this unreliable when cat audio is playing simultaneously | No PV sync, but mic access required |
+| **Genre/mood preset** (user selects "action movie" / "romcom" / "documentary", cat audio adjusts to a matching profile) | User selection → preset soundscape. No PV integration | Green — trivially simple | No |
+| **No adjustment** (constant calming cat audio regardless of TV content) | Web Audio API plays steady audio | Green — simplest possible | No |
+
+**The problem:** This single mechanic is the root cause of all PV sync complexity. Only the first method (real-time scene-level sync) requires PV integration — and it is by far the most complex. The remaining three methods require no PV sync at all, and the last two are trivially implementable on Brand Store.
+
+**Recommendation:** Clarify with Chris Wilson which method was intended. If genre preset or constant audio is acceptable, Idea 03's technical risk drops from Yellow/Red to Green.
 
 **From a feline behavioral science perspective:** Cats benefit from **consistent, predictable calming audio** rather than dynamically changing soundscapes. Sudden volume or tonal changes may actually alert or startle cats, working against the relaxation goal. The brief's own science references (species-specific music research) support steady, rhythmic patterns — not reactive, TV-synchronized audio.
 
