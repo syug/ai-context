@@ -280,13 +280,62 @@ Second-screen infrastructure is **Green** with strong precedent. The ultrasonic 
 | Usage tracking + progressive discount | Yellow | Session tracking straightforward. Discount codes need backend + Promotions integration |
 | Brand Store / app hosting | Green | Proven across many campaigns. ADLP deployment avoids App Store |
 
+### Prime Video Sync: Current State (as of 2026-02)
+
+Per Anna Ikejiani's product update email (2026-02-21), BIL's Second Screen Experiences are now a formal product in **pre-launch** phase:
+
+- **Sync mechanism:** Shop the Show (STS) API — the official route for PV viewer synchronization
+- **STS new capability (in development):** Popup notification when a PV viewer opens the Amazon retail app while watching PV. BIL SSE is aligned to leverage this technology.
+- **Beta titles (4 approved, pending creator green light):** Rings of Power S4 (Q4), Ride or Die (Q3), Neagley S1 (Q3), Sterling Point S1 (Q3)
+- **Beta launch:** Q3/Q4 2026
+- **Key constraint:** Dine would need to align with an approved Beta IP title or wait for the product to move beyond Beta
+
+| Sync Approach | Viability | Notes |
+|---------------|-----------|-------|
+| Custom PV API | Not available | No public/private API exists for third-party PV sync |
+| STS API (SSE Beta) | Yellow — possible | Official route, but requires title alignment and Beta program inclusion |
+| Audio fingerprinting | Not viable for this idea | See analysis below |
+| Fidelity SSE (scene-aware) | Unproven | Still in development, not production-deployed |
+| Manual episode selection + timer | Green — simplest | Lowest tech risk, acceptable MVP |
+| **No PV sync at all** | **Green — recommended** | **See "Dynamic Adjustment" analysis below** |
+
+### Audio Fingerprinting Conflict
+
+Audio fingerprinting (Shazam-style) requires the phone's **microphone** to capture TV audio and match it against a database. In Idea 03, the same phone is simultaneously **playing cat audio through its speaker**:
+
+- Speaker output feeds back into the microphone (acoustic coupling)
+- TV audio signal is masked, degrading fingerprint SNR (signal-to-noise ratio)
+- Match accuracy drops significantly or fails entirely
+
+Workarounds (echo cancellation, separate devices) add prohibitive complexity for a Brand Store web app. **Audio fingerprinting is not viable when the same device is both listening and playing.**
+
+### Dynamic Adjustment: Root Cause of PV Sync Complexity
+
+The brief states: *"App auto-adjusts volume/soundscapes dynamically to match the show."* No explanation is provided for why this is needed.
+
+**Intended behavior (inferred):**
+- TV gets loud (action scene) → **raise** cat audio so the cat can still hear it over the TV noise
+- TV gets quiet → cat audio doesn't need to change, though lowering it slightly may benefit the human viewer
+
+**The problem:** This single mechanic is the root cause of all PV sync complexity. It creates the need for the app to know what's playing on PV in real-time — requiring STS API integration, fingerprinting, or manual sync. Without it, the entire PV sync dependency disappears.
+
+**From a feline behavioral science perspective:** Cats benefit from **consistent, predictable calming audio** rather than dynamically changing soundscapes. Sudden volume or tonal changes may actually alert or startle cats, working against the relaxation goal. The brief's own science references (species-specific music research) support steady, rhythmic patterns — not reactive, TV-synchronized audio.
+
+**Conclusion:** If "dynamic adjustment" is dropped, Idea 03 simplifies dramatically:
+- No PV sync needed → STS API alignment not required
+- No fingerprinting needed → no mic/speaker conflict
+- Phone simply plays a steady calming soundscape → Web Audio API on Brand Store (proven, Green)
+- The "Dinner and a Show" creative framing still works: feed cat Dine, put on PV, start the cat audio, enjoy together
+- PV integration becomes purely a **media/advertising relationship** (standard ad placements), not a technical sync challenge
+
 ### Recommended Pivots
 
 1. **Reframe audio concept (mandatory)**: "ultrasonic cat-only audio" becomes "scientifically-designed calming soundscapes optimized for cats." The 8-18kHz range is practical and still less noticeable to adult humans
-2. **Mood matching over frame-sync**: user selects genre/mood, cat audio adjusts accordingly. Avoids PV API dependency
-3. **Reuse Coca-Cola WebSocket/MessageRoom stack**: production-ready architecture, contact jtransu for handoff
-4. **Brand Store Web App**: no App Store approval, QR code on Dine packaging for access
-5. **Consider Echo as playback device**: better speaker quality (18-20kHz), Alexa ecosystem integration, natural fit
+2. **Drop dynamic PV sync (strongly recommended)**: Replace with steady, science-backed calming audio that plays independently of TV content. This eliminates the largest technical risk entirely while being more scientifically sound for cat relaxation
+3. **If PV sync is still desired**: Align with the SSE Beta program via STS API. Manual episode selection + timer is the simplest fallback. Audio fingerprinting is not viable due to speaker/mic conflict
+4. **Reuse Coca-Cola WebSocket/MessageRoom stack**: Only needed if PV sync is retained. Production-ready architecture, contact jtransu for handoff
+5. **Brand Store Web App**: no App Store approval, QR code on Dine packaging for access
+6. **Consider Echo as playback device**: better speaker quality (18-20kHz), Alexa ecosystem integration, natural fit. Also eliminates the fingerprinting mic/speaker conflict if sync is pursued (Echo plays audio, phone does fingerprinting)
 
 ### Key Contacts for Follow-up
 
