@@ -1,0 +1,268 @@
+# Mars Dine 2.0 — 技術フィージビリティ検証
+
+| | |
+|---|---|
+| **プロジェクト** | Mars Dine 2.0 — "Ignored to Adored" 2026キャンペーン |
+| **ブリーフ** | Dine 2.0 Ignored to Adored V3.pptx（31スライド） |
+| **作成者** | Chris Wilson, Head of Brand Innovation Lab ANZ |
+| **検証日** | 2026-03-11 |
+| **ステータス** | クライアントに提示済み、フィードバック待ち |
+
+---
+
+## 背景 / タイムライン
+
+1. **2025年**: Mars Dine "Cat Decoder" キャンペーン — "Ignored to Adored" ブランドプラットフォームを確立した成功事例。猫の行動を解読し、飼い主をDineの食事に誘導するインタラクティブツール。
+
+2. **2026年企画（エージェンシーフェーズ）**: Mars Inc. x Publicisが **"Amazon Dine Video" / "pspspsuedoscience"** という初期コンセプトを策定（17スライドのPDFブリーフ）。エージェンシーはPrime Videoのプレミアムパートナーシップを提案し、猫を引き付ける音（pspsps音、ジングル、ゴロゴロ音、鳴き声）をPrime Videoコンテンツに代替オーディオトラックとして直接埋め込む — 本質的には言語選択のような「猫向けオーディオオプション」を提案。コンセプトに含まれる要素：
+   - Amazon Prime内にキュレーションされた「猫向けジャンル」セクション（BTYBブランドロウ）
+   - 猫の飼い主に猫向けオーディオへのオプトインを促すインタラクティブプレロール広告
+   - 12日間コネクションチャレンジによるPR拡散
+   - 拡張機能: Prime登録で12日間分のDine無料特典、猫が好む音を集めた限定Amazon Musicチャンネル
+   - アンプリフィケーション: ファーストインプレッションテイクオーバー、特定タイトルへのスポンサーシップアライメント、QR対応「paws ads」
+
+3. **エージェンシー案をAU BILが却下** — Prime Videoのオーディオトラック改変の複雑さと技術的な実現不可能性が理由と推測される。
+
+4. **Cat Decoder再実施を検討** — チームは2025年のCat Decoderを2026年に再実施することを議論。
+
+5. **新アイデアの策定** — 最終的に新しいコンセプトを作成する方針となり、"Ignored to Adored V3" で3つのアイデアが完成。
+
+6. **2026-03-11**: AU BILクリエイティブチームがクライアントに提示。
+
+7. **現在**: クライアントからのフィードバック待ち。
+
+> **注記**: エージェンシーの "pspspsuedoscience" コンセプトはBILのIdea 03（"Dinner and a Show"）と多くの共通点を持つ — いずれもPrime Video視聴中に猫を引き付けるオーディオを中心としている。BIL版はPVコンテンツへのオーディオ埋め込みから、セカンドスクリーンコンパニオン体験へと方向転換しており、技術的により実現可能。
+
+---
+
+## 2026年の戦略シフト
+
+| 2025年 | 2026年 |
+|------|------|
+| Cat Decoder: **食事の時間**における "Ignored to Adored" | 愛情を**食事以外の時間**にも拡張 |
+| Dineが飼い主の猫*理解*を支援 | Dineが飼い主の猫との*絆*を支援 |
+| つながりを解読する | つながりを実現する |
+
+---
+
+## 3つのアイデア概要
+
+| | Idea 01: Cat Love Keyboard | Idea 02: Adore Des Chats | Idea 03: Dinner and a Show |
+|---|---|---|---|
+| **コンセプト** | 90年代ラブバラード風デジタルキーボードで猫へのセレナーデを作曲 | 限定版フレグランスでパブロフ条件付けにより猫の愛情を獲得 | Prime Video視聴中に猫向けセカンドスクリーンオーディオバス |
+| **コア技術** | Web Audio API, Brand Store | 物理製品の製造, Brand Store | セカンドスクリーン同期, Web Audio API |
+| **科学的根拠** | David Teieの種固有音楽研究 | Silver Vine, Valerian Root, Catnip（嗅覚） | 猫の聴覚研究（聴覚） |
+| **コマーシャルフック** | 楽曲共有で12日間Dine Meal Challengeの割引を獲得 | チャレンジ完了でフレグランスを無料プレゼント | 長時間利用でDine割引をアンロック |
+
+---
+
+## Idea 01: Cat Love Keyboard
+
+### 総合フィージビリティ: 🟡 Yellow（中リスク）
+
+コアのインタラクティブキーボード（Web Audio API + Brand Store）は **🟢 Green（低リスク）**。Amazon Music UGCパイプラインが **🔴 Red（高リスク）** のブロッカー。
+
+### 主要リスク
+
+| リスク | 深刻度 | 詳細 |
+|------|----------|--------|
+| Amazon Music UGCパイプライン | 🔴 Red（高リスク） | ユーザー生成オーディオをAmazon Musicプレイリストに取り込む仕組みが存在しない。既存事例（Vitaminwater, Cocktail Cabinet）はすべて事前キュレーションされたプレイリストのみ |
+| iOS WebViewオーディオ | 🟡 Yellow（中リスク） | WKWebViewではAudioContext初期化にユーザージェスチャーが必要。UXデザイン（「タップして開始」）で解決可能 |
+| クロスチーム依存関係 | 🟡 Yellow（中リスク） | BIL-E + Amazon Music + Alexa + Promotions — 各チームがタイムラインリスクを追加 |
+| モバイルオーディオレイテンシ | 🟡 Yellow（中リスク） | ローエンドAndroid端末では50ms以上の遅延が発生する可能性。キーボードのタップ→音の操作には低レイテンシが必要 |
+| ANZ Brand Store | 🟡 Yellow（中リスク） | 確認された先行事例はすべてUS/UK/EU/JP。amazon.com.auでのカスタムBrand Store体験は要確認 |
+
+### Arc/Parc 先行事例
+
+| キャンペーン | 関連性 | リンク |
+|----------|-----------|------|
+| **Ad Council "When You Can't Say It, Play It"** | コンセプト的に最も近い事例。Amazon Music + Alexaシェアリング、260万シェア達成。受賞歴あり | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/ad-council-when-you-cant-say-it) |
+| **Coca-Cola Holiday Second Screen Sync** | Brand Store上のReactアプリでaudio contextを使用。BILインフラでWeb Audioが動作することを実証 | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/bil-second-screen-sync) |
+| **Vitaminwater Sonic Nourishment** | 商品スキャンでブランドAmazon Musicプレイリストをアンロック。キュレーションプレイリスト方式を検証 | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/vitaminwater-sonic-nourishment) |
+| **Calma Zampa Alexa Skill** | ペット向けAlexaスキル（犬用）でリラックス音楽を再生。Lambda+S3+CloudFrontアーキテクチャ | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/alexa-skill-weather-forecast) |
+| **Iris Plaza Packed Rice 2.0** | インタラクション→クーポンコードパイプライン。購買コンバージョン+265% | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/iris-plaza-packed-rice-1) |
+
+### コンポーネント評価
+
+| コンポーネント | フィージビリティ | 備考 |
+|-----------|------------|-------|
+| モバイルWebオーディオキーボード（Web Audio API） | 🟢 Green（低リスク） | 十分にサポートされている。Coca-ColaプロトタイプがBrand Store ReactアプリでのオーディオIを検証済み |
+| Brand Storeホスティング | 🟢 Green（低リスク） | 複数キャンペーンで強く検証済み。カスタムスラグ（amazon.com/DineKeyboard）も実現可能 |
+| サウンドライブラリ（ゴロゴロ音ループ、チャープ音、缶を開ける音） | 🟢 Green（低リスク） | Web Audio API経由の事前録音サンプル。S3/CloudFrontでホスティング |
+| 作曲の保存・共有 | 🟡 Yellow（中リスク） | URLエンコードレシピ方式により、サーバーサイドオーディオレンダリングとモデレーションを回避 |
+| Amazon Musicプレイリスト統合 | 🟡 Yellow（中リスク） | 事前キュレーションプレイリスト: 検証済み。UGCのプレイリスト投稿: **ブロック** |
+| UGC→Amazon Musicパイプライン | 🔴 Red（高リスク） | 仕組みが存在しない。コンテンツ取り込みにはディストリビューター/レーベルとのパートナーシップが必要 |
+| Alexa統合 | 🟡 Yellow（中リスク） | カスタムSkill（4-6週間）またはAlexa Theme（軽量・高速）。AUロケールサポートの確認が必要 |
+| 割引コード生成 | 🟢🟡 Green-Yellow | Oral-BとIris Plazaで検証済み。Amazon Promotionsコードプールが必要 |
+
+### 推奨ピボット
+
+1. **Amazon MusicとUGCを分離** — キーボード体験（Brand Store）とプレイリスト（プロ制作の猫向け音楽）を別トラックとして運用
+2. **プリセットサウンドグリッド（12-16音）** を自由合成の代わりに採用 — モデレーション不要、共有はURLパラメータに簡素化
+3. **カスタムSkillよりAlexa Theme** — Barbie先行事例（29.2万ダウンロード）、承認プロセスが軽量
+4. **段階的ビルド** — Phase 1: キーボード + 割引コード（クロスチームブロッカーなし）。Phase 2: Amazon Musicキュレーションプレイリスト + Alexa Theme
+
+---
+
+## Idea 02: Adore Des Chats
+
+### 総合フィージビリティ: 🟡 Yellow（中リスク）
+
+デジタルコンポーネント（Brand Store, PV, DSP, Influencer）はすべて **🟢 Green（低リスク）**。物理フレグランス製品が **🔴 Red（高リスク）** のリスクベクター。
+
+### 主要リスク
+
+| リスク | 深刻度 | 詳細 |
+|------|----------|--------|
+| 製品安全性 | 🔴 Red（高リスク） | 猫はエッセンシャルオイルに対して非常に敏感。キャリア製剤（アルコール、固定剤、合成化合物）には獣医毒性学レビューが必要。Catnip/Silver Vine/Valerian自体は一般的に安全 |
+| 規制（APVMA） | 🔴 Red（高リスク） | 動物の行動に影響を与える製品として販売される場合、獣医化学製品としての登録が必要となる可能性。登録期間: 6-12ヶ月 |
+| 製造リードタイム | 🔴 Red（高リスク） | カスタムボトル（Dine缶風 + ゴールドアトマイザー）にはインダストリアルデザイン、金型作成、生産が必要。最低12-16週間 |
+| フルフィルメント | 🟡 Yellow（中リスク） | BILは通常物理製品の発送を行わない。アルコールベースのフレグランスにはFBA危険物制限の可能性あり |
+| チャレンジ完了トラッキング | 🟡 Yellow（中リスク） | 12日間の給餌行動を検証するネイティブAmazonメカニズムがない。購買ベースのプロキシが最もシンプル |
+| TGAへの影響 | 🟡 Yellow（中リスク） | 治療的効能を謳う場合（例: 「猫を落ち着かせる」）、TGA分類が適用される可能性。パブロフ的フレーミングであれば回避可能 |
+
+### Arc/Parc 先行事例
+
+| キャンペーン | 関連性 |
+|----------|-----------|
+| **Nespresso x The Weeknd Vinyl** | 最も近い先行事例。購入に連動した限定版物理コレクティブル。ブランド制作（BILではない）。ポップアップ+懸賞で配布。$6.8Mキャンペーン |
+| **Mars Pedigree Buy 1 Feed 1** | ペットフード + 購買連動メカニクス + Brand Store上の集団進捗トラッカー |
+| **OPTIMUM Product Selector** | ANZペットフードBrand Storeキャンペーン。月間売上+97% |
+| **P&G Oral-B Pop-Up Store** | 物理アクティベーション + オンラインゲーミフィケーション + 段階的割引引き換え |
+| **Nissan Dare to Defy** | PVブランドファンデッドドキュメンタリー + BTS制作ワークフロー |
+
+### コンポーネント評価
+
+| コンポーネント | フィージビリティ | 備考 |
+|-----------|------------|-------|
+| Brand Storeカスタム体験 | 🟢 Green（低リスク） | 実績十分。チャレンジトラッカー、商品ショーケース、フレグランスストーリー |
+| Prime Videoメディア統合 | 🟢 Green（低リスク） | 標準的なメディアバイ |
+| コンテンツ制作（高級広告パロディ + BTS） | 🟢 Green（低リスク） | 標準的なBIL制作。フランス語VOパロディはクリエイティブ面であり、技術的に複雑ではない |
+| Amazon DSP + Influencer Program | 🟢 Green（低リスク） | 標準的なアクティベーションチャネル |
+| 12日間チャレンジトラッキング | 🟡 Yellow（中リスク） | 選択肢: 購買ベースプロキシ（最もシンプル）、デイリーチェックイン（複雑）、自己申告制 |
+| リワード引き換えフロー | 🟡 Yellow（中リスク） | 選択肢: プロモコード→ASIN、3PL経由の外部フルフィルメント、限定数の懸賞 |
+| 物理フレグランス製造 | 🔴 Red（高リスク） | 規制、安全性、原材料調達、リードタイムのリスク。Silver Vineは主に東アジアから調達 |
+| フルフィルメント/物流 | 🟡 Yellow（中リスク） | ガラスボトル = 破損リスク + 危険物（アルコール含有） |
+
+### 推奨ピボット
+
+1. **限定PR/インフルエンサーシーディング（50-200個）** — 一般チャレンジ完了者にはデジタルリワードを提供
+2. **ブランド（Purina/Nestle）が製造を担当** — BILの役割: クリエイティブコンセプト + メディア + Brand Store。Nespressoモデルを踏襲
+3. **購買トリガー型チャレンジ** — 「Dine 12パック購入 = チャレンジ完了」。購買データで検証可能
+4. **物理配布は懸賞方式** — 全完了者が限定版フレグランスの抽選に参加
+5. **ピッチ段階で規制評価を開始** — APVMAのタイムラインが遅れるとキャンペーン全体が頓挫する可能性
+
+### 規制上の制約
+
+- **APVMA**: 動物の行動に影響を与える製品は登録が必要な可能性（6-12ヶ月）
+- **AICIS**: オーストラリア市場向けの化粧品/フレグランス成分コンプライアンス
+- **ACCC**: 「猫の愛情を勝ち取る」というマーケティング表現には根拠の裏付けが必要
+- **動物福祉**: 「猫でのテスト」を含むBTSコンテンツは動物福祉基準に準拠する必要あり
+
+---
+
+## Idea 03: Dinner and a Show
+
+### 総合フィージビリティ: 🟡🔴 Yellow/Red（ピボットにより🟡 Yellowに改善可能）
+
+セカンドスクリーンインフラは強い先行事例があり **🟢 Green（低リスク）**。超音波オーディオの前提（20kHz以上）は **消費者向けスマートフォンでは物理的に不可能**。
+
+### 重要: 高周波オーディオ評価
+
+**ブリーフでは「人間の可聴範囲を超える20kHz以上、猫向けに最大65kHz」の音をスマートフォンで再生すると記載されている。これは消費者向けハードウェアでは物理的に不可能。**
+
+| デバイス | スペック上の上限 | 実用的な上限 |
+|--------|-------------------|----------------------|
+| スマートフォンスピーカー | ~20kHz | 12-16kHz |
+| テレビ内蔵スピーカー | ~20kHz | 12-15kHz |
+| Amazon Echo（ツイーター付き） | ~20kHz | 18-20kHz |
+| Echo Dot | ~20kHz | 15-18kHz |
+| ブックシェルフスピーカー | ~20-22kHz | 20kHz |
+
+**不可能な理由:**
+- スマートフォンスピーカードライバー（7-15mm）は、意味のあるSPLで20kHz以上の振動ができない
+- 44.1/48kHzの標準DACではNyquist最大値が理論上~22-24kHzだが、スピーカーはそれすら再生できない
+- アンプ設計は100Hz-16kHzに最適化されており、超音波コンテンツを能動的にフィルタリング
+- 65kHzには128kHz以上のサンプリングレートと専用トランスデューサーが必要 — 消費者向けデバイスには存在しない
+
+**実現可能な範囲:**
+- **8-18kHz帯域**: 猫はよく聞き取れるが、30歳以上の人間には聞き取りにくい（加齢性難聴）
+- **猫が敏感な帯域（~2-8kHz）**: 人間にも聞こえるが、心地よいアンビエントサウンドとしてデザイン可能
+- **種固有の音楽パターン**（Teie/Snowdon研究）: リラックス効果が確認されており、人間にも完全に聞こえる
+
+### 主要リスク
+
+| リスク | 深刻度 | 詳細 |
+|------|----------|--------|
+| 超音波再生 | 🔴 Red（高リスク） | スマートフォンスピーカーでは物理的に不可能。ピッチの修正が必須 |
+| Prime Video同期メカニズム | 🟡 Yellow（中リスク） | 公開PV APIなし。Fidelity SSEが最も近い先行事例だが、まだ開発中 |
+| コンテンツライセンス | 🟡 Yellow（中リスク） | 番組固有の同期にはライセンス契約が必要、または汎用的な「ムードマッチング」で対応 |
+| バッテリー影響 | 🟡 Yellow（中リスク） | 継続的なオーディオ + WebSocket。最大30-60分のセッションを想定した設計が必要 |
+
+### Arc/Parc 先行事例
+
+| キャンペーン | 関連性 | リンク |
+|----------|-----------|------|
+| **Coca-Cola Second Screen Sync** | 直接的な先行事例。BIL-E MessageRoomパッケージを用いたWebSocketによるモバイル→Fire TVリアルタイム同期。本番デプロイ済み | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/bil-second-screen-sync) |
+| **Fidelity Peek Portfolio SSE** | 最も類似した事例。"The Summer I Turned Pretty" のPV再生に同期するセカンドスクリーンコンパニオン。SSE経由のシーン認識型コンテンツ配信。aleckunk（TEX）が構築 | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/fidelity-peek-portfolio-sse) |
+| **Web Audio Spatialization** | Web Audio API空間オーディオプロトタイプ。BILのブラウザベースオーディオ操作能力を実証 | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/web-audio-spatialization-imme) |
+
+### コンポーネント評価
+
+| コンポーネント | フィージビリティ | 備考 |
+|-----------|------------|-------|
+| セカンドスクリーンモバイル体験 | 🟢 Green（低リスク） | 強い先行事例: Coca-Cola（デプロイ済み）、Fidelity SSE（開発中） |
+| Prime Videoコンテンツ同期 | 🟡 Yellow（中リスク） | Fidelity SSEがシーン認識型同期を実証。公開PV APIなし — 同期は手動またはオーディオフィンガープリンティングによる可能性 |
+| 動的オーディオ調整 | 🟡 Yellow（中リスク） | Web Audio APIはリアルタイム操作をサポート（Spatializationプロトタイプ）。課題: PVで何が再生されているかを知ること |
+| 高周波オーディオ（20kHz以上） | 🔴 Red（高リスク） | スマートフォンスピーカーでは物理的に不可能 |
+| 利用追跡 + 段階的割引 | 🟡 Yellow（中リスク） | セッショントラッキングは簡単。割引コードにはバックエンド + Promotions統合が必要 |
+| Brand Store / アプリホスティング | 🟢 Green（低リスク） | 多数のキャンペーンで実証済み。ADLPデプロイによりApp Store不要 |
+
+### 推奨ピボット
+
+1. **オーディオコンセプトのリフレーム（必須）**: 「超音波・猫専用オーディオ」を「猫に最適化された科学的設計のリラックスサウンドスケープ」に変更。8-18kHz帯域は実用的であり、成人にはあまり聞こえない
+2. **フレーム同期よりムードマッチング**: ユーザーがジャンル/ムードを選択し、猫向けオーディオがそれに応じて調整。PV APIへの依存を回避
+3. **Coca-Cola WebSocket/MessageRoomスタックを再利用**: 本番環境対応済みアーキテクチャ、引き継ぎはjtransuに連絡
+4. **Brand Store Webアプリ**: App Store承認不要、DineパッケージのQRコードでアクセス
+5. **Echoを再生デバイスとして検討**: スピーカー品質が優秀（18-20kHz）、Alexaエコシステム統合、自然なフィット
+
+### フォローアップ連絡先
+
+| 分野 | Alias | コンテキスト |
+|------|-------|---------|
+| Second Screen Sync（Coca-Cola） | jtransu | FTV + モバイルWebSocketアーキテクチャを構築 |
+| Fidelity PV Second Screen | aleckunk | PVコンパニオンSSEプロトタイプを構築中（TEX） |
+| Web Audio Spatialization | graleigh | ブラウザ空間オーディオプロトタイプを構築 |
+
+---
+
+## アイデア横断比較
+
+| | Idea 01: Cat Love Keyboard | Idea 02: Adore Des Chats | Idea 03: Dinner and a Show |
+|---|---|---|---|
+| **総合** | 🟡 Yellow（中リスク） | 🟡 Yellow（中リスク） | 🟡🔴 Yellow/Red → ピボットで🟡 Yellow |
+| **最大ブロッカー** | Amazon Music UGCが存在しない | 物理製品の規制（APVMA 6-12ヶ月） | 超音波はスマートフォンで不可能 |
+| **先行事例の強さ** | 強い（Ad Council, Coca-Cola, Vitaminwater） | 中程度（Nespresso Vinyl） | 強い（Coca-Cola, Fidelity SSE） |
+| **ピボット難易度** | 低（UGCとプレイリストを分離） | 中（ブランドが製造を担当） | 低-中（オーディオコンセプトのリフレーム） |
+| **市場投入スピード** | 最速（Phase 1はデジタルのみ） | 最遅（物理製品のリードタイム） | 中（PVチームとの調整） |
+| **クロスチーム依存** | 中（Amazon Music, Alexa） | 低-中（ブランド側の負担大） | 中-高（PVチーム, BIL-E） |
+| **クリエイティブインパクト** | 高（インタラクティブ、共有性） | 非常に高（有形物、PR効果大） | 高（斬新なセカンドスクリーン活用） |
+
+### 推奨優先順位（技術観点）
+
+**Idea 01 > Idea 03 > Idea 02**
+
+- **Idea 01** は最も実証された技術スタックを持ち、ローンチまでの道筋が最速（Phase 1はデジタルのみ）
+- **Idea 03** はインフラの先行事例が強いが、オーディオコンセプトのリフレームとPVチームの賛同が必要
+- **Idea 02** はクリエイティブインパクトが最も高いが、物理製品に起因する規制・製造タイムラインのリスクがBILのコントロール外に大きく存在
+
+---
+
+## ネクストステップ
+
+- [ ] クライアントからのフィードバックを待ち、どのアイデアを推進するか決定
+- [ ] ANZ Brand Storeカスタム体験の利用可否を確認（BIL-E）
+- [ ] Idea 01の場合: Alexa Theme AUロケールサポートを確認
+- [ ] Idea 02の場合: APVMA規制コンサルに即座に相談、Purina/Nestleとの製造担当を調整
+- [ ] Idea 03の場合: jtransu（Second Screen Sync）およびaleckunk（Fidelity PV SSE）に連絡、ピッチ資料の超音波に関する記述をリフレーム
+- [ ] 全アイデア共通: AUマーケットプレイス向けAmazon Promotions割引コードインフラの確認
