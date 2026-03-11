@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-11T12:00:00+11:00",
+  "updated": "2026-03-11T12:30:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -93,7 +93,10 @@
     "op1-faq": "2026-03-09_tex-op1-fy27-goals",
     "sports-discovery": "2026-03-09_tex-prime-video-live-sports-api-discovery",
     "bindu": "2026-03-09_tex-prime-video-live-sports-api-discovery",
-    "halfpipe-all": "2026-03-08_halfpipe-deprecation"
+    "halfpipe-all": "2026-03-08_halfpipe-deprecation",
+    "arla": "2026-03-11_uk-arla-ai-on-clp",
+    "julia": "2026-03-11_uk-arla-ai-on-clp",
+    "ai-clp": "2026-03-11_uk-arla-ai-on-clp"
   },
   "topics": [
     {
@@ -564,6 +567,16 @@
       "status": "進行中",
       "summary": "BIL-E Halfpipe全廃計画（2026/11/12期限）。Shugo はAPAC POCとして6件のタスク/メンションに対応が必要。3/13までにacknowledge、3/18までにMigration Decision。",
       "tags": ["halfpipe", "deprecation", "bil-e", "apac", "poc", "migration", "webflow", "awls", "jp", "leon", "mirko", "asana", "brand-store", "廃止", "移行"]
+    },
+    {
+      "dir": "2026-03-11_uk-arla-ai-on-clp",
+      "date": "2026-03-11",
+      "slug": "uk-arla-ai-on-clp",
+      "hasHandover": true,
+      "title": "UK Arla Campaign — AI on CLP 承認プロセス調査・返信準備",
+      "status": "進行中",
+      "summary": "Julia Sampaio（UK BIL SM）からのArla AI on CLPキャンペーン相談に対し、MARS経験+最新のFAST/ASR Orange分類情報を調査。",
+      "tags": ["arla", "uk", "ai", "clp", "fast", "asr", "orange", "petarmor", "mars", "bil", "julia", "campaign", "security-review", "genai", "approval", "承認プロセス", "キャンペーン"]
     }
   ]
 }
