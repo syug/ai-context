@@ -100,11 +100,11 @@ Core interactive keyboard (Web Audio API + Brand Store) is **Green**. Amazon Mus
 
 | Campaign | Relevance | Link |
 |----------|-----------|------|
-| **Ad Council "When You Can't Say It, Play It"** | Closest conceptual match. Amazon Music + Alexa sharing, 2.6M shares. Award-winning | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/ad-council-when-you-cant-say-it) |
-| **Coca-Cola Holiday Second Screen Sync** | React app with audio context on Brand Store. Proves Web Audio works in BIL infra | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/bil-second-screen-sync) |
-| **Vitaminwater Sonic Nourishment** | Product scan unlocking branded Amazon Music playlists. Validates curated playlist approach | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/vitaminwater-sonic-nourishment) |
-| **Calma Zampa Alexa Skill** | Pet-focused Alexa skill (dogs) playing calming music. Lambda+S3+CloudFront architecture | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/alexa-skill-weather-forecast) |
-| **Iris Plaza Packed Rice 2.0** | Interaction-to-coupon-code pipeline. +265% purchase conversion | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/iris-plaza-packed-rice-1) |
+| **Ad Council "When You Can't Say It, Play It"** | Closest conceptual match — users shared songs via Amazon Music + Alexa, 2.6M shares. Award-winning. **Key difference:** users selected songs from Amazon Music's **existing 100M-track catalog**; no user-generated audio was uploaded to Amazon Music. Validates "Amazon Music as campaign channel" but NOT "UGC audio ingestion" | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/ad-council-when-you-cant-say-it) |
+| **Coca-Cola Holiday Second Screen Sync** | React app with audio context management (background music + sound effects) on Brand Store. Directly proves Web Audio API works in BIL infrastructure | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/bil-second-screen-sync) |
+| **Vitaminwater Sonic Nourishment** | Product scan unlocking branded Amazon Music playlists per flavour. **Key difference:** playlists were **pre-curated from existing catalog**, not populated by user-generated content. Validates branded playlist concept but not UGC contribution | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/vitaminwater-sonic-nourishment) |
+| **Calma Zampa Alexa Skill** | Pet-focused Alexa skill (dogs) that plays calming music playlists. Lambda+S3+CloudFront architecture. Relevant as pet-wellness + audio + Alexa precedent | [Parc](https://console.harmony.a2z.com/parc/#/prototypes/alexa-skill-weather-forecast) |
+| **Iris Plaza Packed Rice 2.0** | Second-screen FTV with interactive quiz leading to discount coupon code on Brand Store. Proves interaction-to-coupon-code pipeline. +265% purchase conversion | [Arc](https://console.harmony.a2z.com/arc/#/campaigns/iris-plaza-packed-rice-1) |
 
 ### Component Assessment
 
