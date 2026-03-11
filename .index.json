@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-11T14:10:00+11:00",
+  "updated": "2026-03-11T17:55:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -566,8 +566,8 @@
       "slug": "halfpipe-deprecation",
       "hasHandover": true,
       "title": "Halfpipe Deprecation — APAC POC として全体状況把握 + 対応タスク整理",
-      "status": "進行中",
-      "summary": "BIL-E Halfpipe全廃計画（2026/11/12期限）。Shugo はAPAC POCとして6件のタスク/メンションに対応が必要。3/13までにacknowledge、3/18までにMigration Decision。",
+      "status": "進行中（全タスク Acknowledged、SM Lead 確認送信済み、回答待ち）",
+      "summary": "BIL-E Halfpipe全廃計画（2026/11/12期限）。Shugo はAPAC POCとして7件のタスクをAcknowledge完了。JP 5ページ・AU 4ページの詳細取得済み。SM Lead（JP: Kaiyi/hayemiri、AU: Luke）に take down or keep 確認送信済み、3/16回答待ち。",
       "tags": ["halfpipe", "deprecation", "bil-e", "apac", "poc", "migration", "webflow", "awls", "jp", "leon", "mirko", "asana", "brand-store", "廃止", "移行"]
     },
     {
