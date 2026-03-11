@@ -82,19 +82,19 @@ Based on David Teie research — rhythm based on cat biology (purring vibrations
 
 90s love-ballad nostalgia. Potential fictional mascot "Meow-ceal Bolton" with a Russian Blue cat. Works across TikTok/Reels (sound-on environments), influencer content, Prime Video media, Amazon DSP, custom brand store.
 
-### Overall Feasibility: Yellow
+### Overall Feasibility: 🟡 Yellow
 
-Core interactive keyboard (Web Audio API + Brand Store) is **Green**. Amazon Music UGC pipeline is a **Red** blocker.
+Core interactive keyboard (Web Audio API + Brand Store) is **🟢 Green**. Amazon Music UGC pipeline is a **🔴 Red** blocker.
 
 ### Key Risks
 
 | Risk | Severity | Detail |
 |------|----------|--------|
-| Amazon Music UGC pipeline | Red | No mechanism exists for user-generated audio to enter Amazon Music playlists. All existing cases (Vitaminwater, Cocktail Cabinet) use pre-curated playlists only |
-| iOS WebView audio | Yellow | WKWebView requires user gesture for AudioContext initialization. Solvable with UX design ("tap to start") |
-| Cross-team dependencies | Yellow | BIL-E + Amazon Music + Alexa + Promotions — each adds timeline risk |
-| Mobile audio latency | Yellow | Low-end Android devices may introduce 50ms+ delay. Keyboard tap-to-sound interaction demands low latency |
-| ANZ Brand Store | Yellow | All found precedents are US/UK/EU/JP. Custom Brand Store experience on amazon.com.au needs verification |
+| Amazon Music UGC pipeline | 🔴 Red | No mechanism exists for user-generated audio to enter Amazon Music playlists. All existing cases (Vitaminwater, Cocktail Cabinet) use pre-curated playlists only |
+| iOS WebView audio | 🟡 Yellow | WKWebView requires user gesture for AudioContext initialization. Solvable with UX design ("tap to start") |
+| Cross-team dependencies | 🟡 Yellow | BIL-E + Amazon Music + Alexa + Promotions — each adds timeline risk |
+| Mobile audio latency | 🟡 Yellow | Low-end Android devices may introduce 50ms+ delay. Keyboard tap-to-sound interaction demands low latency |
+| ANZ Brand Store | 🟡 Yellow | All found precedents are US/UK/EU/JP. Custom Brand Store experience on amazon.com.au needs verification |
 
 ### Arc/Parc Precedents
 
@@ -110,14 +110,14 @@ Core interactive keyboard (Web Audio API + Brand Store) is **Green**. Amazon Mus
 
 | Component | Feasibility | Notes |
 |-----------|------------|-------|
-| Mobile web audio keyboard (Web Audio API) | Green | Well-supported. Coca-Cola prototype validates audio in Brand Store React apps |
-| Brand Store hosting | Green | Strongly validated across multiple campaigns. Custom slug (amazon.com/DineKeyboard) achievable |
-| Sound library (purr loops, chirps, can opening) | Green | Pre-recorded samples via Web Audio API. Host on S3/CloudFront |
-| Save & share compositions | Yellow | URL-encoded recipe approach avoids server-side audio rendering and moderation |
-| Amazon Music playlist integration | Yellow | Pre-curated playlist: validated. UGC contribution to playlist: **blocked** |
-| UGC-to-Amazon Music pipeline | Red | No mechanism exists. Requires distributor/label partnership for content ingestion |
-| Alexa integration | Yellow | Custom Skill (4-6 weeks) or Alexa Theme (lighter, faster). Verify AU locale support |
-| Discount code generation | Green-Yellow | Validated by Oral-B and Iris Plaza. Requires Amazon Promotions code pool |
+| Mobile web audio keyboard (Web Audio API) | 🟢 Green | Well-supported. Coca-Cola prototype validates audio in Brand Store React apps |
+| Brand Store hosting | 🟢 Green | Strongly validated across multiple campaigns. Custom slug (amazon.com/DineKeyboard) achievable |
+| Sound library (purr loops, chirps, can opening) | 🟢 Green | Pre-recorded samples via Web Audio API. Host on S3/CloudFront |
+| Save & share compositions | 🟡 Yellow | URL-encoded recipe approach avoids server-side audio rendering and moderation |
+| Amazon Music playlist integration | 🟡 Yellow | Pre-curated playlist: validated. UGC contribution to playlist: **blocked** |
+| UGC-to-Amazon Music pipeline | 🔴 Red | No mechanism exists. Requires distributor/label partnership for content ingestion |
+| Alexa integration | 🟡 Yellow | Custom Skill (4-6 weeks) or Alexa Theme (lighter, faster). Verify AU locale support |
+| Discount code generation | 🟢🟡 Green-Yellow | Validated by Oral-B and Iris Plaza. Requires Amazon Promotions code pool |
 
 ### Recommended Pivots
 
@@ -148,20 +148,20 @@ Spray at mealtimes + relaxation on the couch. Over time, scent becomes associate
 
 Luxury fragrance advertising tropes (tongue-in-cheek French voiceover). Behind-the-scenes content showing fragrance development and cat testing. Works across Prime Video, influencer program, PR, brand store, Amazon DSP.
 
-### Overall Feasibility: Yellow
+### Overall Feasibility: 🟡 Yellow
 
-Digital components (Brand Store, PV, DSP, Influencer) all **Green**. Physical fragrance product is the **Red** risk vector.
+Digital components (Brand Store, PV, DSP, Influencer) all **🟢 Green**. Physical fragrance product is the **🔴 Red** risk vector.
 
 ### Key Risks
 
 | Risk | Severity | Detail |
 |------|----------|--------|
-| Product safety | Red | Cats highly sensitive to essential oils. Carrier formulation (alcohol, fixatives, synthetic compounds) needs veterinary toxicology review. Catnip/Silver Vine/Valerian themselves are generally safe |
-| Regulatory (APVMA) | Red | Product marketed to affect animal behavior may require registration as veterinary chemical product. Registration timeline: 6-12 months |
-| Manufacturing lead time | Red | Custom bottle (Dine can-inspired + gold atomiser) requires industrial design, mold creation, production run. Minimum 12-16 weeks |
-| Fulfillment | Yellow | BIL doesn't typically ship physical products. Alcohol-based fragrance may have FBA dangerous goods restrictions |
-| Challenge completion tracking | Yellow | No native Amazon mechanism to verify 12-day feeding behavior. Purchase-based proxy is simplest |
-| TGA implications | Yellow | If therapeutic claims made (e.g., "calms cats"), TGA classification could be triggered. Pavlovian framing likely avoids this |
+| Product safety | 🔴 Red | Cats highly sensitive to essential oils. Carrier formulation (alcohol, fixatives, synthetic compounds) needs veterinary toxicology review. Catnip/Silver Vine/Valerian themselves are generally safe |
+| Regulatory (APVMA) | 🔴 Red | Product marketed to affect animal behavior may require registration as veterinary chemical product. Registration timeline: 6-12 months |
+| Manufacturing lead time | 🔴 Red | Custom bottle (Dine can-inspired + gold atomiser) requires industrial design, mold creation, production run. Minimum 12-16 weeks |
+| Fulfillment | 🟡 Yellow | BIL doesn't typically ship physical products. Alcohol-based fragrance may have FBA dangerous goods restrictions |
+| Challenge completion tracking | 🟡 Yellow | No native Amazon mechanism to verify 12-day feeding behavior. Purchase-based proxy is simplest |
+| TGA implications | 🟡 Yellow | If therapeutic claims made (e.g., "calms cats"), TGA classification could be triggered. Pavlovian framing likely avoids this |
 
 ### Arc/Parc Precedents
 
@@ -177,14 +177,14 @@ Digital components (Brand Store, PV, DSP, Influencer) all **Green**. Physical fr
 
 | Component | Feasibility | Notes |
 |-----------|------------|-------|
-| Brand Store custom experience | Green | Well-proven. Challenge tracker, product showcase, fragrance story |
-| Prime Video media integration | Green | Standard media buy |
-| Content production (luxury ad parody + BTS) | Green | Standard BIL production. French VO parody is creative, not technically complex |
-| Amazon DSP + Influencer Program | Green | Standard activation channels |
-| 12-Day Challenge tracking | Yellow | Options: purchase-based proxy (simplest), daily check-in (complex), honor system |
-| Reward redemption flow | Yellow | Options: promo code to ASIN, external fulfillment via 3PL, sweepstakes for limited quantity |
-| Physical fragrance manufacturing | Red | Regulatory, safety, sourcing, and lead time risks. Silver vine primarily sourced from East Asia |
-| Fulfillment/logistics | Yellow | Glass bottle = fragile + hazardous material (alcohol content) |
+| Brand Store custom experience | 🟢 Green | Well-proven. Challenge tracker, product showcase, fragrance story |
+| Prime Video media integration | 🟢 Green | Standard media buy |
+| Content production (luxury ad parody + BTS) | 🟢 Green | Standard BIL production. French VO parody is creative, not technically complex |
+| Amazon DSP + Influencer Program | 🟢 Green | Standard activation channels |
+| 12-Day Challenge tracking | 🟡 Yellow | Options: purchase-based proxy (simplest), daily check-in (complex), honor system |
+| Reward redemption flow | 🟡 Yellow | Options: promo code to ASIN, external fulfillment via 3PL, sweepstakes for limited quantity |
+| Physical fragrance manufacturing | 🔴 Red | Regulatory, safety, sourcing, and lead time risks. Silver vine primarily sourced from East Asia |
+| Fulfillment/logistics | 🟡 Yellow | Glass bottle = fragile + hazardous material (alcohol content) |
 
 ### Recommended Pivots
 
@@ -225,9 +225,9 @@ Cats hear up to 65kHz (humans max at 20kHz). High-frequency sounds capture cat a
 
 "Dinner and a show" as universal dating ritual, reframed for cat-owner relationships. Content angles: awkward first dates, grand romantic gestures, feline "dating experts." Natural influencer integration (cat date nights), Prime Video romantic show integrations.
 
-### Overall Feasibility: Yellow/Red (Yellow with pivot)
+### Overall Feasibility: 🟡/🔴 Yellow/Red (🟡 Yellow with pivot)
 
-Second-screen infrastructure is **Green** with strong precedent. The ultrasonic audio premise (20kHz+) is **physically impossible** on consumer smartphones.
+Second-screen infrastructure is **🟢 Green** with strong precedent. The ultrasonic audio premise (20kHz+) is **physically impossible** on consumer smartphones.
 
 ### CRITICAL: High-Frequency Audio Assessment
 
@@ -256,10 +256,10 @@ Second-screen infrastructure is **Green** with strong precedent. The ultrasonic 
 
 | Risk | Severity | Detail |
 |------|----------|--------|
-| Ultrasonic playback | Red | Physically impossible on smartphone speakers. Pitch must be corrected |
-| Prime Video sync mechanism | Yellow | No public PV API. Fidelity SSE is closest precedent but still in progress |
-| Content licensing | Yellow | Show-specific sync requires licensing arrangements or generic "mood matching" |
-| Battery impact | Yellow | Continuous audio + WebSocket. Design for 30-60 min max sessions |
+| Ultrasonic playback | 🔴 Red | Physically impossible on smartphone speakers. Pitch must be corrected |
+| Prime Video sync mechanism | 🟡 Yellow | No public PV API. Fidelity SSE is closest precedent but still in progress |
+| Content licensing | 🟡 Yellow | Show-specific sync requires licensing arrangements or generic "mood matching" |
+| Battery impact | 🟡 Yellow | Continuous audio + WebSocket. Design for 30-60 min max sessions |
 
 ### Arc/Parc Precedents
 
@@ -273,12 +273,12 @@ Second-screen infrastructure is **Green** with strong precedent. The ultrasonic 
 
 | Component | Feasibility | Notes |
 |-----------|------------|-------|
-| Second-screen mobile experience | Green | Strong precedent: Coca-Cola (deployed), Fidelity SSE (in progress) |
-| Prime Video content sync | Yellow | Fidelity SSE demonstrates scene-aware sync. No public PV API — sync likely manual or via audio fingerprinting |
-| Dynamic audio adjustment | Yellow | Web Audio API supports real-time manipulation (Spatialization prototype). Challenge: knowing what's playing on PV |
-| High-frequency audio (20kHz+) | Red | Physically impossible on smartphone speakers |
-| Usage tracking + progressive discount | Yellow | Session tracking straightforward. Discount codes need backend + Promotions integration |
-| Brand Store / app hosting | Green | Proven across many campaigns. ADLP deployment avoids App Store |
+| Second-screen mobile experience | 🟢 Green | Strong precedent: Coca-Cola (deployed), Fidelity SSE (in progress) |
+| Prime Video content sync | 🟡 Yellow | Fidelity SSE demonstrates scene-aware sync. No public PV API — sync likely manual or via audio fingerprinting |
+| Dynamic audio adjustment | 🟡 Yellow | Web Audio API supports real-time manipulation (Spatialization prototype). Challenge: knowing what's playing on PV |
+| High-frequency audio (20kHz+) | 🔴 Red | Physically impossible on smartphone speakers |
+| Usage tracking + progressive discount | 🟡 Yellow | Session tracking straightforward. Discount codes need backend + Promotions integration |
+| Brand Store / app hosting | 🟢 Green | Proven across many campaigns. ADLP deployment avoids App Store |
 
 ### Prime Video Sync: Current State (as of 2026-02)
 
@@ -292,12 +292,12 @@ Per Anna Ikejiani's product update email (2026-02-21), BIL's Second Screen Exper
 
 | Sync Approach | Viability | Notes |
 |---------------|-----------|-------|
-| Custom PV API | Not available | No public/private API exists for third-party PV sync |
-| STS API (SSE Beta) | Yellow — possible | Official route, but requires title alignment and Beta program inclusion |
-| Audio fingerprinting | Not viable for this idea | See analysis below |
-| Fidelity SSE (scene-aware) | Unproven | Still in development, not production-deployed |
-| Manual episode selection + timer | Green — simplest | Lowest tech risk, acceptable MVP |
-| **No PV sync at all** | **Green — recommended** | **See "Dynamic Adjustment" analysis below** |
+| Custom PV API | ❌ Not available | No public/private API exists for third-party PV sync |
+| STS API (SSE Beta) | 🟡 Yellow — possible | Official route, but requires title alignment and Beta program inclusion |
+| Audio fingerprinting | ❌ Not viable for this idea | See analysis below |
+| Fidelity SSE (scene-aware) | 🟡 Unproven | Still in development, not production-deployed |
+| Manual episode selection + timer | 🟢 Green — simplest | Lowest tech risk, acceptable MVP |
+| **No PV sync at all** | **🟢 Green — recommended** | **See "Dynamic Adjustment" analysis below** |
 
 ### Audio Fingerprinting Conflict
 
@@ -321,10 +321,10 @@ The brief does not specify HOW "match the show" is achieved. The technical compl
 
 | "Match the show" method | Required technology | Complexity | PV sync needed? |
 |------------------------|---------------------|-----------|-----------------|
-| **Real-time scene-level sync** (audio adjusts per scene based on playback position) | STS API / audio fingerprinting / manual timer sync | Red | Yes — requires knowing exactly what scene is playing |
-| **Real-time TV volume tracking** (mic detects TV volume changes, adjusts cat audio accordingly) | Microphone input + volume detection | Yellow — but speaker/mic conflict makes this unreliable when cat audio is playing simultaneously | No PV sync, but mic access required |
-| **Genre/mood preset** (user selects "action movie" / "romcom" / "documentary", cat audio adjusts to a matching profile) | User selection → preset soundscape. No PV integration | Green — trivially simple | No |
-| **No adjustment** (constant calming cat audio regardless of TV content) | Web Audio API plays steady audio | Green — simplest possible | No |
+| **Real-time scene-level sync** (audio adjusts per scene based on playback position) | STS API / audio fingerprinting / manual timer sync | 🔴 Red | Yes — requires knowing exactly what scene is playing |
+| **Real-time TV volume tracking** (mic detects TV volume changes, adjusts cat audio accordingly) | Microphone input + volume detection | 🟡 Yellow — but speaker/mic conflict makes this unreliable when cat audio is playing simultaneously | No PV sync, but mic access required |
+| **Genre/mood preset** (user selects "action movie" / "romcom" / "documentary", cat audio adjusts to a matching profile) | User selection → preset soundscape. No PV integration | 🟢 Green — trivially simple | No |
+| **No adjustment** (constant calming cat audio regardless of TV content) | Web Audio API plays steady audio | 🟢 Green — simplest possible | No |
 
 **The problem:** This single mechanic is the root cause of all PV sync complexity. Only the first method (real-time scene-level sync) requires PV integration — and it is by far the most complex. The remaining three methods require no PV sync at all, and the last two are trivially implementable on Brand Store.
 
@@ -362,7 +362,7 @@ The brief does not specify HOW "match the show" is achieved. The technical compl
 
 | | Idea 01: Cat Love Keyboard | Idea 02: Adore Des Chats | Idea 03: Dinner and a Show |
 |---|---|---|---|
-| **Overall** | Yellow | Yellow | Yellow/Red -> Yellow with pivot |
+| **Overall** | 🟡 Yellow | 🟡 Yellow | 🟡/🔴 Yellow/Red → 🟡 Yellow with pivot |
 | **Top Blocker** | Amazon Music UGC doesn't exist | Physical product regulatory (APVMA 6-12mo) | Ultrasonic impossible on smartphones |
 | **Precedent Strength** | Strong (Ad Council, Coca-Cola, Vitaminwater) | Moderate (Nespresso Vinyl) | Strong (Coca-Cola, Fidelity SSE) |
 | **Pivot Difficulty** | Low (decouple UGC from playlist) | Medium (brand owns manufacturing) | Low-Medium (reframe audio concept) |
