@@ -1,6 +1,6 @@
 # Handover Document
 **Topic:** PV Live Sports API Discovery -- BGW統合・商用ライセンス・リーガル準備
-**Date:** 2026-03-09
+**Date:** 2026-03-11
 **Status:** 進行中
 
 ---
@@ -34,12 +34,27 @@ Prime Video Live Sports API（SDP: Sports Data Platform）をBrand Gateway経由
 - PoC/デモは editorial/internal use の範囲で進める
 - 動くものがないとプロバイダーとのライセンス交渉も進まない
 
-### Bindu sync 設定済み
+### Mirkoの要求（3/10 Slackメッセージ）
+
+Mirkoが #tex-discovery-pv-live-sports-api-enablement で3点を要求:
+1. ライセンス申請の**プロセス**を明確にする
+2. **POCs**（担当窓口）を特定する
+3. **ETA**（タイムライン）の把握が必須
+
+→ Bindu sync のアジェンダに反映済み
+
+### Bindu sync（本日 3/11）
 
 - **日時:** 水 3/11 19:00-19:30 AEDT (8:00-8:30 GMT)
 - **Outlook招待送信済み**
 - **Slackメッセージ送信済み** (#tex-discovery-pv-live-sports-api-enablement, 3/9)
+- **アジェンダメモ作成済み**: `artifacts/bindu-sync-agenda-20260311.md`
 - 初回syncのみ同期、以降は基本Slack非同期
+
+アジェンダ:
+1. Jonathan Yiコール段取り (10min) — 誰が設定/TZ/質問リスト（プロセス・POCs・ETA）
+2. BIL-E Intake Request (8min) — タイミング判断、ビジネスケース強度
+3. 技術PoC方針 (5min) — Chicken-and-Egg回避、editorial use範囲
 
 ### ビジネスインパクト収集（Mirko主導）
 
@@ -51,6 +66,12 @@ Prime Video Live Sports API（SDP: Sports Data Platform）をBrand Gateway経由
 | JP | 未回答（Mariko: ポジティブだが「Sales Struggle + ライセンシー問題で壁が高い」） | **期限超過** |
 | MENA | ポテンシャルありだが数字なし | Chris Wilson言及のみ |
 
+### Discovery Doc (Quip) 状態
+
+- **URL:** https://quip-amazon.com/c4cBAcoeV61e/Discovery-Prime-video-Live-sports-API
+- **3/11確認:** 3/9以降の新規Biz updateなし。Business justificationは上記テーブルと同一。Next Stepsテーブルはステータス未記入。
+- **要更新:** Jonathan Yiのライセンス問題が未反映 → Bindu sync後に更新予定
+
 ### Strategy v2 ドキュメント作成済み
 
 3層ゴール（Tech / Commercial Licensing / Legal & Ad Policy）、アプローチ(A)(B)、Next Stepsを定義。Bindu syncで議論予定。
@@ -61,20 +82,22 @@ Prime Video Live Sports API（SDP: Sports Data Platform）をBrand Gateway経由
 2026-03-09_tex-prime-video-live-sports-api-discovery/
 ├── handover.md
 ├── artifacts/
-│   └── pv-live-sports-api-strategy-v2.md
+│   ├── pv-live-sports-api-strategy-v2.md
+│   └── bindu-sync-agenda-20260311.md        ← NEW
 ├── notes/
 │   ├── pv-live-sports-api-research.md
 │   ├── sdp-licensing-issue-analysis.md
 │   └── strategy-review-20260309.md
 └── history/
+    └── 2026-03-09_handover.md               ← ARCHIVED
 ```
 
 ## アクションアイテム
 
 | # | 期限 | アクション | ステータス |
 |---|------|-----------|-----------|
-| 1 | **3/11** | **Bindu sync コール** -- 方針すり合わせ、Jonathan Yiコール段取り、BIL-E Intake現状 | Outlook招待送信済み |
-| 2 | **3/11後** | **Jonathan Yiコール段取り** -- Bindu + Jonathan Yiで実施。editorial vs commercial境界、PV BDの役割確認 | Bindu sync後 |
+| 1 | **3/11 19:00** | **Bindu sync コール** -- アジェンダ準備完了 | 本日実施予定 |
+| 2 | **3/11後** | **Jonathan Yiコール段取り** -- Bindu + Jonathan Yiで実施。Mirko要求3点（プロセス・POCs・ETA）を確認 | Bindu sync後 |
 | 3 | **TBD** | **SDP Coreに問い合わせ** -- 技術的ブロッカー、データ/プロバイダーマッピング取得 | 未着手 |
 | 4 | **TBD** | **BIL-E Intake Request 準備・提出** -- ビジネスケース + Bindu syncの方針 | Bindu sync後 |
 | 5 | **TBD** | **Mirkoにライセンス問題エスカレーション** | Jonathan Yiコール後 |
@@ -94,6 +117,7 @@ Prime Video Live Sports API（SDP: Sports Data Platform）をBrand Gateway経由
 - **正しいフロー**: Business justification 収集 → Bindu sync → BIL-E Intake Request → BIL-E が SDP オンボーディング + BGW インテグレーション実行
 - **Mariko JP 壁**: Sales Struggle + ライセンシー問題（Layer 2 + Layer 3 にまたがる可能性）
 - **3/9 spin off**: tex-prime-video-sse-initiative から独立トピックとして分離
+- **Discovery Doc Quip URL**: `c4cBAcoeV61e` — 3/11時点でライセンス問題未反映、Bindu sync後に更新予定
 
 ## 関連トピック
 
