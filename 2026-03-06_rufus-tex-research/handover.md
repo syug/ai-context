@@ -1,38 +1,38 @@
 # Handover Document
-**Topic:** Rufus x BIL TEX リサーチ — ロケール状況・AU/JP展開・Discovery/Prototype調査
-**Date:** 2026-03-06
-**Status:** 完了
+**Topic:** Rufus x BIL TEX — APIオンボーディング協業・Coke AU Brief・AU展開確認
+**Date:** 2026-03-13
+**Status:** 進行中
 
 ---
 
 ## 背景
 
-ユーザーからの依頼で、Amazon AI Shopping Assistant「Rufus」について、BIL TEXの観点から包括的なリサーチを実施。調査対象は (1) 各ロケールでのRufusサポート状況、(2) AU/JP展開ロードマップ、(3) BIL TEXにおけるDiscovery/Prototypeの有無。社内Wiki、Quip、Slack、PARC/ARC、TEX固有ドキュメント（WBR, QBR, OP1, Goals）を横断的に調査した。
+Amazon AI Shopping Assistant「Rufus」について、BIL TEXの観点から包括的なリサーチを3/6に実施・完了。その後、Billy Kwok (billyhkk) からの返信とMatt Roberts (robsmat, MIK) からのCoke AU briefに関するRufus統合の問い合わせにより、リサーチから実行フェーズに移行。
 
 ## 現在の状況
 
-### Rufus ロケール展開
-- **10マーケット稼働中:** US, UK, DE, FR, IT, ES, IN, JP, CA, PT
-- Desktop i18nは2025年中頃にEU-5, IN, JP, CAへ展開済み
-- 2026年の優先事項はエンゲージメント拡大(3B目標)・マルチクリックアクション・Alexa+統合・既存マーケットfeature parity
-- **新マーケット展開は優先されていない**
+### Rufus API オンボーディング（Billy Kwok）
+- Billy (3/12) 返信: PARCプロトタイプはハック的に構築。正式には**3つのNileシステム**（NileCXOrchestrator, NileCachingService, NileModelService）へのオンボーディングが必要
+- 進捗は「super slowly」— 関係者の多さ、キャパシティ制約、優先度の問題
+- **Billyは協業を歓迎** — "happy to share the work if you're interested in working together"
+- Discovery doc共有済み: https://quip-amazon.com/BeNqA5zo9z9j
+- Shugo → Billy返信済み (3/13): Coke AU briefの実需を伝え、協業意思表明、sync提案
 
-### AU/JP ステータス
-- **JP:** 稼働中（mShop 2024 Q4〜, Desktop 2025中頃〜）。OPTIMA Rufus Andon稼働、ja-JP向けSOP存在
-- **AU:** 未ローンチ。Weblab・ロードマップいずれにも記載なし。2026年中のローンチ見込みなし
+### Coke AU Brief（Matt Roberts / MIK）
+- Matt Roberts (robsmat, MIK Production Director) が Group DM (robsmat + lukthis + saitshug) でRufus × Brand Store統合について質問 (3/12 9:33am)
+- Luke Thistleton: Cokeは「any integration with Rufus」を求めている。**"They just want to be the first to pull it off"**
+- Shugo → Matt返信済み (3/13): TL;DRでステータス共有（正式にはまだできない、APIオンボーディング進行中だが遅い、AU利用可否も未確認）
 
-### BIL TEX Discovery / Prototype
-- **Discovery #1:** [Rufus API on Store Landing Pages](https://quip-amazon.com/BeNqA5zo9z9j) — Brand StoreページにRufusチャットウィジェット埋込。Phase 2（公式API onboarding中）
-- **Discovery #2:** [Rufus LLM on Bedrock - TEX](https://quip-amazon.com/UH78Av7IMyw9) — Rufus LLMをBedrock経由でTEX独自ユースケースに活用。DEV/PRODアカウント取得済み
-- **PARC Prototype:** [Rufus on Stores](https://console.harmony.a2z.com/parc/#/prototypes/rufus-on-stores) — In Progress、"not safe to pitch yet"
-- **ARC Campaign:** 0件
-- 全てBilly Kwok (billyhkk) 主導のボトムアップ活動。OP1/正式ゴールには未組込
+### AU Rufus 利用可否（SIMチケット）
+- SIMチケット作成済み (3/10): `Rufus AU (amazon.com.au) — Availability Status & Rollout Timeline Inquiry` → Rufus Discovery チーム宛
+- **3日経過、返信なし**
+- 未回答の論点: AU展開ロードマップ、Rufus未ローンチ地域でのAPI利用可否
 
-### Kaiyi Wong / APAC調査
-- TEX APAC DT Weekly Huddle（2026版・2024-25アーカイブ版）、Quip検索、Slack検索で **KaiyiとRufusの関連は発見できず**
-- Kaiyiの活動はキャンペーンストア開発・IMDB unlock・UGS・クリエイティブツールリサーチに集中
-- PhoneToolでエイリアス特定できず（退職または別エイリアスの可能性）
-- APAC DTチームからのRufus活動は確認できず — EU EndemicsのBilly Kwokが唯一の推進者
+### 前回リサーチの要点（3/6完了分）
+- 10マーケット稼働中（US, UK, DE, FR, IT, ES, IN, JP, CA, PT）
+- JP稼働中、**AU未ローンチ**（ロードマップに記載なし）
+- Discovery 2件 + PARCプロトタイプ 1件 — 全てBilly Kwok主導のボトムアップ活動
+- ARC Campaign 0件。OP1/正式ゴールには未組込
 
 ## 成果物一覧
 
@@ -40,6 +40,8 @@
 2026-03-06_rufus-tex-research/
   notes/
     rufus-research.md    — 包括的リサーチレポート（ロケール、Discovery詳細、ソース一覧）
+  history/
+    2026-03-06_handover.md — 旧バージョン（リサーチ完了時点）
   handover.md            — 本ファイル
 ```
 
@@ -47,14 +49,17 @@
 
 | # | 期限 | アクション | ステータス |
 |---|------|-----------|----------|
-| — | — | （なし — 調査完了） | — |
+| 1 | — | Billy Kwokとのsync設定（返信待ち） | 進行中 |
+| 2 | — | SIMチケット Rufus Discovery チームからの回答待ち（3日経過） | 待ち |
+| 3 | — | AU Rufus未ローンチ地域でのAPI利用可否を確認（SIM回答後 or Billy sync時） | 未着手 |
+| 4 | — | Coke briefへのRufus統合フィージビリティ最終回答（上記3件の結果次第） | 未着手 |
 
 ## 重要な判断ログ
 
-- **調査手法:** 4エージェント並列（Wiki/Internal Search、Slack、PARC/ARC、Quip/TEXドキュメント）で網羅性を確保
-- **AU Rufus展開の結論:** 公式ロードマップ・Weblab・Andonいずれにも記載なし。Heartboardダッシュボードの存在のみが将来の兆し。明確な「計画なし」ではなく「計画が見当たらない」状態
-- **BIL TEX Rufus活動の構造:** Billy Kwok個人のボトムアップ活動であり、組織的な戦略/ゴールとしては未承認。OP1・QBRに言及なし。WBRのみEU Endemicsタスクリストに記載
-- **2つのDiscoveryの棲み分け:** #1（API on Stores）はRufusサービスをプロダクトとして統合、#2（LLM on Bedrock）はモデルをBIL独自パイプラインで活用。補完的だが独立したアプローチ
+- **リサーチ→実行フェーズへの移行 (3/13):** Billy返信 + Coke briefの実需により、調査完了から協業・実装検討フェーズに移行
+- **Coke briefの戦略的意味:** クライアントが「Rufus統合の最初の事例になりたい」と明言。Billy側の優先度を上げる材料になりうる
+- **2つの未確認リスク:** (1) AU未ローンチ地域でRufus APIが利用可能か (2) オンボーディングのタイムライン（Coke briefの期限に間に合うか）
+- **前回リサーチの判断ログ（3/6）:** 調査手法は4エージェント並列、AU展開は「計画が見当たらない」状態、Billy Kwokのボトムアップ活動が唯一の推進力
 
 ## 関連トピック
 
@@ -62,3 +67,4 @@
 - [bil-op1-planning-fy27](../2026-03-06_bil-op1-planning-fy27/) — OP1にRufus未組込の背景
 - [tex-survey-analysis](../2026-02-25_tex-survey-analysis/) — FY26 Discovery Planningサーベイ（Rufusは候補に挙がらず）
 - [prototype-ideation-research](../2026-03-05_prototype-ideation-research/) — FY26プロトタイプ候補リサーチ
+- [dine-2.0-tech-feasibility](../2026-03-11_dine-2.0-tech-feasibility/) — Mars Dine 2.0（同じくAU BIL案件）
