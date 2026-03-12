@@ -496,8 +496,8 @@
       "slug": "halfpipe-ivs-deprecation",
       "hasHandover": true,
       "title": "Halfpipe Live Video IVS コンポーネント廃止判断",
-      "status": "進行中（Mariko フォローアップ中）",
-      "summary": "BIL-E Halfpipe廃止に伴うLive Video IVSコンポーネントの廃止/Webflow移行判断。Mariko（JP SM）がLivestreaming需要ありと回答。Amazon Live/Twitchで代替可能かフォローアップ中。使用ページ0件、Deprecateが有力だがJP需要次第。",
+      "status": "進行中（MENA IVS必須判明、JP/AU返信待ち）",
+      "summary": "BIL-E Halfpipe廃止に伴うLive Video IVSコンポーネントの廃止/Webflow移行判断。MENA: IVS実使用中・Amazon Live非対応→Webflow migration必要の可能性高。JP: Mariko需要ありと回答、Amazon Live/Twitch代替可能か確認中。AU: Chris回答待ち。Amazon Live対応はUS/JP/INのみ。",
       "tags": ["halfpipe", "ivs", "deprecation", "live-video", "webflow", "bil-e", "brand-store", "livestreaming", "mirko", "billy-kwok", "leigh", "kaiyi", "chris", "mariko", "aayushi", "au", "mena", "jp", "twitch", "amazon-live", "廃止", "移行"]
     },
     {
