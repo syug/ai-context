@@ -5,6 +5,18 @@
 - 2026年最新情報（PetArmor事例等）は軽く触れ、Alecへの連絡をサジェスト
 - MARS FYWDTTYD の経験をベースに回答
 
+## 回答素案サマリー
+
+| # | 質問 | 回答ポイント |
+|---|---|---|
+| 1 | **承認プロセス** | 3並行トラック: Amazon内部（Legal/PR via approvals.amazon.com）+ ASR（Red、GenAI AppSecチーム）+ クライアント外部承認。Alecに連絡すれば2026年の簡略化パス（Orange/FAST）も説明可能 |
+| 2 | **タイムライン** | Legal/PR: ~3週間、ASR: 4-6週間（DT 90h）、クライアントGenAI承認: 3ヶ月超（想定外に長い）。**2026年更新: プリセットのみならOrange → self-certify で大幅短縮** |
+| 3 | **入力管理** | 5層ガードレール。特にBedrock Guardrails（Content filters, Denied topics, 競合名ブロック, PII filters）+ Andon Cord必須 |
+| 4 | **自由入力 vs 定型** | MARS: フリーフォーム入力だが出力をYES/NO/BLOCKEDに制約。それでもRed。**プリセットのみにすればOrange（allow-list approach）** — Julia DTチームの「事前定義が必要かも」は正しい判断 |
+| 5 | **AIモデル＆インフラ** | Claude 3 Sonnet on Bedrock、RAG（Knowledge Bases + OpenSearch Serverless）、temp=0.0、Lambda/API GW/DynamoDB。全てAmazonインフラ内 |
+| 6 | **ドキュメント** | FAST SOP、ASR Profiles Wiki、Generative AI for Campaign Quip（Shugo作成）、FAST Wiki。MARS固有のQuipも共有可能 |
+| 7 | **教訓** | クライアントGenAI承認を早期開始、ASR 4-6週間覚悟、FAST v2で技術問題あり得る、Andon Cord必須、フリーフォーム=Red を理解した上で設計判断を |
+
 ---
 
 ## Q1. AI Approval Process
