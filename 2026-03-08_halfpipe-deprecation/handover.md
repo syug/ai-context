@@ -1,7 +1,7 @@
 # Handover Document
 **Topic:** Halfpipe Deprecation — APAC POC として全体状況把握 + 対応タスク整理
-**Date:** 2026-03-12
-**Status:** 進行中（SM Lead 回答一部受領、IVS フォローアップ中）
+**Date:** 2026-03-13
+**Status:** 進行中（SM回答一部受領、IVS MENA必須判明、残回答3/16期限待ち）
 
 ---
 
@@ -133,9 +133,12 @@ Awaiting Acknowledgement → Acknowledged → Decision Made → Migration in pro
 | 6 | 3/12 | AU StoreOverride 質問に回答（Matt Roberts） | **完了**（3/12） |
 | 7 | — | Leon 返信待ち — JPHeroCarouselAnchor auto-deprecation vs 直接 take down | 返信待ち |
 | 8 | — | IVS: Mariko フォローアップ — Amazon Live/Twitch 代替可能か確認 | 返信待ち |
-| 9 | 3/16 | JP SM 残3件回答待ち（KANEBO, KATE, Coke Christmas） | 回答待ち |
-| 10 | 3/16 | AU SM 回答待ち（4ページ take down/keep） | 回答待ち |
-| 11 | 3/18 | 全回答に基づき Migration Decision 更新 | 未着手 |
+| 9 | — | IVS: Chris に AU の IVS 需要確認（グループDM ドラフト済み） | 送信待ち |
+| 10 | 3/12 | IVS: Amazon Live 対応マーケット確認（US/JP/IN のみ、AU/MENA 非対応） | **完了** |
+| 11 | 3/12 | IVS: Asana に MENA/JP/AU 状況コメント投稿 | **完了** |
+| 12 | 3/16 | JP SM 残3件回答待ち（KANEBO, KATE, Coke Christmas） | 回答待ち |
+| 13 | 3/16 | AU SM 回答待ち（4ページ take down/keep） | 回答待ち |
+| 14 | 3/18 | 全回答に基づき Migration Decision 更新 | 未着手 |
 
 ## 重要な判断ログ
 
@@ -147,6 +150,8 @@ Awaiting Acknowledgement → Acknowledged → Decision Made → Migration in pro
 - **IVS Livestreaming 需要（3/11-12）:** Mariko が JP で 2026年 Livestreaming 需要ありと回答（PVS + フルファネルキャンペーン）。ただし JP には Amazon Live / Twitch の代替あり。IVS 固有のニーズがあるかフォローアップ中
 - **ネクストステップの整理:** SM Lead への Ask は2段階: (1) ページの take down or keep、(2) コンポーネントの Deprecate or Migrate（AWLS / Webflow Native / Webflow Custom Code）はページ利用状況に応じて DT 側が判断
 - **ImageComparisonSlider JP（3/12）:** ダッシュボード確認で Copilot+ PC（sandbox）+ Ulike の2ページ → Asana コメント修正済み
+- **MENA IVS 実使用（3/12）:** Chris から MENA で IVS を実際に使用中と報告。Amazon Live は MENA 非対応（US/JP/IN のみ）→ Webflow migration が必要になる可能性高い
+- **Amazon Live 対応マーケット（3/12）:** US, JP, IN のみ。AU/MENA 非対応。ソース: https://advertising.amazon.com/solutions/products/amazon-live
 
 ## 関連トピック
 
