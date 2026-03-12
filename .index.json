@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-12T20:00:00+11:00",
+  "updated": "2026-03-13T22:00:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -372,10 +372,10 @@
       "date": "2026-03-02",
       "slug": "tex-wbr-review-and-deep-dive",
       "hasHandover": true,
-      "title": "TEX WBR PDFレビュー & 深掘り調査",
-      "status": "進行中（WBR深掘り完了、OP1は bil-op1-planning-fy27 に移管）",
-      "summary": "TEX WBR 3件レビュー+4トピック深掘り完了。OP1関連は bil-op1-planning-fy27 に分離・移管済み。",
-      "tags": ["tex", "wbr", "review", "deep-dive", "canvas-api", "sts", "fast", "petarmor", "olly", "hny", "fy25-goals", "bil", "na", "eu", "apac", "mena", "prime-video", "asr", "security", "au", "op1", "brainstorming", "pvs", "ai", "smith", "planning", "2027"]
+      "title": "TEX WBR & Weekly Meeting 定期レビュー",
+      "status": "進行中（Weekly Routine 確立、WBR W11読み込み完了）",
+      "summary": "TEX WBR・Weekly Meetingの週次レビューを体系化。/weekly スキル構築、WBR W11(奇数週)読み込み完了、TEX Info Sourcesケイデンス追記。",
+      "tags": ["tex", "wbr", "weekly", "routine", "skill", "review", "deep-dive", "canvas-api", "sts", "fast", "petarmor", "olly", "bil", "na", "eu", "apac", "mena", "prime-video", "au", "meeting", "cadence", "info-sources", "rekognition", "paws", "live-sports-api", "cms"]
     },
     {
       "dir": "2026-03-03_daily-task-management",
@@ -454,10 +454,10 @@
       "date": "2026-03-06",
       "slug": "rufus-tex-research",
       "hasHandover": true,
-      "title": "Rufus x BIL TEX リサーチ — ロケール状況・AU/JP展開・Discovery/Prototype調査",
-      "status": "完了",
-      "summary": "Rufusの各ロケールサポート状況、AU/JP展開ロードマップ、BIL TEX観点でのDiscovery/Prototype調査。10マーケット稼働中、AU未ローンチ、Discovery2件+PARCプロトタイプ1件発見。",
-      "tags": ["rufus", "tex", "bil", "research", "locale", "au", "jp", "discovery", "prototype", "parc", "bedrock", "llm", "rufus-on-stores", "billy-kwok", "nile", "ai-shopping", "brand-store", "リサーチ", "ロケール"]
+      "title": "Rufus x BIL TEX — APIオンボーディング協業・Coke AU Brief・AU展開確認",
+      "status": "進行中",
+      "summary": "Rufusリサーチ完了→実行フェーズ。Billy Kwok協業開始（Nileシステムオンボーディング）、Coke AU briefでRufus統合要求、SIMチケットでAU展開確認中。",
+      "tags": ["rufus", "tex", "bil", "research", "locale", "au", "jp", "discovery", "prototype", "parc", "bedrock", "llm", "rufus-on-stores", "billy-kwok", "nile", "ai-shopping", "brand-store", "coke", "mik", "robsmat", "lukthis", "sim-ticket", "onboarding", "collaboration", "リサーチ", "ロケール", "協業"]
     },
     {
       "dir": "2026-03-06_cmux-pane-freeze-fix",
@@ -577,7 +577,7 @@
       "hasHandover": true,
       "title": "UK Arla Campaign — AI on CLP 承認プロセス調査・返信準備",
       "status": "進行中",
-      "summary": "Julia Sampaio（UK BIL SM）からのArla AI on CLPキャンペーン相談に対し、MARS経験+最新のFAST/ASR Orange分類情報を調査。",
+      "summary": "Julia Sampaio（UK BIL SM）からのArla AI on CLPキャンペーン相談。MARS経験+2026 PetArmor事例+FAST/ASR Orange分類+UCD/PII分類ポリシー調査完了。返信ドラフト回答ポイント作成済み、文面未作成。",
       "tags": ["arla", "uk", "ai", "clp", "fast", "asr", "orange", "petarmor", "mars", "bil", "julia", "campaign", "security-review", "genai", "approval", "承認プロセス", "キャンペーン"]
     },
     {
