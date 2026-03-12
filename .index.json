@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-13T10:00:00+11:00",
+  "updated": "2026-03-13T21:00:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -98,7 +98,8 @@
     "julia": "2026-03-11_uk-arla-ai-on-clp",
     "ai-clp": "2026-03-11_uk-arla-ai-on-clp",
     "dine": "2026-03-11_dine-2.0-tech-feasibility",
-    "dine-2.0": "2026-03-11_dine-2.0-tech-feasibility"
+    "dine-2.0": "2026-03-11_dine-2.0-tech-feasibility",
+    "team-members": "2026-03-13_team-members-update"
   },
   "topics": [
     {
@@ -589,6 +590,16 @@
       "status": "進行中（クライアントフィードバック待ち）",
       "summary": "AU BIL提案の3クリエイティブアイデア（Cat Love Keyboard / Adore Des Chats / Dinner and a Show）のTech Feasibility Validation。全アイデアYellow、各1つRedブロッカーあり（全てピボット可能）。Luke却下理由確認済み、STS API情報追加、フィンガープリンティング制約・動的調整分析を含む。",
       "tags": ["dine", "mars", "cat-decoder", "ignored-to-adored", "feasibility", "tech-check", "au", "bil", "brand-store", "amazon-music", "alexa", "prime-video", "second-screen", "fragrance", "web-audio", "arc", "parc", "cat-love-keyboard", "adore-des-chats", "dinner-and-a-show", "chris-wilson", "publicis", "pspspsuedoscience", "キャンペーン", "技術評価"]
+    },
+    {
+      "dir": "2026-03-13_team-members-update",
+      "date": "2026-03-13",
+      "slug": "team-members-update",
+      "hasHandover": true,
+      "title": "team-members.md Alex ツリー全展開更新",
+      "status": "完了",
+      "summary": "phonetool で Alex Mejias 配下39名の完全なツリーを team-members.md に反映。IXD/EU-APAC DT/NA DT の3チーム全メンバーを追加。",
+      "tags": ["team-members", "phonetool", "org-tree", "alex-mejias", "tex", "bil", "memory", "dotfiles", "チームメンバー", "組織図"]
     }
   ]
 }
