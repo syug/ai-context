@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-13T22:00:00+11:00",
+  "updated": "2026-03-13T10:00:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -545,10 +545,10 @@
       "date": "2026-03-09",
       "slug": "tex-op1-fy27-goals",
       "hasHandover": true,
-      "title": "TEX OP1 FY27 Goals — APAC/MENA FAQ回答の準備",
-      "status": "進行中",
-      "summary": "TEX FY27 OP1のFAQ 10問（Mirko主催Loop文書）にAPAC/MENAのインプットを記入する。3/16ミーティング前に事前提出。",
-      "tags": ["tex", "op1", "fy27", "goals", "faq", "apac", "mena", "mirko", "loop", "planning", "eu", "OP1プランニング"]
+      "title": "TEX OP1 FY27 Goals — APAC/MENA FAQ回答の準備・チームインプット収集",
+      "status": "進行中（ドラフトv1完成、チームインプット収集中）",
+      "summary": "TEX FY27 OP1のFAQ 10問（Mirko主催Loop文書）にAPAC/MENAのインプットを記入する。ドラフトv1完成済み、Leigh/Kaiyi/BinduにグループDMでインプット依頼送信済み。3/16ミーティング前に最終化。",
+      "tags": ["tex", "op1", "fy27", "goals", "faq", "apac", "mena", "mirko", "loop", "planning", "eu", "survey", "slack", "draft", "OP1プランニング", "インプット収集"]
     },
     {
       "dir": "2026-03-09_tex-prime-video-live-sports-api-discovery",
