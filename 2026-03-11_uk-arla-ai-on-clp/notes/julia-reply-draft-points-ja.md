@@ -11,7 +11,7 @@
 |---|---|---|
 | 1 | **承認プロセス** | 3並行トラック: Amazon内部（Legal/PR via approvals.amazon.com）+ ASR（Red、GenAI AppSecチーム）+ クライアント外部承認。Alecに連絡すれば2026年の簡略化パス（Orange/FAST）も説明可能 |
 | 2 | **タイムライン** | Legal/PR: ~3週間、ASR: 4-6週間（DT 90h）、クライアントGenAI承認: 3ヶ月超（想定外に長い）。**2026年更新: プリセットのみならOrange → self-certify で大幅短縮** |
-| 3 | **入力管理** | 5層ガードレール。特にBedrock Guardrails（Content filters, Denied topics, 競合名ブロック, PII filters）+ Andon Cord必須 |
+| 3 | **入力管理** | 多層防御: FE(100文字+T&C) → WAF(6ルール) → API GW(throttle+validator) → Authorizer → Andon Cord → validateInputText(5段パイプライン) → Bedrock Guardrails(Content HIGH/28 Denied Topics/1494 Words/全PII BLOCK) → YES/NO/BLOCKEDのみ返却。コード確認済み |
 | 4 | **自由入力 vs 定型** | MARS: フリーフォーム入力だが出力をYES/NO/BLOCKEDに制約。それでもRed。**プリセットのみにすればOrange（allow-list approach）** — Julia DTチームの「事前定義が必要かも」は正しい判断 |
 | 5 | **AIモデル＆インフラ** | Claude 3 Sonnet on Bedrock、RAG（Knowledge Bases + OpenSearch Serverless）、temp=0.0、Lambda/API GW/DynamoDB。全てAmazonインフラ内 |
 | 6 | **ドキュメント** | FAST SOP、ASR Profiles Wiki、Generative AI for Campaign Quip（Shugo作成）、FAST Wiki。MARS固有のQuipも共有可能 |
@@ -129,3 +129,9 @@
 - **Andon Cord（即時停止機構）は必須**。SOPとデモ録画まで求められる
 - **ミススペル対策は不完全:** 競合名のタイポ全パターンはブロックできない
 - **2026年のアドバイス:** プリセットのみでV1ローンチ（Orange）→ フリーフォーム追加でV2（Red）という段階的アプローチを推奨。Alec Kunkle (aleckunk@) が最新プロセスに詳しい
+
+---
+
+## 補足: PetArmor（2026 US）について
+
+Julia への返信では詳細に触れない（聞かれていない）。「最近の事例として、NA TEXチームが新しい簡略化パスでAI on CLPをローンチ準備中。詳細はAlec Kunkle (aleckunk@) に連絡を」程度の言及にとどめる。
