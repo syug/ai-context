@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-12T00:10:00+11:00",
+  "updated": "2026-03-12T12:30:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -496,8 +496,8 @@
       "slug": "halfpipe-ivs-deprecation",
       "hasHandover": true,
       "title": "Halfpipe Live Video IVS コンポーネント廃止判断",
-      "status": "進行中",
-      "summary": "BIL-E Halfpipe廃止に伴うLive Video IVSコンポーネントの廃止/Webflow移行判断。Asanaコメント投稿済み、Slack確認メッセージのドラフト作成済み。",
+      "status": "進行中（Mariko フォローアップ中）",
+      "summary": "BIL-E Halfpipe廃止に伴うLive Video IVSコンポーネントの廃止/Webflow移行判断。Mariko（JP SM）がLivestreaming需要ありと回答。Amazon Live/Twitchで代替可能かフォローアップ中。使用ページ0件、Deprecateが有力だがJP需要次第。",
       "tags": ["halfpipe", "ivs", "deprecation", "live-video", "webflow", "bil-e", "brand-store", "livestreaming", "mirko", "billy-kwok", "leigh", "kaiyi", "chris", "mariko", "aayushi", "au", "mena", "jp", "twitch", "amazon-live", "廃止", "移行"]
     },
     {
@@ -566,8 +566,8 @@
       "slug": "halfpipe-deprecation",
       "hasHandover": true,
       "title": "Halfpipe Deprecation — APAC POC として全体状況把握 + 対応タスク整理",
-      "status": "進行中（全タスク Acknowledged、SM Lead 確認送信済み、回答待ち）",
-      "summary": "BIL-E Halfpipe全廃計画（2026/11/12期限）。Shugo はAPAC POCとして7件のタスクをAcknowledge完了。JP 5ページ・AU 4ページの詳細取得済み。SM Lead（JP: Kaiyi/hayemiri、AU: Luke）に take down or keep 確認送信済み、3/16回答待ち。",
+      "status": "進行中（SM Lead 回答一部受領、IVS フォローアップ中）",
+      "summary": "BIL-E Halfpipe全廃計画（2026/11/12期限）。7件Acknowledge完了。Ulike take down OK（Mariko承認）。Leon auto-deprecation確認中。CCLP-Multi-UGS-2024完了。StoreOverride AU回答済み。IVS: Mariko JP需要ありと回答、Amazon Live/Twitch代替可能かフォローアップ中。残SM回答3/16期限。",
       "tags": ["halfpipe", "deprecation", "bil-e", "apac", "poc", "migration", "webflow", "awls", "jp", "leon", "mirko", "asana", "brand-store", "廃止", "移行"]
     },
     {
