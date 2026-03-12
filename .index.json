@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-12T17:00:00+11:00",
+  "updated": "2026-03-12T20:00:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -382,9 +382,9 @@
       "date": "2026-03-03",
       "slug": "daily-task-management",
       "hasHandover": true,
-      "title": "Daily Task Management — WorkLog運用・Weekly Routine・WBRスケジュール・作業時間トラッキング",
+      "title": "Daily Task Management — WorkLog運用・Weekly Routine・WBRスケジュール・/daily Skill",
       "status": "進行中",
-      "summary": "/daily Skill作成・運用開始。3/12完了率67%（PES完了、1:1完了、Halfpipe大幅進捗、PV Live API Biz Justification更新）。キャリーオーバー・ブレイクダウン・構造継承ルールをSkillに組み込み。TEX OP1 3/16期限が最優先残件。",
+      "summary": "/daily Skill初回実行（Daily Briefing+Slack要注意ブリーフィング）。Kaiyi OP1 DM対応・Mirko東京オフサイト(6/3-5)DM対応完了。OP1インプット取りまとめ構造確立（Mirko→Shugo→Kaiyi/Leigh/Bindu）。TEX OP1 3/16期限が最優先残件。",
       "tags": ["daily", "task-management", "worklog", "daily-log", "notion", "weekly", "workflow", "運用", "タスク管理", "ワークフロー", "wbr", "wbr-schedule", "routine", "outlook-reminder", "team-members", "template", "asana", "time-tracking", "weekly-project-update", "loop", "parc-check", "skill", "daily-skill", "carryover", "breakdown", "structure-inheritance", "briefing", "arla", "annual-review"]
     },
     {
