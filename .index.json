@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-12T12:30:00+11:00",
+  "updated": "2026-03-12T16:30:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -332,9 +332,9 @@
       "hasHandover": true,
       "workdir": "~/Library/CloudStorage/OneDrive-amazon.com/Projects/2026/AU/Intakes/ENT | AU |  Prime Early Screenings | Australia Pilot",
       "title": "AU Prime Early Screenings Tech Check — Event Cinemas パートナーシップ技術評価",
-      "status": "進行中（Tech Check 完了・V3 最終化済み・Matt Sync 3/11・Hannah Hill 連絡は Matt に委任提案予定）",
-      "summary": "AU BIL の PES Tech Check 完了。V3 レポート最終化（Ellis 能力vs事実の区別、スコープ内/外分割、ARC過去事例発見）。Matt Sync 3/11 で結果共有 + Hannah Hill への連絡を Matt（SM）に委任提案予定。gulsunit DM返信待ち。",
-      "tags": ["pes", "prime-early-screenings", "au", "australia", "event-cinemas", "ellis", "odeon", "lwa", "primepass", "prime-ellis", "tech-check", "bil", "映画", "先行上映", "技術評価", "hannah-hill", "gulsunit", "v3", "blueprint-cx", "amazon-pay", "offer-code", "arc", "wicked", "superman", "fandango", "matt-sync"]
+      "status": "進行中（Tech Check 完了・サマリー Matt シェア済み・Matt が Hannah にリーチアウト予定）",
+      "summary": "AU BIL の PES Tech Check 完了。V5 レポート（PBS Wiki 発見で LWA Only 削除、LWA + Prime Ellis 確定）。サマリードック Matt にシェア済み。Matt が Hannah Hill にリーチアウト予定。gulsunit gut check 返信待ち。",
+      "tags": ["pes", "prime-early-screenings", "au", "australia", "event-cinemas", "ellis", "lwa", "primepass", "prime-ellis", "tech-check", "bil", "映画", "先行上映", "技術評価", "hannah-hill", "gulsunit", "v5", "pbs", "blueprint-cx", "arc", "wicked", "superman", "fandango", "matt-sync", "summary"]
     },
     {
       "dir": "2026-02-28_dev-environment-setup",

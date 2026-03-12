@@ -1,7 +1,7 @@
 # Handover Document
 **Topic:** AU Prime Early Screenings Tech Check — Event Cinemas パートナーシップ技術評価
-**Date:** 2026-03-10
-**Status:** 進行中（Tech Check 完了・レポート V4 最終化済み・Matt Sync 3/11 予定・Hannah Hill 連絡は Matt に委任提案予定）
+**Date:** 2026-03-12
+**Status:** 進行中（Tech Check 完了・サマリードック Matt にシェア済み・Matt が Hannah Hill にリーチアウト予定）
 
 ---
 
@@ -11,139 +11,96 @@ AU BIL チーム（Matt Bryant/mjlb, Chris Wilson/wilsnup）から DT（Shugo Sa
 
 PES は US で Fandango と提携して運用されているプログラムで、Prime 会員に映画の先行上映チケットを提供する。Fandango が AU で運営していないため、Event Cinemas を代替パートナーとして検討中。
 
-プロジェクトは非常に初期段階で、IO 未署名のプロアクティブな探索。Event Cinemas から Amazon との API 連携に関する技術プロポーザルを受け取った段階。
-
 ## 現在の状況
 
-### Tech Check レポート — V4 最終化完了（3/10）
+### Tech Check レポート — V5（3/11）
 
-- V1（2/27）: 初版 EN/JP
-- V2（3/4）: Kelly バリデーション + 構造改善
-- **V3（3/10）: 本セッションでの最終化。主な変更:**
-  - V1/V2 ファイル統合（バージョニング廃止、1ファイルに）
-  - Amazon Pay 記述修正（LWA と独立、推奨アプローチに不要）
-  - Ellis 能力 vs US PES 実際の利用範囲の区別を注記で明示
-  - アクションアイテムをスコープ内/外の2テーブルに分割
-  - Hannah Hill をエントリーポイントとして再構成（サブアイテム 6a-6c）
-  - Prime Ellis チーム + LWA チーム両方へのエンゲージが必要と明記（Kelly 証言）
-  - Bullseye API を「AU 対応済み」に更新
-  - gulsunit を DM gut check に切替（フルレビュー不要）
-  - Matt Sync 用 Summary 版 EN/JP を新規作成
-- Ellis CX リサーチノート「6つ」→「5つ」訂正済み
-- **V4（3/10）: LWA-only アプローチの明確化。主な変更:**
-  - LWA Only を Priority 0（最もシンプル）として推奨に追加
-  - Ellis は認証に不要、オファー管理のオプションと明記
-  - 推奨を4段階に再構成（LWA Only / LWA + Ellis / ODEON / Bullseye）
-  - Hannah Hill への核心的質問追加:「US PES でなぜ Ellis を使ったのか？Pure LWA では不足だったのか？」
-  - アクションアイテムを3テーブルに分割（In Scope / Essential / Nice-to-have）
-  - #6c（Ellis AU 対応確認）を Nice-to-have に移動・#10 と統合
-  - マルチエージェントレビュー実施 → Critical 2件 + Medium 6件 + Low 10件を修正:
-    - Next Steps を番号→ラベルベースに変更（Action Items との番号体系不一致を解消）
-    - Counter-Proposal に LWA Only 言及を追加
-    - LWA Only AU Support を "Needs verification" に修正
-    - Hannah Hill Stakeholder 行を統合、#6 に Matt 委任注記追加
-    - #6d→#6c にリナンバー
-    - Report Date を初版/最終更新に分離、DT burden 一括記載、Harish Tier 修正等
+- V1（2/27）→ V2（3/4）→ V3（3/10 AM）→ V4（3/10 PM）→ **V5（3/11）**
+- **V5 の主な変更:**
+  - PBS Onboarding Wiki で「Third Party Integration should go through Prime Ellis」を発見
+  - LWA Only（V4 の Priority 0）を削除 — 3P には Prime Ellis 経由が必須
+  - LWA + Prime Ellis を Priority 0（Primary）に昇格
+  - ODEON モデルを Priority 1 に
+  - PBS Onboarding Wiki / Products Using LWA Wiki をソースに追加
+  - PBS リージョンエンドポイント（NA/EU/FE/CN、AU は FE 経由の可能性大）
+  - Action Item #3（推奨順位見直し）→ Complete
 
-### ARC 過去事例（US PES キャンペーン）— 3/10 発見
+### Matt Sync 完了（3/11）
 
-2件の Lighthouse キャンペーンを ARC で確認:
+- Tech Check 結果を共有。スクリプト v2 を使用
+- **結果:** Matt が Hannah Hill にリーチアウトする
+- Hannah へのメッセージドラフト（EN）も準備済み（グループ DM: Shugo + Matt + Hannah）
 
-1. **Wicked "Oz Casts a Spell on Amazon"** (2024/10-12, Universal Pictures)
-   - ARC: `https://console.harmony.a2z.com/arc/#/campaigns/universal-pictures-wicked-o`
-   - $10M media spend, C0, Lighthouse
-   - **Hannah Hill (hannahnl) が Senior SM としてチームに参加** — Kelly 証言の裏付け
-   - **Kelly (kellypru) も DT として参加**
-   - PES フロー: OzOnAmazon.com (Brand Store) → Fandango 経由チケット購入
-   - 結果: 128K チケット販売（目標 100K の +28%）、$2.5M box office
-   - 「first-time partnership and API integration with Fandango」と明記
-   - ロケール: US, CA, AU, UK, IT, ES, DE, FR
+### サマリードック作成・シェア（3/12）
 
-2. **Superman "Anyone Can Be Super"** (2025/6, Warner Bros.)
-   - ARC: `https://console.harmony.a2z.com/arc/#/campaigns/anyone-can-be-super-warner-b`
-   - $5M media spend, C1, Lighthouse
-   - PES フロー: amazon.com/superman (Brand Store) → Fandango 経由チケット購入
-   - 初の Fandango Round-Up 統合（端数寄付）
-   - 結果: 初日 144K チケット販売（$2.9M box office）、74% booking rate
+- Summary EN/JP を Matt 共有用にリファイン
+  - ODEON モデル（代替案）を削除（方法不明、US ケースと異なり、問い合わせ先不明）
+  - Bullseye を削除（ノイズ）
+  - Action Items セクション削除
+  - バージョン表記削除（シェア用ドキュメントのため）
+  - 推奨アプローチをテーブルから1行に簡素化: 「LWA（Login with Amazon）」
+  - 要確認事項: US PES で踏んだステップの全体像 / Prime Ellis・LWA チームとのエンゲージ方法
+  - Task 詳細セクション追加（Task 1/2/3 の要点）
+  - 脚注スタイル（*）で補足情報を整理
+- **Asana（TEX Global Intake チケット）にコメント + EN サマリー添付済み**
+- **Slack ドラフト作成済み（Matt DM、未送信）**
+- ファイルリネーム: `_EN` サフィックス削除、EN がデフォルト
 
-**US PES ユーザーフロー（ARC から再構成）:**
-1. 認知: H1 / Fire TV / Alexa / Amazon Live / TNF / Twitch 等で告知
-2. ランディング: Brand Store（中央ハブ）— チケット、トレイラー、グッズ集約
-3. チケット CTA: Brand Store 上の PES リンクをクリック
-4. 3P 遷移: Fandango サイトに遷移 → LWA 認証（`prime:benefit_status`）
-5. チケット発券: Fandango 上で座席選択・購入（Fandango 決済）
+### PBS Onboarding Wiki の発見（3/11）
 
-> **注:** LWA 認証の正確なタイミング（遷移時 or Fandango サイト内）は ARC に記載なし。Hannah Hill に要確認。
+- https://w.amazon.com/bin/view/PBS/Onboarding/
+- 「Third Party Integration should go through Prime Ellis」と明記
+- PrimePass (`prime:benefit_status`) のコード例あり
+- PBS エンドポイント: NA (prime.amazon.com) / EU (prime.amazon.eu) / FE (prime.amazon.co.jp) / CN (prime.amazon.cn)
+- AU 専用エンドポイントなし、FE 経由の可能性大
+
+### 追加で発見した内部 Wiki
+
+- Products Using LWA: https://w.amazon.com/bin/view/IdentityServices/3P_Authz/Products_Using_LWA/
+  - PrimePass: "allows select third parties access to the customer's Amazon Prime benefit status"
+  - Product Domain: `prime`, Scope: `prime:benefit_status`
+- LWA Prime Upsell: https://w.amazon.com/bin/view/IdentityServices/LWA/Projects/LWA_Prime_UpSell/
+  - `prime:benefit_status` スコープの存在を確認
+
+### Hannah Hill プロフィール（PhoneTool）
+
+- Sr. Solutions Manager, BIL-VAR
+- Virtual Location - California → US Pacific Time (PT)
+- Manager: lebrooke
+- L6, Total tenure 4+ years
 
 ### Kelly Prudente (kellypru) との DM — 完了（3/3）
 
-- **初回 DM（2/27）**: PES について質問 + フォローアップ（3/3）
-- **Kelly 回答（3/3）**: Fandango/Atom は **LWA + Prime Ellis** で統合。**Prime Ellis チームと LWA チームの両方**と密接に連携
+- Kelly 原文: "the integration worked my SM (@hannahnl) was pretty key in leading this, i would reach out to her to understand all of the steps taken, how to engage the prime ellis team + LWA team"
+- Fandango/Atom は LWA + Prime Ellis で統合
 - LWA scope `prime:benefit_status` で Prime 会員判定
-- **Hannah Hill (hannahnl)** がリーダー — 「彼女に連絡して全ステップを理解すべき」
-- US Telent の amazon.com チケット販売企画は保留中
-
-### LWA / Ellis / Amazon Pay の関係性整理
-
-- **LWA（Identity Services）**: OAuth 2.0 認証 + `prime:benefit_status` で Prime 判定。AU 対応済み
-- **Prime Ellis**: オフ Amazon パートナーシップ管理 — オファーライフサイクル、Verify/Redeem API。AU 対応は未確認
-- **Amazon Pay**: 決済サービス。LWA とは独立。AU 未対応だが推奨アプローチには不要（Embedded Store CX のみ影響）
-- **Ellis の能力 vs US PES の実態**: レポートの Ellis 機能記述は Wiki ドキュメント（Tier 2）ベース。US PES が実際にどこまで Ellis を使い、どこまで Fandango が自前実装かは未確認 — Hannah Hill に要確認
-- **重要な洞察（3/10）**: Event Cinemas のプロポーザルベースでは Ellis は必須ではない。Event Cinemas が自前でチケット管理する前提なら、Amazon 側に必要なのは LWA による Prime 認証のみ。Ellis は Amazon 側でオファーをコントロールしたい場合のオプション
+- Hannah Hill がプロセスをリード
 
 ### Ads Security — gulsunit gut check
 
-- フルセキュリティレビュー不要に方針変更（推奨が Prime Ellis 経由に確定したため）
-- SHA256 Critical 2件の判定妥当性のみ Slack DM で非同期確認に切替
-- 3/10 DM 送信済み、返信待ち
-
-### Matt Sync 準備（3/11 予定）
-
-- Summary 版レポート EN/JP 作成済み
-- **Hannah Hill への連絡は Matt（SM）から行うことを提案予定** — SM-to-SM が自然、ビジネス判断を含むため
-- 日英スクリプト準備済み（下記参照）
-
-## Matt Sync 用スクリプト
-
-### 日本語版
-
-> Tech Check としては結論出てて、Event Cinemas の SHA256 提案は不採用、代わりに LWA + Prime Ellis か ODEON model を推奨。US 側で Kelly (DT) に裏取りも済んでる。
->
-> で、次のステップなんだけど、Kelly から Hannah Hill っていう US TelEnt の SM を紹介されてて、Wicked と Superman の PES を直接リードした人。Ellis チームや LWA チームとのエンゲージ方法は全部彼女が知ってる。
->
-> ここから先は SM 同士で話した方がスムーズだと思うんだよね — Hannah も SM だし、AU でやるかどうかのビジネス判断も含むから。Matt から Hannah に連絡取ってもらえると一番早いかなと。Kelly の名前出せば話は通ると思う。
->
-> 俺の方では Tech Check レポートと、Hannah に聞くべき技術的な確認事項リストをまとめてあるから、連絡する時にそのまま共有してもらえればいいようにしてある。必要なら同席もするよ。
-
-### English version
-
-> Tech Check is done. Event Cinemas' SHA256 approach won't work — two Critical security issues. But we have good alternatives: LWA + Prime Ellis, or the ODEON model. I checked with Kelly on the US side and she confirmed this is how Fandango did it.
->
-> Next step — Kelly pointed me to Hannah Hill, SM on US TelEnt. She ran the Fandango PES stuff for Wicked and Superman. She knows how to get the Prime Ellis team and LWA team involved.
->
-> I think it makes sense for you to reach out to her since she's an SM too, and the next steps are more about how we want to move forward with AU than technical details. If you mention Kelly's name, she'll know what it's about.
->
-> I've got the report and a list of questions ready — you can just share those with her. I can also join the call if you want.
+- SHA256 Critical 2件の判定妥当性のみ Slack DM で非同期確認
+- 3/10 DM 送信済み、3/12 時点で返信なし
 
 ## 成果物一覧
 
 ```
 ai-context/2026-02-27_au-pes-tech-check/
-├── handover.md                                  ← 本ファイル
+├── handover.md                              ← 本ファイル
 ├── history/
-│   ├── 2026-02-27_handover.md                   ← 旧バージョン（圧縮アーカイブ）
+│   ├── 2026-02-27_handover.md
 │   ├── 2026-03-02_handover.md
 │   ├── 2026-03-03_handover.md
-│   └── 2026-03-10_handover.md                   ← 旧バージョン（圧縮アーカイブ）
+│   ├── 2026-03-10_handover.md
+│   └── 2026-03-10_2_handover.md
 ├── artifacts/
-│   ├── AU_PES_TechCheck_Report_EN.md            ← Tech Check レポート V4（英語版）
-│   ├── AU_PES_TechCheck_Report_JP.md            ← Tech Check レポート V4（日本語版）
-│   ├── AU_PES_TechCheck_Summary_EN.md           ← Matt Sync 用 Summary（英語版）
-│   └── AU_PES_TechCheck_Summary_JP.md           ← Matt Sync 用 Summary（日本語版）
+│   ├── AU_PES_TechCheck_Report.md           ← Tech Check レポート V5（EN、デフォルト）
+│   ├── AU_PES_TechCheck_Report_JP.md        ← Tech Check レポート V5（JP）
+│   ├── AU_PES_TechCheck_Summary.md          ← サマリー（EN、Matt シェア用）
+│   └── AU_PES_TechCheck_Summary_JP.md       ← サマリー（JP、レビュー用）
 └── notes/
-    ├── verification-report.md                   ← Slack/Quip/Wiki 検証レポート
-    ├── ellis-cx-patterns-research-EN.md         ← Ellis CX リサーチ（英語版）
-    └── ellis-cx-patterns-research-JP.md         ← Ellis CX リサーチ（日本語版）
+    ├── verification-report.md
+    ├── ellis-cx-patterns-research-EN.md
+    └── ellis-cx-patterns-research-JP.md
 
 OneDrive: ENT | AU | Prime Early Screenings | Australia Pilot/
 ├── Amazon_Prime_Preview_Partner_API_Spec.pdf
@@ -160,74 +117,46 @@ OneDrive: ENT | AU | Prime Early Screenings | Australia Pilot/
 
 ## アクションアイテム
 
-### 依頼スコープ内（Tech Check として必要）
-
-| # | アクション | ステータス |
-|---|----------|-----------|
-| 1 | gulsunit SHA256 Critical 判定 gut check | 🔄 DM 返信待ち（3/10） |
-| 2 | mjlb への Tech Check 結果共有（3/11 Sync） | ⬜ 未着手 |
-| 3 | 推奨順位の見直し（Fandango model vs ODEON model） | ⬜ 未着手 |
-| 5 | kellypru に US PES 詳細確認 | ✅ 完了（3/3） |
-| 6 | レポート V1/V2 統合 + Amazon Pay 修正 + Ellis 5パターン訂正 | ✅ 完了（3/10） |
-| 7 | Ellis 能力 vs 事実の区別明記（V3 注記） | ✅ 完了（3/10） |
-| 8 | アクションアイテムのスコープ内/外分割 | ✅ 完了（3/10） |
-| 9 | Summary 版 EN/JP 作成 | ✅ 完了（3/10） |
-
-### 次フェーズ（必須 — 進行に必要）
-
-| # | アクション | ステータス / 備考 |
-|---|----------|-------------------|
-| 10 | Hannah Hill (hannahnl) に連絡 — **Matt（SM）から連絡を提案予定** | ⬜ 3/11 Sync で Matt に委任提案 |
-| 10a | Hannah 経由: US PES エンゲージメントプロセス + learnings（Prime Ellis チーム + LWA チーム両方） | ⬜ |
-| 10b | Hannah 経由: US PES の Ellis 機能実際の利用範囲（Verify/Redeem, 在庫管理, 重複防止）。そもそも Ellis が必要だった理由は何か。Pure LWA では不十分だった点は何か | ⬜ |
-| 10c | Hannah 経由: PrimePass (`prime:benefit_status`) AU 対応 → Identity Services に繋いでもらう | ⬜ |
-| 11 | Event Cinemas に Ellis/LWA モデルを逆提案 | ⬜ #10c 確認後 |
-| 12 | Full Scope 提出検討 | ⬜ 上記確認後 |
-
-### Nice-to-have / Add-on
-
-| # | アクション | ステータス / 備考 |
-|---|----------|-------------------|
-| 4 | Bullseye API AU 対応 | ✅ AU 対応済みと判断。Full Scope で要検証。担当: BIL-E / Shugo |
-| 13 | Quip AU BIL Team WIP の PES セクション確認 | 確認済み（3/10）— PES 関連は断片的な言及のみ、詳細な技術議論なし |
-| 14 | Ellis チームとのエンゲージメント + AU 対応確認 — Amazon 側でオファー管理（利用者追跡、上限枚数、重複防止）が必要な場合、または Hannah 確認後に Ellis が必要と判明した場合。Hannah 経由で Ellis チーム（Joshua Huang, Principal PMT）に接続し、AU マーケット対応を確認 | ⬜ 未着手 — #10b の結果次第 |
+| # | 期限 | アクション | ステータス |
+|---|------|----------|-----------|
+| 1 | — | gulsunit SHA256 Critical 判定 gut check | 🔄 DM 返信待ち（3/10〜） |
+| 2 | 3/11 | Matt Sync で Tech Check 結果共有 | ✅ 完了（3/11） |
+| 3 | — | 推奨順位の見直し | ✅ 完了（V5）— PBS Wiki で確定 |
+| 4 | — | サマリードック作成 → Matt にシェア | ✅ 完了（3/12） |
+| 5 | — | Matt が Hannah Hill にリーチアウト | ⬜ Matt 対応中 |
+| 6 | — | Hannah 経由: US PES のステップ全体像 + Prime Ellis/LWA チームとのエンゲージ方法 | ⬜ #5 待ち |
+| 7 | — | Event Cinemas に LWA モデルを逆提案 | ⬜ #6 後 |
+| 8 | — | Full Scope 提出検討 | ⬜ #7 後 |
 
 ## 重要な判断ログ
 
 ### Event Cinemas SHA256 提案 → 不採用
 - Critical 1: 秘密鍵の外部共有（Amazon 鍵管理ポリシー抵触）
 - Critical 2: MemberId の PII 露出（PrimePass は Directed ID で保護）
-- Event Cinemas 自体は却下しない → LWA/Ellis モデルへの切替を逆提案
+- Event Cinemas 自体は却下しない → LWA ベースの統合への切替を逆提案
 
-### 推奨アプローチの変遷（V1 → V2 → V3）
-- V1: LWA + PrimePass（第一）、Ellis Offer Code CX（第二）を別選択肢として提示
-- V2: Kelly 証言で PrimePass が Prime Ellis の一部と判明。第一推奨を「LWA + Prime Ellis」にリネーム
-- V3: Ellis 機能記述が「能力ベース」（Wiki）vs「事実ベース」（Kelly 証言）の区別を明記。US PES が Ellis をどこまで使っているかは未確認
+### 推奨アプローチの変遷（V1 → V5）
+- V1: LWA + PrimePass / Ellis Offer Code CX を別選択肢
+- V2: Kelly 証言で「LWA + Prime Ellis」にリネーム
+- V3: Ellis 能力 vs 事実の区別を明記
+- V4: LWA Only を Priority 0 として追加
+- **V5: PBS Wiki で「3P は Prime Ellis 経由」を発見 → LWA Only 削除、LWA + Prime Ellis を Primary に確定**
 
-### LWA / Ellis / Amazon Pay の関係性（3/5-3/10 確定）
-- LWA = 認証（「誰？Prime？」）、Ellis = オファー管理（「何のオファーを、どう届けるか」）
-- Amazon Pay は LWA と完全に独立。推奨アプローチに不要（Embedded Store CX のみ影響）
-- Fandango/PES は Ellis Blueprint CX Wiki に未掲載 → カスタム統合
+### サマリードックのリファイン方針（3/12）
+- Matt 共有用にシンプル化: ODEON・Bullseye・Action Items・バージョン表記を削除
+- 推奨は LWA の1行のみ。Prime Ellis の要否は Hannah に確認
+- Task 詳細セクションで根拠を補足、脚注スタイルで内部情報を整理
+- EN がデフォルト（`_EN` サフィックス削除）、JP はレビュー用
 
-### Hannah Hill への連絡は Matt（SM）に委任提案（3/10 判断）
-- Hannah Hill = SM、Matt = SM。SM-to-SM が自然なチャネル
-- 次ステップはビジネス判断（AU でやるか、Full Scope に進むか）を含む → DT スコープ外
-- DT 側でレポート + 確認事項リストを用意済み。Matt がそのまま共有可能
-- 必要なら同席可
+### Hannah Hill への連絡方針（3/11 Matt Sync で決定）
+- Matt が Hannah にリーチアウトする
+- Hannah への DM ドラフト（EN）も準備済み（Shugo + Matt のグループ DM）
+- 確認事項: US PES で踏んだステップの全体像 / Prime Ellis・LWA チームとのエンゲージ方法
 
-### Sunit gut check の方針変更（3/10）
-- 推奨が Prime Ellis 経由に確定 → Event Cinemas SHA256 のフルレビュー不要
-- SHA256 Critical 2件の判定妥当性のみ DM で非同期確認に切替
-
-### Ellis は必須ではない — LWA のみで最もシンプルな構成が可能（3/10）
-- Event Cinemas のプロポーザルは「自社でチケット管理、Amazon は Prime 認証だけ」という構造
-- 最低限必要なのは LWA (`prime:benefit_status`) のみ
-- Ellis が必要になるのは Amazon 側でオファー管理（上限枚数、重複防止等）をしたい場合
-- Hannah Hill への核心的な質問: 「US PES で Ellis を使った理由は？Pure LWA では足りなかったのか？」
-- 推奨順位見直しの論点がさらにシャープに: LWA Only vs LWA + Ellis vs Ellis Offer Code (ODEON)
-
-### Bullseye API（3/10 完了）
-- AU 対応済みと判断。Full Scope へ進む場合はプロトタイプで要検証
+### PBS Wiki の発見と影響（3/11）
+- PBS Onboarding Wiki: 「Third Party Integration should go through Prime Ellis」
+- LWA Only は 3P にサポートされたパスではない
+- LWA + Prime Ellis が公式ドキュメントと Kelly 証言の両方で裏付け
 
 ## 重要リンク
 
@@ -238,25 +167,18 @@ OneDrive: ENT | AU | Prime Early Screenings | Australia Pilot/
 ### Asana
 - TEX Global Intake: https://app.asana.com/1/8442528107068/project/1212641864720082/task/1213411601791772?focus=true
 - BIL-E Intake Task: https://app.asana.com/1/8442528107068/task/1213466153419679
-- M&M's Spotto ASR (参考): https://app.asana.com/1/8442528107068/project/1199343345138382/task/1212335750973364
 
 ### 社内 Wiki
 - PES Wiki: https://w.amazon.com/bin/view/PrimeEarlyScreenings/
 - Ellis Wiki: https://w.amazon.com/bin/view/PrimeTeam/PrimeOffAmazon/Ellis/
 - Ellis Blueprint CX Constructs: https://w.amazon.com/bin/view/PrimeTeam/PrimeOffAmazon/Ellis/BlueprintCXConstructs/
-- Amazon Pay Prime Ellis Program: https://w.amazon.com/bin/view/AmazonPay/PrimeEllisProgram/
-- LWA Products (PrimePass): https://w.amazon.com/bin/view/IdentityServices/Products/LWA/
+- PBS Onboarding Wiki: https://w.amazon.com/bin/view/PBS/Onboarding/
+- Products Using LWA: https://w.amazon.com/bin/view/IdentityServices/3P_Authz/Products_Using_LWA/
 - LWA 3P Authorization: https://w.amazon.com/bin/view/IdentityServices/3PAuthZ/
-- BIL-E NA Wiki: https://w.amazon.com/bin/view/BIL-E/NA/
-- AmazonAdsSecurity Wiki: https://w.amazon.com/bin/view/AmazonAdsSecurity/
 
 ### 開発者リソース
 - LWA Developer Docs: https://developer.amazon.com/docs/login-with-amazon/web-docs.html
 - LWA Scopes Portal: https://console.harmony.a2z.com/lwa-tools-portal/scopes
-
-### その他
-- BIL-E NA Intake Form: https://form.asana.com/?k=yteEaKgwZq9qEZa3mNL-KQ&d=8442528107068
-- AU BIL Team WIP: https://quip-amazon.com/DbiAAG32tGjS
 
 ## 関連トピック
 
