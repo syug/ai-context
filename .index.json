@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-13T21:00:00+11:00",
+  "updated": "2026-03-13T21:30:00+11:00",
   "aliases": {
     "devenv": "2026-02-28_dev-environment-setup",
     "quicklook": "2026-02-28_dev-environment-setup",
@@ -103,7 +103,9 @@
     "petarmor": "2026-03-13_petarmor-ai-on-clp-deep-dive",
     "petarmor-ai": "2026-03-13_petarmor-ai-on-clp-deep-dive",
     "protect-playtime": "2026-03-13_petarmor-ai-on-clp-deep-dive",
-    "bestfriends": "2026-03-13_petarmor-ai-on-clp-deep-dive"
+    "bestfriends": "2026-03-13_petarmor-ai-on-clp-deep-dive",
+    "acts-model": "2026-03-13_jp-acts-production-model-review",
+    "dcs-contractor": "2026-03-13_jp-acts-production-model-review"
   },
   "topics": [
     {
@@ -571,8 +573,8 @@
       "slug": "halfpipe-deprecation",
       "hasHandover": true,
       "title": "Halfpipe Deprecation — APAC POC として全体状況把握 + 対応タスク整理",
-      "status": "進行中（JP 4コンポーネント Deprecate確定、auto-deprecationオンボード依頼済み、AU/IVS回答待ち）",
-      "summary": "BIL-E Halfpipe全廃計画。JP 4コンポーネント（Reviews/AXA/Sale Header/JPHeroCarouselAnchor）Deprecate確定。hayemiriにauto-deprecationオンボード依頼済み。Carousel/TextBlock/Bento Story TileのLeon/Fabioメンションにも返信済み。AU SM 3/16回答待ち。IVS: MENA必須、JP/AU返信待ち。",
+      "status": "進行中（JP Deprecate確定+auto-dep依頼済み、IVS JP Deprecateほぼ確定、AU回答待ち）",
+      "summary": "BIL-E Halfpipe全廃計画。JP 4コンポーネントDeprecate確定、hayemiriにauto-deprecationオンボード依頼済み。IVS: JP Deprecateほぼ確定（Mariko了承）、MENA必須。JP Product SelectorサービスClose（Marikoアナウンス予定）。AU SM 3/16回答待ち。",
       "tags": ["halfpipe", "deprecation", "bil-e", "apac", "poc", "migration", "webflow", "awls", "jp", "leon", "mirko", "asana", "brand-store", "廃止", "移行"]
     },
     {
@@ -614,6 +616,16 @@
       "status": "進行中",
       "summary": "PetArmor Protect PlaytimeのAI実装を深掘り。ASR Orange取得の経緯解明、Tool Useパターン、FAST統合、リファレンスアーキテクチャ体系化。uk-arla-ai-on-clpからスピンアウト。",
       "tags": ["petarmor", "ai", "clp", "deep-dive", "asr", "orange", "fast", "bedrock", "tool-use", "guardrails", "vercel-ai-sdk", "bestfriends", "alec-kunkle", "bil", "tex", "na", "reference-architecture", "リファレンス", "深掘り"]
+    },
+    {
+      "dir": "2026-03-13_jp-acts-production-model-review",
+      "date": "2026-03-13",
+      "slug": "jp-acts-production-model-review",
+      "hasHandover": true,
+      "title": "JP ACTS Production Model — Mirko からの質問対応（DCS コントラクター権限・ガバナンス）",
+      "status": "進行中（Mirko 質問受領、回答準備中）",
+      "summary": "Mirko がJP DCSコントラクターのBILキャンペーン制作についてガバナンス懸念を提起。APAC leadership合意、ビジネス規模、技術整合性、a11y等の質問。Kazuki/Marikoとの連携が必要。",
+      "tags": ["jp", "acts", "production-model", "dcs", "contractor", "mirko", "governance", "a11y", "security", "bil", "ccm", "mariko", "kazuki", "takuji", "halfpipe", "ガバナンス", "権限"]
     }
   ]
 }

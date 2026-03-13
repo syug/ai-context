@@ -1,7 +1,7 @@
 # Handover Document
 **Topic:** Halfpipe Live Video IVS コンポーネント廃止判断
 **Date:** 2026-03-13
-**Status:** 進行中（MENA: IVS必須確定、JP: フォローアップ返信待ち、AU: Chris回答待ち）
+**Status:** 進行中（JP: Deprecateほぼ確定（Mariko了承、他メンバーヒアリング中）、MENA: IVS必須、AU: Chris回答待ち）
 
 ---
 
@@ -52,7 +52,7 @@ BIL-Eが2026年11月までに全Halfpipeコンポーネントを廃止予定。B
 | 2 | 3/10 | Slack でChris/Mariko/Aayushiに確認メッセージ送信 | **完了** |
 | 3 | 3/12 | Asana に MENA/JP/AU 状況コメント | **完了** |
 | 4 | 3/12 | Amazon Live 対応マーケット確認 | **完了**（US/JP/IN のみ） |
-| 5 | — | Mariko フォローアップ — Amazon Live/Twitch 代替可能か | 返信待ち |
+| 5 | — | Mariko — JP IVS Deprecate でおそらく問題なし、他メンバーにヒアリング中 | アップデート待ち |
 | 6 | — | Chris — AU の IVS 需要確認（グループDM ドラフト済み） | 送信待ち |
 | 7 | — | Leigh/Kaiyi からのAsana返信を待つ | 未回答 |
 | 8 | 3/30 | Migration Decision を確定 | 未着手 |
@@ -62,6 +62,7 @@ BIL-Eが2026年11月までに全Halfpipeコンポーネントを廃止予定。B
 - **Amazon Live は AU/MENA 非対応** — MENA にとって IVS が唯一の Amazon ネイティブ Live Streaming ソリューション
 - **MENA の状況から Webflow migration が必要になる可能性が高い** — Billy の最初のコメント（3/5）とも整合
 - JP は Amazon Live / Twitch の2つの代替手段が利用可能。Mariko が需要ありと回答したが、IVS 固有のニーズかは確認中
+- **Mariko 最終回答（3/13 DM）:** 「IVS Deprecation で問題ないと思う、他メンバーにヒアリング後アップデートする」→ JP は Deprecate 方向確定的
 - AU は需要低い見込み（過去実績なし）だが Chris に最終確認中
 
 ## 関連トピック

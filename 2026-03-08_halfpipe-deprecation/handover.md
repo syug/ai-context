@@ -142,7 +142,7 @@ Awaiting Acknowledgement → Acknowledged → Decision Made → Migration in pro
 | 15 | 3/12 | IVS: Asana に MENA/JP/AU 状況コメント投稿 | **完了** |
 | 16 | — | hayemiri — KAO 確認 + auto-deprecation オンボード実施 | 待ち |
 | 17 | — | hayemiri/Leigh — Copilot+ PC take down 判断 | 待ち |
-| 18 | — | IVS: Mariko — JP Amazon Live/Twitch 代替可能か（DM で日本語説明済み） | 待ち |
+| 18 | — | IVS: Mariko — JP IVS Deprecate でおそらく問題なし、他メンバーにヒアリング中 | 待ち |
 | 19 | — | IVS: Chris — AU 需要確認（グループDM ドラフト未送信） | 送信待ち |
 | 20 | 3/16 | AU SM 回答待ち（4ページ take down/keep） | 待ち |
 | 21 | 3/18 | 全回答に基づき Migration Decision 更新 | 未着手 |
@@ -164,7 +164,8 @@ Awaiting Acknowledgement → Acknowledged → Decision Made → Migration in pro
 - **Auto-deprecation の仕組み（3/13調査）:** SM が SF チケットに廃止予定日入力 → システムがリマインダー送信 → SM が承認 → システムが自動 take down。ページ単位で削除可能（advertiser Store 内でも）
 - **Leon Carousel/TextBlock メンション（3/13）:** Ulike ページの deprecate 確認 → JPHeroCarouselAnchor チケットで対応済みとリンク付きで返信
 - **Fabio Bento Story Tile メンション（3/13）:** Copilot+ PC sandbox の JP 分確認依頼 → SM 確認中と返信。hayemiri/Leigh 判断待ち
-- **Mariko IVS DM（3/13）:** 英語の質問がわかりにくかったため日本語で背景から説明。IVS Player の具体的な必要性を再確認中
+- **Mariko IVS DM（3/13）:** 英語の質問がわかりにくかったため日本語で背景から説明。→ Mariko 回答: 「IVS Deprecation で問題ないと思う、他メンバーにヒアリング後アップデートする」→ JP IVS は Deprecate 方向確定的
+- **JP Halfpipe Product Selector サービス Close（3/13）:** Mariko に Wiki の Halfpipe Product Selector メニューについて heads-up → 「需要ほぼないので、サービス Close のアナウンスを全体に入れる」と回答。セルフサービス版（AWLS、2024/12 GA）が代替
 
 ## 関連トピック
 
