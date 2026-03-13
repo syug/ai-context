@@ -576,10 +576,10 @@
       "date": "2026-03-11",
       "slug": "uk-arla-ai-on-clp",
       "hasHandover": true,
-      "title": "UK Arla Campaign — AI on CLP 承認プロセス調査・返信準備",
-      "status": "進行中",
-      "summary": "Julia Sampaio（UK BIL SM）からのArla AI on CLPキャンペーン相談。MARS経験+2026 PetArmor事例+FAST/ASR Orange分類+UCD/PII分類ポリシー調査完了。返信ドラフト回答ポイント作成済み、文面未作成。",
-      "tags": ["arla", "uk", "ai", "clp", "fast", "asr", "orange", "petarmor", "mars", "bil", "julia", "campaign", "security-review", "genai", "approval", "承認プロセス", "キャンペーン"]
+      "title": "UK Arla Campaign — AI on CLP 承認プロセス調査・返信完了",
+      "status": "進行中（Luke返信待ち）",
+      "summary": "Julia Sampaio（UK BIL SM）からのArla AI on CLPキャンペーン相談。MARS FYWDTTYD コード解析+PetArmor AI分析+ASR Orange/Red分類調査完了。返信ドラフト作成→ユーザー編集→Lukeにメール送信済み(3/13)。Luke確認・Julia転送待ち。",
+      "tags": ["arla", "uk", "ai", "clp", "fast", "asr", "orange", "petarmor", "mars", "bil", "julia", "luke", "campaign", "security-review", "genai", "approval", "ucd", "bedrock", "guardrails", "code-analysis", "承認プロセス", "キャンペーン", "返信完了"]
     },
     {
       "dir": "2026-03-11_dine-2.0-tech-feasibility",
