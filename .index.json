@@ -571,8 +571,8 @@
       "slug": "halfpipe-deprecation",
       "hasHandover": true,
       "title": "Halfpipe Deprecation — APAC POC として全体状況把握 + 対応タスク整理",
-      "status": "進行中（SM Lead 回答一部受領、IVS フォローアップ中）",
-      "summary": "BIL-E Halfpipe全廃計画（2026/11/12期限）。7件Acknowledge完了。Ulike take down OK（Mariko承認）。Leon auto-deprecation確認中。CCLP-Multi-UGS-2024完了。StoreOverride AU回答済み。IVS: Mariko JP需要ありと回答、Amazon Live/Twitch代替可能かフォローアップ中。残SM回答3/16期限。",
+      "status": "進行中（JP 4コンポーネント Deprecate確定、auto-deprecationオンボード依頼済み、AU/IVS回答待ち）",
+      "summary": "BIL-E Halfpipe全廃計画。JP 4コンポーネント（Reviews/AXA/Sale Header/JPHeroCarouselAnchor）Deprecate確定。hayemiriにauto-deprecationオンボード依頼済み。Carousel/TextBlock/Bento Story TileのLeon/Fabioメンションにも返信済み。AU SM 3/16回答待ち。IVS: MENA必須、JP/AU返信待ち。",
       "tags": ["halfpipe", "deprecation", "bil-e", "apac", "poc", "migration", "webflow", "awls", "jp", "leon", "mirko", "asana", "brand-store", "廃止", "移行"]
     },
     {

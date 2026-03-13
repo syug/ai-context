@@ -1,7 +1,7 @@
 # Handover Document
 **Topic:** Halfpipe Deprecation — APAC POC として全体状況把握 + 対応タスク整理
 **Date:** 2026-03-13
-**Status:** 進行中（SM回答一部受領、IVS MENA必須判明、残回答3/16期限待ち）
+**Status:** 進行中（JP 4コンポーネント Deprecate 確定、auto-deprecation オンボード依頼済み、AU/IVS 回答待ち）
 
 ---
 
@@ -131,14 +131,21 @@ Awaiting Acknowledgement → Acknowledged → Decision Made → Migration in pro
 | 4 | 3/11 | Leon DM 返信（CCLP-Multi-UGS-2024 → Deprecate OK） | **完了**（3/11、Leon ✅） |
 | 5 | 3/12 | ImageComparisonSlider JP分 Asana コメント | **完了**（3/12、確認中と回答） |
 | 6 | 3/12 | AU StoreOverride 質問に回答（Matt Roberts） | **完了**（3/12） |
-| 7 | — | Leon 返信待ち — JPHeroCarouselAnchor auto-deprecation vs 直接 take down | 返信待ち |
-| 8 | — | IVS: Mariko フォローアップ — Amazon Live/Twitch 代替可能か確認 | 返信待ち |
-| 9 | — | IVS: Chris に AU の IVS 需要確認（グループDM ドラフト済み） | 送信待ち |
-| 10 | 3/12 | IVS: Amazon Live 対応マーケット確認（US/JP/IN のみ、AU/MENA 非対応） | **完了** |
-| 11 | 3/12 | IVS: Asana に MENA/JP/AU 状況コメント投稿 | **完了** |
-| 12 | 3/16 | JP SM 残3件回答待ち（KANEBO, KATE, Coke Christmas） | 回答待ち |
-| 13 | 3/16 | AU SM 回答待ち（4ページ take down/keep） | 回答待ち |
-| 14 | 3/18 | 全回答に基づき Migration Decision 更新 | 未着手 |
+| 7 | 3/13 | Leon — JPHeroCarouselAnchor auto-deprecation → Go ahead 返信 | **完了** |
+| 8 | 3/13 | JP SM 残3件（KANEBO, KATE, Coke Christmas）take down 確認 by hayemiri | **完了** |
+| 9 | 3/13 | hayemiri に auto-deprecation オンボード依頼（Slack スレッド返信） | **完了** |
+| 10 | 3/13 | Reviews / AXA Social Share / Sale Header — Asana に Deprecate 推奨コメント | **完了** |
+| 11 | 3/13 | Carousel / TextBlock — Leon メンションに Ulike deprecate OK と返信 | **完了** |
+| 12 | 3/13 | Bento Story Tile — Fabio メンションに SM 確認中と返信 | **完了** |
+| 13 | 3/13 | Mariko に Ulike take down 報告 → 「問題なし」了承 | **完了** |
+| 14 | 3/12 | IVS: Amazon Live 対応マーケット確認（US/JP/IN のみ） | **完了** |
+| 15 | 3/12 | IVS: Asana に MENA/JP/AU 状況コメント投稿 | **完了** |
+| 16 | — | hayemiri — KAO 確認 + auto-deprecation オンボード実施 | 待ち |
+| 17 | — | hayemiri/Leigh — Copilot+ PC take down 判断 | 待ち |
+| 18 | — | IVS: Mariko — JP Amazon Live/Twitch 代替可能か（DM で日本語説明済み） | 待ち |
+| 19 | — | IVS: Chris — AU 需要確認（グループDM ドラフト未送信） | 送信待ち |
+| 20 | 3/16 | AU SM 回答待ち（4ページ take down/keep） | 待ち |
+| 21 | 3/18 | 全回答に基づき Migration Decision 更新 | 未着手 |
 
 ## 重要な判断ログ
 
@@ -152,6 +159,12 @@ Awaiting Acknowledgement → Acknowledged → Decision Made → Migration in pro
 - **ImageComparisonSlider JP（3/12）:** ダッシュボード確認で Copilot+ PC（sandbox）+ Ulike の2ページ → Asana コメント修正済み
 - **MENA IVS 実使用（3/12）:** Chris から MENA で IVS を実際に使用中と報告。Amazon Live は MENA 非対応（US/JP/IN のみ）→ Webflow migration が必要になる可能性高い
 - **Amazon Live 対応マーケット（3/12）:** US, JP, IN のみ。AU/MENA 非対応。ソース: https://advertising.amazon.com/solutions/products/amazon-live
+- **JP 4コンポーネント Deprecate 確定（3/13）:** Reviews, AXA Social Share, Sale Header, JPHeroCarouselAnchor — 全て JP 唯一のページで SM が take down 承認
+- **hayemiri JP残3件 take down OK（3/13）:** KANEBO, KATE, Coke Christmas — KAO Brand Store 内のページ。KAO に事前確認後 auto-deprecation でtake down 予定
+- **Auto-deprecation の仕組み（3/13調査）:** SM が SF チケットに廃止予定日入力 → システムがリマインダー送信 → SM が承認 → システムが自動 take down。ページ単位で削除可能（advertiser Store 内でも）
+- **Leon Carousel/TextBlock メンション（3/13）:** Ulike ページの deprecate 確認 → JPHeroCarouselAnchor チケットで対応済みとリンク付きで返信
+- **Fabio Bento Story Tile メンション（3/13）:** Copilot+ PC sandbox の JP 分確認依頼 → SM 確認中と返信。hayemiri/Leigh 判断待ち
+- **Mariko IVS DM（3/13）:** 英語の質問がわかりにくかったため日本語で背景から説明。IVS Player の具体的な必要性を再確認中
 
 ## 関連トピック
 
