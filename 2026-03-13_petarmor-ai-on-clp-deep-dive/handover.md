@@ -64,6 +64,44 @@ uk-arla-ai-on-clp トピックでのArla返信準備中に、PetArmor「Protect 
 - ポリシー上はフリーフォーム = UCD = Critical = Red
 - **ギャップ:** ASR認証時点でのスコープが不明。allow-listのみで認証 → 後からフリーフォーム追加の可能性
 
+## リサーチ結果サマリー
+
+| # | 領域 | 判明事項 | 確度 | ソース | 未解明/要深掘り |
+|---|------|---------|------|--------|----------------|
+| 1 | **ASR分類** | Orange self-certify で認証完了（01/20/26） | 高 | WBR 3本で裏取り | フリーフォーム入力があるのにOrange取得できた理由が不明 |
+| 2 | **ASR Orange条件** | GenAI使用 + Critical/Restricted非該当 + UCD非該当 → Orange。フリーフォーム=UCD=Critical=Red | 高 | ASR Profiles Wiki + ポリシー文書 | PetArmorがこの条件をどう満たしたか |
+| 3 | **AIモデル** | Claude Sonnet 4.5 (Prod) / Haiku 4.5 (Non-prod) on Bedrock | 高 | コードレビュー (`bedrockVariables`) | — |
+| 4 | **出力制約** | `toolChoice: 'required'` でツール実行のみ。テキスト生成禁止 | 高 | コードレビュー | MARS(YES/NO/BLOCKED) との設計トレードオフ比較 |
+| 5 | **ガードレール** | カスタム11層。Bedrock Guardrails未使用 | 高 | コードレビュー | なぜBedrock Guardrails不採用？MARSは使用していた |
+| 6 | **入力方式** | フリーフォーム（`/recommend`）+ プリセット（AI事前生成8-12個） | 高 | コードレビュー | ASR認証時のスコープ（プリセットのみで申請？） |
+| 7 | **FAST統合** | Hydra (Fargate) + FAST Python client。閾値 0.6/0.6/0.6 | 高 | コードレビュー (CDK) | 閾値の意味、テスト内容、SOP詳細 |
+| 8 | **PII対策** | 未実装（AI分類にPIIカテゴリなし） | 高 | コードレビュー | MARSは全カテゴリBLOCK。差異の根拠は？ |
+| 9 | **データ保存** | CloudWatch Logsにプロンプト全文（14日）。専用DBなし | 高 | コードレビュー | MARS(DynamoDB KMS暗号化)との差、許容される理由 |
+| 10 | **SDK** | Vercel AI SDK (`ai` + `@ai-sdk/amazon-bedrock`) | 高 | コードレビュー | BIL TEXでの採用前例、Bedrock SDK直接との比較 |
+| 11 | **Phase構成** | Phase 1(AIなし 2/2) → Phase 2(AI追加 4/6) | 高 | WBR + コード | Phase別ASR？Phase 2はRed再認証が必要？ |
+| 12 | **Bindle構成** | フロントエンド=リージョンHolding / AI=専用Bindle | 高 | コード + Slack | InfoSecレビュー必要 → 専用Bindleのルール |
+
+### MARS FYWDTTYD vs PetArmor 比較（初版）
+
+| 観点 | MARS FYWDTTYD (2024 AU) | PetArmor (2026 US) |
+|------|------------------------|-------------------|
+| **ASR分類** | Red | Orange |
+| **入力** | フリーフォーム（100文字） | フリーフォーム + プリセット |
+| **出力** | YES/NO/BLOCKED（テキスト制約） | ツール実行結果のみ（Tool Use制約） |
+| **モデル** | Claude 3 Sonnet | Claude Sonnet 4.5 |
+| **SDK** | Bedrock REST API 直接 | Vercel AI SDK |
+| **RAG** | Knowledge Bases + OpenSearch | なし（DynamoDB直接クエリ） |
+| **Bedrock Guardrails** | 使用（4フィルタ、28 Denied Topics、1,494 Words、PII全BLOCK） | 未使用（カスタム実装） |
+| **ガードレール層数** | 6層 | 11層（カスタム） |
+| **PII対策** | Bedrock全カテゴリBLOCK + カスタム正規表現 | 未実装 |
+| **ログ保存** | DynamoDB専用テーブル（KMS暗号化、PITR） | CloudWatch Logs（14日） |
+| **FAST** | 未使用（2024年時点では未導入） | 統合済み（Hydra Stack） |
+| **Andon Cord** | 環境変数で即時停止（SOP+デモ録画） | 未確認 |
+| **ASR期間** | 約6週間（ギリギリ） | 不明（self-certifyで短縮？） |
+| **クライアント承認** | 3ヶ月超 | 不明 |
+| **温度** | 0.0（決定論的） | 未確認 |
+| **非同期処理** | なし（同期） | あり（ジョブ+ポーリング） |
+
 ## 深掘り方針
 
 ### 1. ASR Orange取得の実経緯解明
