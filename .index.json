@@ -99,7 +99,11 @@
     "ai-clp": "2026-03-11_uk-arla-ai-on-clp",
     "dine": "2026-03-11_dine-2.0-tech-feasibility",
     "dine-2.0": "2026-03-11_dine-2.0-tech-feasibility",
-    "team-members": "2026-03-13_team-members-update"
+    "team-members": "2026-03-13_team-members-update",
+    "petarmor": "2026-03-13_petarmor-ai-on-clp-deep-dive",
+    "petarmor-ai": "2026-03-13_petarmor-ai-on-clp-deep-dive",
+    "protect-playtime": "2026-03-13_petarmor-ai-on-clp-deep-dive",
+    "bestfriends": "2026-03-13_petarmor-ai-on-clp-deep-dive"
   },
   "topics": [
     {
@@ -600,6 +604,16 @@
       "status": "完了",
       "summary": "phonetool で Alex Mejias 配下39名の完全なツリーを team-members.md に反映。IXD/EU-APAC DT/NA DT の3チーム全メンバーを追加。",
       "tags": ["team-members", "phonetool", "org-tree", "alex-mejias", "tex", "bil", "memory", "dotfiles", "チームメンバー", "組織図"]
+    },
+    {
+      "dir": "2026-03-13_petarmor-ai-on-clp-deep-dive",
+      "date": "2026-03-13",
+      "slug": "petarmor-ai-on-clp-deep-dive",
+      "hasHandover": true,
+      "title": "PetArmor AI on CLP Deep Dive — BIL TEX AIリファレンスアーキテクチャ研究",
+      "status": "進行中",
+      "summary": "PetArmor Protect PlaytimeのAI実装を深掘り。ASR Orange取得の経緯解明、Tool Useパターン、FAST統合、リファレンスアーキテクチャ体系化。uk-arla-ai-on-clpからスピンアウト。",
+      "tags": ["petarmor", "ai", "clp", "deep-dive", "asr", "orange", "fast", "bedrock", "tool-use", "guardrails", "vercel-ai-sdk", "bestfriends", "alec-kunkle", "bil", "tex", "na", "reference-architecture", "リファレンス", "深掘り"]
     }
   ]
 }
