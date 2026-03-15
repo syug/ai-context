@@ -17,6 +17,7 @@ TEXチームのWBR・Weekly Meetingの定期レビューを体系化。元々は
   - 奇数週: TEX NA WBR + TEX EU/APAC/MENA WBR + WW TEX WBR
   - 偶数週: WW BIL WBR
 - `/daily` との連携: 曜日別リマインド提案（SKILL.md内に記載、`/daily` への実装は未着手）
+- **WBR Highlights作成（奇数週金曜）**: 3/13追加。自分の活動からHighlight/Lowlightを作成しNotionに記録。ケイデンス表とStep D1の金曜奇数週に追加済み
 
 ### WBR W11 読み込み（3/12 奇数週）
 
@@ -83,6 +84,7 @@ TEXチームのWBR・Weekly Meetingの定期レビューを体系化。元々は
 | # | 期限 | アクション | ステータス |
 |---|------|-----------|----------|
 | 1 | - | `/daily` に曜日別 `/weekly` リマインド連携を実装 | 未着手 |
+| 7 | ✅ | `/weekly` に WBR Highlights作成（奇数週金曜）を追加 | 完了(3/13) |
 | 2 | - | APAC DT Huddle PDF 再エクスポート（Loop → PDF） | 未着手 |
 | 3 | 来週 | WW TEX WBR 3/12分を再読み込み（会議後に更新される） | 未着手 |
 | 4 | 来週火 | BIL WBR 読み込み（偶数週 W12） | 未着手 |
