@@ -623,7 +623,7 @@
       "slug": "jp-acts-production-model-review",
       "hasHandover": true,
       "title": "JP ACTS Production Model — Mirko からの質問対応（DCS コントラクター権限・ガバナンス）",
-      "status": "進行中（Mirko 質問受領、回答準備中）",
+      "status": "進行中（回答ドラフト作成済み、送信待ち）",
       "summary": "Mirko がJP DCSコントラクターのBILキャンペーン制作についてガバナンス懸念を提起。APAC leadership合意、ビジネス規模、技術整合性、a11y等の質問。Kazuki/Marikoとの連携が必要。",
       "tags": ["jp", "acts", "production-model", "dcs", "contractor", "mirko", "governance", "a11y", "security", "bil", "ccm", "mariko", "kazuki", "takuji", "halfpipe", "ガバナンス", "権限"]
     }

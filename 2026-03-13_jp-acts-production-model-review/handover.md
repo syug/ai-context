@@ -1,7 +1,7 @@
 # Handover Document
 **Topic:** JP ACTS Production Model — Mirko からの質問対応（DCS コントラクター権限・ガバナンス）
 **Date:** 2026-03-13
-**Status:** 進行中（Mirko 質問受領、回答準備中）
+**Status:** 進行中（回答ドラフト作成済み、送信待ち）
 
 ---
 
@@ -43,15 +43,26 @@ Mirko の懸念:
 
 | # | 期限 | アクション | ステータス |
 |---|------|-----------|-----------|
-| 1 | — | Mirko の質問に回答（Kazuki/Mariko と連携が必要かも） | 未着手 |
-| 2 | — | ACTS Production Model の稼働期間・ビジネス規模を調査 | 未着手 |
-| 3 | — | Mirko の懸念（ガバナンス・a11y 等）に対する説明準備 | 未着手 |
+| 1 | — | Mirko へ回答送信（ドラフト作成済み、グループDM C0ALKLXV109） | 送信待ち |
+| 2 | — | Mariko にビジネスサイド数値（revenue, campaign volume）確認 | 未着手 |
+| 3 | — | Mirko の返信を待ち、必要であればクイックコール設定 | 未着手 |
+
+## 回答ドラフト（Slack グループDM C0ALKLXV109）
+
+主要ポイント：
+- 2023年パイロット開始、JPリーダーシップレベルで合意（pre-TEX era、JP Pod 独自の initiative）
+- 当時 Shugo も同様の懸念を Raise → Ben/Daniel（当時CAPT）とアライン、WDE教育・アナウンスのオーナーシップを CAPT が持つ形に
+- TEX への org change 後、ガバナンス面は若干宙に浮いた状態
+- スコープは Low complexity ビルド + リフレッシュ中心、大きなインシデントなし
+- ビジネス数値は Mariko に確認して追って共有
+- 必要であればクイックコール提案
 
 ## 重要な判断ログ
 
 - Mirko はセンシティブなトーンで聞いており、BIL org 外のビルダーによるページ制作に対するガバナンス懸念が中心
 - Kazuki（APAC Head）が合意しているはず（ACTS Production Model は JP リーダーシップ発）だが、TEX/Mirko 側には共有されていなかった可能性
 - Halfpipe deprecation がきっかけで発覚した副次的なトピック
+- 回答方針: 事実ベースで透明に共有、defensive にならずに「良い機会」として前向きに
 
 ## 関連トピック
 
