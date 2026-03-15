@@ -1,6 +1,6 @@
 # Handover Document
 **Topic:** PV Live Sports API Discovery -- BGW統合・商用ライセンス・リーガル準備
-**Date:** 2026-03-13
+**Date:** 2026-03-16
 **Status:** 進行中
 
 ---
@@ -67,8 +67,9 @@ Track 2 (ライセンス): Jonathan Yi連携 → プロセス/POCs/ETA把握 →
 
 **Jonathan コール設定済み（3/12）:**
 - **日時:** Wed 3/18 8:30-9:00 AM AEDT (= Tue 3/17 5:30-6:00 PM EDT)
-- **参加者:** Shugo + Jonathan（Bindu optional）
+- **参加者:** Shugo + Jonathan（Bindu optional — Tentative で返信済み）
 - **場所:** Amazon Chime
+- **Jonathan: Accept済み** ✅
 - **アジェンダ:** プロセス / POCs / ETA / PoC = editorial?
 
 **コールで確認すべき事項（Mirko要求3点対応）:**
@@ -84,6 +85,7 @@ Track 2 (ライセンス): Jonathan Yi連携 → プロセス/POCs/ETA把握 →
 - **要更新:** Jonathan Yiのライセンス問題がまだ未反映 → 3/18コール後に更新予定
 - **Mirkoコメント未対応:** 「We need a precise list of regions covered and sports/circuits」
 - **Mirkoへ Slack で JP 追加を報告済み**（3/12 #tex-discovery-pv-live-sports-api-enablement）
+- **Mirko がライセンスを "potentially a blocker" と言及**（3/13）→ Bindu が「ShugoがWedにコール設定済み」と即返答
 
 ### Strategy v2 ドキュメント
 
@@ -108,7 +110,8 @@ Track 2 (ライセンス): Jonathan Yi連携 → プロセス/POCs/ETA把握 →
 │   └── strategy-review-20260309.md
 └── history/
     ├── 2026-03-09_handover.md
-    └── 2026-03-11_handover.md
+    ├── 2026-03-11_handover.md
+    └── 2026-03-13_handover.md
 ```
 
 ## アクションアイテム
@@ -141,6 +144,8 @@ Track 2 (ライセンス): Jonathan Yi連携 → プロセス/POCs/ETA把握 →
 - **RACI**: A=Mirko、R=Shugo+Bindu、C=Pod leads・BIL-E・SDP Core・PV BD、I=グローバルステークホルダー
 - **Mariko JP 壁の詳細**: Boxing = 暴力的でスポンサー売り困難、NBA = 日本で関心低い、MLB = 唯一人気だがスポンサーシップ権利が限定的
 - **Discovery Doc Quip**: `c4cBAcoeV61e` — 3/12にJP追加済み。ライセンス問題は3/18コール後に反映予定。Mirkoコメント「regions/sports list」未対応。
+- **Mirkoの緊急度（3/13）**: ライセンスを "potentially a blocker" と認識。Bindu が即座にコール設定済みと報告し、温度を下げた。
+- **Jonathan Accept済み（3/12）**: 3/18コール招待を Accept。Bindu は Tentative。TZ制約で Bindu 参加不要と伝える Slack ドラフト作成済み。
 
 ## 関連トピック
 
